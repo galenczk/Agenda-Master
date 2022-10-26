@@ -19,7 +19,7 @@ export default function App() {
     <div class="flex flex-col min-h-screen">
       <Router>
         <div class="sticky top-0 z-50">
-          <header class="bg-gray-800 text-white text2xl py-2 sticky top-0 z-50">
+          <header class="bg-slate-800 text-center text-white text2xl py-2 sticky top-0 z-50">
             Project Management Tool by Key Energetics
           </header>
 
