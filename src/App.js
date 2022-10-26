@@ -3,10 +3,14 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import pages
-import ProjectPage from "./pages/ProjectPage"
+import ProjectPage from "./pages/ProjectPage";
+import DeveloperPage from "./pages/DeveloperPage";
+import CertPage from "./pages/CertPage";
+import TaskPage from "./pages/TaskPage";
+import CustomerPage from "./pages/CustomerPage";
 
 // Import components
-import Navigation from "./components/Navigation"
+import Navigation from "./components/Navigation";
 
 // Page function
 export default function App() {
@@ -20,11 +24,13 @@ export default function App() {
 
         <Navigation />
 
-        <main
-          class="flex flex-col mb-auto p-4"
-        >
+        <main class="flex flex-col mb-auto p-4">
           <Routes>
             <Route path="/" exact element={<ProjectPage />} />
+            <Route path="/developers" exact element={<DeveloperPage />} />
+            <Route path="/certifications" exact element={<CertPage />} />
+            <Route path="/tasks" exact element={<TaskPage />} />
+            <Route path="/customers" exact element={<CustomerPage />} />
           </Routes>
         </main>
 
