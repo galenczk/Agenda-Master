@@ -15,7 +15,7 @@ export default function Navigation() {
         end
         className={({ isActive }) =>
           isActive
-            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >
@@ -25,7 +25,7 @@ export default function Navigation() {
         to="../developers"
         className={({ isActive }) =>
           isActive
-            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >
@@ -35,7 +35,7 @@ export default function Navigation() {
         to="../tasks"
         className={({ isActive }) =>
           isActive
-            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >
@@ -45,7 +45,7 @@ export default function Navigation() {
         to="../customers"
         className={({ isActive }) =>
           isActive
-            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >
@@ -55,7 +55,7 @@ export default function Navigation() {
         to="../certifications"
         className={({ isActive }) =>
           isActive
-            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >

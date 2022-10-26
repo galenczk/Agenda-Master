@@ -25,18 +25,19 @@ export default function DeveloperPage() {
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
-            Add a New Developer
+            Add a Developer
           </legend>
-          <label for="title">First Name</label>
-          <input type="text" id="title" name="title" />
-          <label for="description">Last Name</label>
-          <input type="text" id="description" name="description" />
-          <label for="delivery_date">Email</label>
-          <input type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Phone Number</label>
-          <input type="text" id="proj_status" name="proj_status" />
-          
-          <div class="flex justify-between">
+
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" />
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+          <label for="phone_number">Phone Number</label>
+          <input type="text" id="phone_number" name="phone_number" />
+
+          <div class="flex justify-between mt-6">
             <button>Add</button>
             <button>Reset</button>
           </div>
@@ -46,23 +47,23 @@ export default function DeveloperPage() {
       <div class="h-16" />
 
       <div class="p-8 bg-gray-300">
-        <form class="flex flex-col">
+        <form class="flex flex-col ">
           <legend class="text-lg font-bold text-center">
-            Update a Project
+            Update a Developer's Information
           </legend>
-          <label for="proj_ID">Project ID</label>
-          <input type="text" id="proj_ID" name="proj_ID" />
-          <label for="title">Project Title</label>
-          <input type="text" id="title" name="title" />
-          <label for="description">Description</label>
-          <input type="text" id="description" name="description" />
-          <label for="delivery_date">Delivery Date</label>
-          <input type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Project Status</label>
-          <input type="text" id="proj_status" name="proj_status" />
-          <label for="customer_id">Customer ID</label>
-          <input type="text" id="customer_id" name="customer_id" />
-          <div class="flex justify-between">
+
+          <label for="dev_ID">Developer ID</label>
+          <input type="text" id="dev_ID" name="dev_ID" />
+          <label for="first_name">First Name</label>
+          <input type="text" id="first_name" name="first_name" />
+          <label for="last_name">Last Name</label>
+          <input type="text" id="last_name" name="last_name" />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+          <label for="phone_number">Phone Number</label>
+          <input type="text" id="phone_number" name="phone_number" />
+
+          <div class="flex justify-between mt-6">
             <button>Update</button>
             <button>Reset</button>
           </div>
@@ -74,12 +75,14 @@ export default function DeveloperPage() {
       <div class="p-8 bg-red-300">
         <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
-            Delete a Project
+            Remove a Developer
           </legend>
-          <label for="proj_ID">Project ID</label>
-          <input type="text" id="proj_ID" name="proj_ID" />
-          <div class="flex justify-between">
-            <button>Delete</button>
+
+          <label for="dev_ID">Developer ID</label>
+          <input type="text" id="dev_ID" name="dev_ID" />
+
+          <div class="flex justify-between mt-6">
+            <button>Remove</button>
             <button>Reset</button>
           </div>
         </form>

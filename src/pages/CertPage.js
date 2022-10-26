@@ -25,19 +25,17 @@ export default function DeveloperPage() {
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
-            Add a New Project
+            Add a Certification
           </legend>
-          <label for="title">Project Title</label>
+
+          <label for="title">Certification Title</label>
           <input type="text" id="title" name="title" />
-          <label for="description">Description</label>
+          <label for="description">Certification Description</label>
           <input type="text" id="description" name="description" />
-          <label for="delivery_date">Delivery Date</label>
-          <input type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Project Status</label>
-          <input type="text" id="proj_status" name="proj_status" />
-          <label for="customer_id">Customer ID</label>
-          <input type="text" id="customer_id" name="customer_id" />
-          <div class="flex justify-between">
+          <label for="duration">Duration</label>
+          <input type="text" id="duration" name="duration" />
+
+          <div class="flex justify-between mt-6">
             <button>Add</button>
             <button>Reset</button>
           </div>
@@ -49,21 +47,19 @@ export default function DeveloperPage() {
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
-            Update a Project
+            Update a Certification
           </legend>
-          <label for="proj_ID">Project ID</label>
-          <input type="text" id="proj_ID" name="proj_ID" />
-          <label for="title">Project Title</label>
+
+          <label for="cert_id">Certification ID</label>
+          <input type="text" id="cert_id" name="cert_id" />
+          <label for="title">Certification Title</label>
           <input type="text" id="title" name="title" />
-          <label for="description">Description</label>
+          <label for="description">Certification Description</label>
           <input type="text" id="description" name="description" />
-          <label for="delivery_date">Delivery Date</label>
-          <input type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Project Status</label>
-          <input type="text" id="proj_status" name="proj_status" />
-          <label for="customer_id">Customer ID</label>
-          <input type="text" id="customer_id" name="customer_id" />
-          <div class="flex justify-between">
+          <label for="duration">Duration</label>
+          <input type="text" id="duration" name="duration" />
+
+          <div class="flex justify-between mt-6">
             <button>Update</button>
             <button>Reset</button>
           </div>
@@ -75,11 +71,13 @@ export default function DeveloperPage() {
       <div class="p-8 bg-red-300">
         <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
-            Delete a Project
+            Delete a Certification
           </legend>
+
           <label for="proj_ID">Project ID</label>
           <input type="text" id="proj_ID" name="proj_ID" />
-          <div class="flex justify-between">
+
+          <div class="flex justify-between mt-6">
             <button>Delete</button>
             <button>Reset</button>
           </div>

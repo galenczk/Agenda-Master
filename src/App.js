@@ -18,11 +18,13 @@ export default function App() {
   return (
     <div class="flex flex-col min-h-screen">
       <Router>
-        <header class="bg-gray-800 text-white text2xl py-2">
-          Project Management Tool by Key Energetics
-        </header>
+        <div class="sticky top-0 z-50">
+          <header class="bg-gray-800 text-white text2xl py-2 sticky top-0 z-50">
+            Project Management Tool by Key Energetics
+          </header>
 
-        <Navigation />
+          <Navigation />
+        </div>
 
         <main class="flex flex-col mb-auto p-4">
           <Routes>

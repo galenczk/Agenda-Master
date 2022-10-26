@@ -24,20 +24,20 @@ export default function DeveloperPage() {
 
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
-          <legend class="text-lg font-bold text-center">
-            Add a New Project
-          </legend>
-          <label for="title">Project Title</label>
-          <input type="text" id="title" name="title" />
-          <label for="description">Description</label>
+          <legend class="text-lg font-bold text-center">Add a Task</legend>
+
+          <label for="description">Task Description</label>
           <input type="text" id="description" name="description" />
-          <label for="delivery_date">Delivery Date</label>
-          <input type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Project Status</label>
-          <input type="text" id="proj_status" name="proj_status" />
-          <label for="customer_id">Customer ID</label>
-          <input type="text" id="customer_id" name="customer_id" />
-          <div class="flex justify-between">
+          <label for="due_date">Due Date</label>
+          <input type="text" id="due_date" name="due_date" />
+          <label for="priority">Priority</label>
+          <input type="text" id="priority" name="priority" />
+          <label for="task_status">Task Status</label>
+          <input type="text" id="task_status" name="task_status" />
+          <label for="proj_id">Project ID</label>
+          <input type="text" id="proj_id" name="proj_id" />
+
+          <div class="flex justify-between mt-6">
             <button>Add</button>
             <button>Reset</button>
           </div>
@@ -48,22 +48,22 @@ export default function DeveloperPage() {
 
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
-          <legend class="text-lg font-bold text-center">
-            Update a Project
-          </legend>
-          <label for="proj_ID">Project ID</label>
-          <input type="text" id="proj_ID" name="proj_ID" />
-          <label for="title">Project Title</label>
-          <input type="text" id="title" name="title" />
-          <label for="description">Description</label>
+          <legend class="text-lg font-bold text-center">Update a Task</legend>
+
+          <label for="task_id">Task ID</label>
+          <input type="text" id="task_id" name="task_id" />
+          <label for="description">Task Description</label>
           <input type="text" id="description" name="description" />
-          <label for="delivery_date">Delivery Date</label>
-          <input type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Project Status</label>
-          <input type="text" id="proj_status" name="proj_status" />
-          <label for="customer_id">Customer ID</label>
-          <input type="text" id="customer_id" name="customer_id" />
-          <div class="flex justify-between">
+          <label for="due_date">Due Date</label>
+          <input type="text" id="due_date" name="due_date" />
+          <label for="priority">Priority</label>
+          <input type="text" id="priority" name="priority" />
+          <label for="task_status">Task Status</label>
+          <input type="text" id="task_status" name="task_status" />
+          <label for="proj_id">Project ID</label>
+          <input type="text" id="proj_id" name="proj_id" />
+
+          <div class="flex justify-between mt-6">
             <button>Update</button>
             <button>Reset</button>
           </div>
@@ -77,9 +77,11 @@ export default function DeveloperPage() {
           <legend class="text-lg font-bold text-center">
             Delete a Project
           </legend>
-          <label for="proj_ID">Project ID</label>
-          <input type="text" id="proj_ID" name="proj_ID" />
-          <div class="flex justify-between">
+
+          <label for="task_id">Task ID</label>
+          <input type="text" id="task_id" name="task_id" />
+
+          <div class="flex justify-between mt-6">
             <button>Delete</button>
             <button>Reset</button>
           </div>
