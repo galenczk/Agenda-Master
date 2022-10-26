@@ -36,8 +36,13 @@ export default function App() {
           </Routes>
         </main>
 
-        <footer class="text-center bg-gray-400 p-0.5">
-          <p>Galen Ciszek and Ashwini Chawla &copy; 2022</p>
+        <footer class="flex justify-center text-center bg-slate-400 p-0.5">
+          <p
+            class="mr-2"
+          >Galen Ciszek and Ashwini Chawla</p> 
+          <p
+            class="ml-2"
+          > &copy; 2022</p>
         </footer>
       </Router>
     </div>
