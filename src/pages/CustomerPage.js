@@ -24,9 +24,7 @@ export default function DeveloperPage() {
 
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
-          <legend class="text-lg font-bold text-center">
-            Add a Customer
-          </legend>
+          <legend class="text-lg font-bold text-center">Add a Customer</legend>
 
           <label for="company_name">Company Name</label>
           <input type="text" id="company_name" name="company_name" />
@@ -40,8 +38,8 @@ export default function DeveloperPage() {
           <input type="text" id="annual_revenue" name="annual_revenue" />
 
           <div class="flex justify-between mt-6">
-            <button>Add</button>
-            <button>Reset</button>
+            <button class="btn btn-green">Add</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -68,8 +66,8 @@ export default function DeveloperPage() {
           <input type="text" id="annual_revenue" name="annual_revenue" />
 
           <div class="flex justify-between mt-6">
-            <button>Update</button>
-            <button>Reset</button>
+            <button class="btn btn-blue">Update</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -86,8 +84,8 @@ export default function DeveloperPage() {
           <input type="text" id="customer_id" name="customer_id" />
 
           <div class="flex justify-between mt-6">
-            <button>Delete</button>
-            <button>Reset</button>
+            <button class="btn btn-red">Delete</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>

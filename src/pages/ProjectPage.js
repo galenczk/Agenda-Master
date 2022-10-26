@@ -24,10 +24,8 @@ export default function DeveloperPage() {
 
       <div class="p-8 bg-gray-300">
         <form class="flex flex-col">
-          <legend class="text-lg font-bold text-center">
-            Add a Project
-          </legend>
-          
+          <legend class="text-lg font-bold text-center">Add a Project</legend>
+
           <label for="title">Project Title</label>
           <input type="text" id="title" name="title" />
           <label for="description">Description</label>
@@ -40,8 +38,8 @@ export default function DeveloperPage() {
           <input type="text" id="customer_id" name="customer_id" />
 
           <div class="flex justify-between mt-6">
-            <button>Add</button>
-            <button>Reset</button>
+            <button class="btn btn-green">Add</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -53,7 +51,7 @@ export default function DeveloperPage() {
           <legend class="text-lg font-bold text-center">
             Update a Project
           </legend>
-          
+
           <label for="proj_id">Project ID</label>
           <input type="text" id="proj_id" name="proj_id" />
           <label for="title">Project Title</label>
@@ -68,8 +66,8 @@ export default function DeveloperPage() {
           <input type="text" id="customer_id" name="customer_id" />
 
           <div class="flex justify-between mt-6">
-            <button>Update</button>
-            <button>Reset</button>
+            <button class="btn btn-blue">Update</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -81,13 +79,13 @@ export default function DeveloperPage() {
           <legend class="text-lg font-bold text-center">
             Delete a Project
           </legend>
-          
+
           <label for="proj_id">Project ID</label>
           <input type="text" id="proj_ID" name="proj_ID" />
 
           <div class="flex justify-between mt-6">
-            <button>Delete</button>
-            <button>Reset</button>
+            <button class="btn btn-red">Delete</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>

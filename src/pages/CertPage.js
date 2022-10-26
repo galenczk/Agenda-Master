@@ -36,8 +36,8 @@ export default function DeveloperPage() {
           <input type="text" id="duration" name="duration" />
 
           <div class="flex justify-between mt-6">
-            <button>Add</button>
-            <button>Reset</button>
+            <button class="btn btn-green">Add</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -60,8 +60,8 @@ export default function DeveloperPage() {
           <input type="text" id="duration" name="duration" />
 
           <div class="flex justify-between mt-6">
-            <button>Update</button>
-            <button>Reset</button>
+            <button class="btn btn-blue">Update</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -78,8 +78,8 @@ export default function DeveloperPage() {
           <input type="text" id="proj_ID" name="proj_ID" />
 
           <div class="flex justify-between mt-6">
-            <button>Delete</button>
-            <button>Reset</button>
+            <button class="btn btn-red">Delete</button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
