@@ -7,11 +7,6 @@ import { useNavigate } from "react-router-dom";
 
 // Page function
 export default function DeveloperPage() {
-  // Formik to handle forms.
-  const formik = useFormik({
-    initialValues: {},
-  });
-
   // Page navigation
   const navigate = useNavigate();
 
@@ -23,7 +18,12 @@ export default function DeveloperPage() {
       <div class="h-16" />
 
       <div class="p-8 bg-gray-300">
-        <form class="flex flex-col">
+        <form
+          class="flex flex-col"
+          onSubmit={(event) => {
+            event.preventDefault();
+          }}
+        >
           <legend class="text-lg font-bold text-center">
             Add a Certification
           </legend>
@@ -45,7 +45,12 @@ export default function DeveloperPage() {
       <div class="h-16" />
 
       <div class="p-8 bg-gray-300">
-        <form class="flex flex-col">
+        <form
+          class="flex flex-col"
+          onSubmit={(event) => {
+            event.preventDefault();
+          }}
+        >
           <legend class="text-lg font-bold text-center">
             Update a Certification
           </legend>
@@ -69,7 +74,12 @@ export default function DeveloperPage() {
       <div class="h-16" />
 
       <div class="p-8 bg-red-300">
-        <form class="flex flex-col">
+        <form
+          class="flex flex-col"
+          onSubmit={(event) => {
+            event.preventDefault();
+          }}
+        >
           <legend class="text-lg font-bold text-center">
             Delete a Certification
           </legend>

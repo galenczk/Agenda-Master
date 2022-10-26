@@ -8,6 +8,7 @@ import DeveloperPage from "./pages/DeveloperPage";
 import CertPage from "./pages/CertPage";
 import TaskPage from "./pages/TaskPage";
 import CustomerPage from "./pages/CustomerPage";
+import LandingPage from "./pages/LandingPage"
 
 // Import components
 import Navigation from "./components/Navigation";
@@ -28,7 +29,8 @@ export default function App() {
 
         <main class="flex flex-col mb-auto p-4">
           <Routes>
-            <Route path="/" exact element={<ProjectPage />} />
+            <Route path="/" exact element={<LandingPage />} />
+            <Route path="/projects" exact element={<ProjectPage />} />
             <Route path="/developers" exact element={<DeveloperPage />} />
             <Route path="/certifications" exact element={<CertPage />} />
             <Route path="/tasks" exact element={<TaskPage />} />
@@ -37,12 +39,8 @@ export default function App() {
         </main>
 
         <footer class="flex justify-center text-center bg-slate-400 p-0.5">
-          <p
-            class="mr-2"
-          >Galen Ciszek and Ashwini Chawla</p> 
-          <p
-            class="ml-2"
-          > &copy; 2022</p>
+          <p class="mr-2">Galen Ciszek and Ashwini Chawla</p>
+          <p class="ml-2"> &copy; 2022</p>
         </footer>
       </Router>
     </div>

@@ -1,6 +1,7 @@
 // Imports dependencies
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { MdHomeFilled } from "react-icons/md";
 
 const activeStyle = {
   className: "bg-red-700",
@@ -12,6 +13,17 @@ export default function Navigation() {
     <nav class="flex justify-between bg-sky-300">
       <NavLink
         to="/"
+        end
+        className={({ isActive }) =>
+          isActive
+            ? "bg-emerald-800 px-6 text-center text-white p-2"
+            : "p-2 px-6  text-center"
+        }
+      >
+        {<MdHomeFilled size="22" />}
+      </NavLink>
+      <NavLink
+        to="/projects"
         end
         className={({ isActive }) =>
           isActive
