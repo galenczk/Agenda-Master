@@ -1,16 +1,66 @@
 // Imports dependencies
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
+const activeStyle = {
+  className: "bg-red-700",
+};
 
 // Component function
 export default function Navigation() {
   return (
-    <nav class="flex justify-between p-2 bg-red-400">
-      <Link to="/">Projects</Link>
-      <Link to="../developers">Developers</Link>
-      <Link to="../tasks">Tasks</Link>
-      <Link to="../customers">Customers</Link>
-      <Link to="../certifications">Certifications</Link>
+    <nav class="flex justify-between bg-sky-300">
+      <NavLink
+        to="/"
+        end
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Projects
+      </NavLink>
+      <NavLink
+        to="../developers"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Developers
+      </NavLink>
+      <NavLink
+        to="../tasks"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Tasks
+      </NavLink>
+      <NavLink
+        to="../customers"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Customers
+      </NavLink>
+      <NavLink
+        to="../certifications"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-700 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Certifications
+      </NavLink>
     </nav>
   );
 }
