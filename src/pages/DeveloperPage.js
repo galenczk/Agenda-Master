@@ -7,20 +7,7 @@ import { useFormik } from "formik";
 // Page function
 export default function DeveloperPage() {
   
-const formik = useFormik({
-  initialValues: {
-    projectTitle: "",
-    description: "",
-    deliveryDate: "",
-    projectStatus: "",
-    customerID: "",
-    projectID: "",
-  },
-});
 
-function resetForm() {
-  formik.resetForm();
-}
 
   // DOM return
   return (
@@ -73,10 +60,7 @@ function resetForm() {
       <div id="Search Form" class="p-8 bg-gray-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-            resetForm();
-          }}
+          
         >
           <legend class="text-lg font-bold text-center">
             Search Projects
@@ -88,8 +72,7 @@ function resetForm() {
             id="title"
             name="title"
             placeholder="Search for Projects"
-            onChance={formik.handleChange}
-            value={formik.values.projectTitle}
+           
           />
 
           <div class="flex justify-between mt-6">
@@ -103,9 +86,7 @@ function resetForm() {
       <div class="p-8 bg-gray-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
+          
         >
           <legend class="text-lg font-bold text-center">
             Add a Developer
@@ -132,9 +113,7 @@ function resetForm() {
       <div class="p-8 bg-gray-300">
         <form
           class="flex flex-col "
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
+          
         >
           <legend class="text-lg font-bold text-center">
             Update a Developer's Information
@@ -163,9 +142,7 @@ function resetForm() {
       <div class="p-8 bg-red-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
+          
         >
           <legend class="text-lg font-bold text-center">
             Remove a Developer

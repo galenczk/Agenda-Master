@@ -6,20 +6,7 @@ import { useFormik } from "formik";
 
 // Page function
 export default function CertPage() {
-  const formik = useFormik({
-    initialValues: {
-      projectTitle: "",
-      description: "",
-      deliveryDate: "",
-      projectStatus: "",
-      customerID: "",
-      projectID: "",
-    },
-  });
 
-  function resetForm() {
-    formik.resetForm();
-  }
 
   // DOM return
   return (
@@ -71,10 +58,7 @@ export default function CertPage() {
       <div id="Search Form" class="p-8 bg-gray-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-            resetForm();
-          }}
+          
         >
           <legend class="text-lg font-bold text-center">
             Search Projects
@@ -86,8 +70,7 @@ export default function CertPage() {
             id="title"
             name="title"
             placeholder="Search for Projects"
-            onChance={formik.handleChange}
-            value={formik.values.projectTitle}
+            
           />
 
           <div class="flex justify-between mt-6">
@@ -101,9 +84,7 @@ export default function CertPage() {
       <div class="p-8 bg-gray-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
+         
         >
           <legend class="text-lg font-bold text-center">
             Add a Certification
@@ -128,9 +109,7 @@ export default function CertPage() {
       <div class="p-8 bg-gray-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
+          
         >
           <legend class="text-lg font-bold text-center">
             Update a Certification
@@ -157,9 +136,7 @@ export default function CertPage() {
       <div class="p-8 bg-red-300">
         <form
           class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
+         
         >
           <legend class="text-lg font-bold text-center">
             Delete a Certification

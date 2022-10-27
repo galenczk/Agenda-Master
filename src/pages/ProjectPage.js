@@ -70,13 +70,7 @@ export default function ProjectPage() {
       </div>
 
       <div id="Search Form" class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-            resetForm();
-          }}
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Search Projects
           </legend>
@@ -87,8 +81,6 @@ export default function ProjectPage() {
             id="title"
             name="title"
             placeholder="Search for Projects"
-            onChance={formik.handleChange}
-            value={formik.values.projectTitle}
           />
 
           <div class="flex justify-between mt-6">
@@ -101,61 +93,23 @@ export default function ProjectPage() {
       <div class="h-16" />
 
       <div id="Add Project Form" class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-            resetForm();
-          }}
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">Add a Project</legend>
 
           <label for="projectTitle">Project Title</label>
-          <input
-            type="text"
-            id="projectTitle"
-            name="projectTitle"
-            onChange={formik.handleChange}
-            value={formik.values.projectTitle}
-          />
+          <input type="text" id="projectTitle" name="projectTitle" />
           <label for="description">Description</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            onChange={formik.handleChange}
-            value={formik.values.description}
-          />
+          <input type="text" id="description" name="description" />
           <label for="delivery_date">Delivery Date</label>
-          <input
-            type="date"
-            id="deliveryDate"
-            name="deliveryDate"
-            onChange={formik.handleChange}
-            value={formik.values.deliveryDate}
-          />
+          <input type="date" id="deliveryDate" name="deliveryDate" />
           <label for="proj_status">Project Status</label>
-          <input
-            type="text"
-            id="projectStatus"
-            name="projectStatus"
-            onChange={formik.handleChange}
-            value={formik.values.projectStatus}
-          />
+          <input type="text" id="projectStatus" name="projectStatus" />
           <label for="customer_id">Customer ID</label>
-          <input
-            type="text"
-            id="customerID"
-            name="customerID"
-            onChange={formik.handleChange}
-            value={formik.values.customerID}
-          />
+          <input type="text" id="customerID" name="customerID" />
 
           <div class="flex justify-between mt-6">
             <button class="btn btn-green">Add</button>
-            <button class="btn btn-gray" onClick={resetForm}>
-              Reset
-            </button>
+            <button class="btn btn-gray">Reset</button>
           </div>
         </form>
       </div>
@@ -163,64 +117,23 @@ export default function ProjectPage() {
       <div class="h-16" />
 
       <div id="Update Project Form" class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Update a Project
           </legend>
 
           <label for="projectID">Project ID</label>
-          <input
-            type="text"
-            id="projectID"
-            name="projectID"
-            onChange={formik.handleChange}
-            value={formik.values.projectID}
-          />
+          <input type="text" id="projectID" name="projectID" />
           <label for="projectTitle">Project Title</label>
-          <input
-            type="text"
-            id="projectTitle"
-            name="projectTitle"
-            onChange={formik.handleChange}
-            value={formik.values.projectTitle}
-          />
+          <input type="text" id="projectTitle" name="projectTitle" />
           <label for="description">Description</label>
-          <input
-            type="text"
-            id="description"
-            name="description"
-            onChange={formik.handleChange}
-            value={formik.values.description}
-          />
+          <input type="text" id="description" name="description" />
           <label for="delivery_date">Delivery Date</label>
-          <input
-            type="date"
-            id="deliveryDate"
-            name="deliveryDate"
-            onChange={formik.handleChange}
-            value={formik.values.deliveryDate}
-          />
+          <input type="date" id="deliveryDate" name="deliveryDate" />
           <label for="proj_status">Project Status</label>
-          <input
-            type="text"
-            id="projectStatus"
-            name="projectStatus"
-            onChange={formik.handleChange}
-            value={formik.values.projectStatus}
-          />
+          <input type="text" id="projectStatus" name="projectStatus" />
           <label for="customer_id">Customer ID</label>
-          <input
-            type="text"
-            id="customerID"
-            name="customerID"
-            onChange={formik.handleChange}
-            value={formik.values.customerID}
-          />
+          <input type="text" id="customerID" name="customerID" />
 
           <div class="flex justify-between mt-6">
             <button class="btn btn-blue">Update</button>
@@ -232,12 +145,7 @@ export default function ProjectPage() {
       <div class="h-16" />
 
       <div id="Delete Project Form" class="p-8 bg-red-300">
-        <form
-          class="flex flex-col"
-          onSubmit={(event) => {
-            event.preventDefault();
-          }}
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Delete a Project
           </legend>
