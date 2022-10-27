@@ -7,7 +7,6 @@ import { useFormik } from "formik";
 // Page function
 export default function CertPage() {
 
-
   // DOM return
   return (
     <>

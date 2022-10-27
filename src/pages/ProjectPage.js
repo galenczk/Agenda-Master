@@ -90,7 +90,6 @@ export default function ProjectPage() {
         </form>
       </div>
 
-      <div class="h-16" />
 
       <div id="Add Project Form" class="p-8 bg-gray-300">
         <form class="flex flex-col">
