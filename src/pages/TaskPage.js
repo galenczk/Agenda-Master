@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 // Import components
 
 // Page function
-export default function DeveloperPage() {
+export default function TaskPage() {
   
 
   // Page navigation
@@ -15,9 +15,7 @@ export default function DeveloperPage() {
   // DOM return
   return (
     <>
-      <h3 class="text-3xl">Projects</h3>
-
-      <div class="h-16" />
+      <h3 class="text-3xl p-6">Tasks</h3>
 
       <div class="p-8 bg-gray-300">
         <form

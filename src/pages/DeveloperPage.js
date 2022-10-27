@@ -15,9 +15,8 @@ export default function DeveloperPage() {
   // DOM return
   return (
     <>
-      <h3 class="text-3xl">Developers</h3>
+      <h3 class="text-3xl p-6">Developers</h3>
 
-      <div class="h-16" />
 
       <div class="p-8 bg-gray-300">
         <form

@@ -6,16 +6,15 @@ import { useNavigate } from "react-router-dom";
 // Import components
 
 // Page function
-export default function DeveloperPage() {
+export default function CertPage() {
   // Page navigation
   const navigate = useNavigate();
 
   // DOM return
   return (
     <>
-      <h3 class="text-3xl">Projects</h3>
+      <h3 class="text-3xl p-6">Certifications</h3>
 
-      <div class="h-16" />
 
       <div class="p-8 bg-gray-300">
         <form
