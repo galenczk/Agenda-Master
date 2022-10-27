@@ -34,28 +34,18 @@ export default function CustomerPage() {
               <td class="p-1 border-2">jcarrera@carreraterra.com</td>
               <td class="p-1 border-2 text-center">$8200000.00</td>
             </tr>
-            
           </tbody>
         </table>
       </div>
 
       <div id="Search Form" class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Search Customers
           </legend>
 
           <label for="title">Project Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            
-           
-          />
+          <input type="text" id="title" name="title" />
 
           <div class="flex justify-between mt-6">
             <button class="btn btn-blue">Search</button>
@@ -66,10 +56,7 @@ export default function CustomerPage() {
       <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">Add a Customer</legend>
 
           <label for="company_name">Company Name</label>
@@ -93,10 +80,7 @@ export default function CustomerPage() {
       <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Update a Customer's Information
           </legend>
@@ -124,10 +108,7 @@ export default function CustomerPage() {
       <div class="h-8" />
 
       <div class="p-8 bg-red-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Delete a Customer
           </legend>
@@ -141,6 +122,8 @@ export default function CustomerPage() {
           </div>
         </form>
       </div>
+
+      <div class="h-8" />
     </>
   );
 }

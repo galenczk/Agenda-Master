@@ -34,24 +34,16 @@ export default function TaskPage() {
               <td class="p-1 border-2 text-center">In Progress</td>
               <td class="p-1 border-2">1</td>
             </tr>
-            
           </tbody>
         </table>
       </div>
 
       <div id="Search Form" class="p-8 bg-gray-300">
         <form class="flex flex-col">
-          <legend class="text-lg font-bold text-center">
-            Search Tasks
-          </legend>
+          <legend class="text-lg font-bold text-center">Search Tasks</legend>
 
           <label for="title">Project Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            
-          />
+          <input type="text" id="title" name="title" />
 
           <div class="flex justify-between mt-6">
             <button class="btn btn-blue">Search</button>
@@ -126,6 +118,8 @@ export default function TaskPage() {
           </div>
         </form>
       </div>
+
+      <div class="h-8" />
     </>
   );
 }

@@ -2,7 +2,9 @@
 
 - [x] Make tables displaying sample data for each entity page.
 
-- [] Make reset buttons work with Formik.
+- [] Can you have multiple instances of Formik running separate forms?
+
+- [] Wire up all forms with Formik, submission behavior, validation, and reset button
 
 - [] Size input fields appropriately for their content (descriptions should be 
 large)

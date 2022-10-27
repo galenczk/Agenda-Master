@@ -64,12 +64,7 @@ export default function ProjectPage() {
           </legend>
 
           <label for="title">Project Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            
-          />
+          <input type="text" id="title" name="title" />
 
           <div class="flex justify-between mt-6">
             <button class="btn btn-blue">Search</button>
@@ -147,6 +142,8 @@ export default function ProjectPage() {
           </div>
         </form>
       </div>
+
+      <div class="h-8" />
     </>
   );
 }

@@ -119,6 +119,8 @@ export default function CertPage() {
           </div>
         </form>
       </div>
+
+      <div class="h-8" />
     </>
   );
 }
