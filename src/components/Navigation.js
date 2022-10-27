@@ -10,7 +10,7 @@ const activeStyle = {
 // Component function
 export default function Navigation() {
   return (
-    <nav class="flex justify-between bg-sky-300">
+    <nav class="flex justify-between bg-sky-200">
       <NavLink
         to="/"
         end

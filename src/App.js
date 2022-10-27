@@ -27,7 +27,7 @@ export default function App() {
           <Navigation />
         </div>
 
-        <main class="flex flex-col mb-auto p-4">
+        <main class="flex flex-col flex-grow">
           <Routes>
             <Route path="/" exact element={<LandingPage />} />
             <Route path="/projects" exact element={<ProjectPage />} />
