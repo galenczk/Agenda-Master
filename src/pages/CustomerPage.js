@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 export default function CustomerPage() {
 
 
+
   // DOM return
   return (
     <>
@@ -16,41 +17,24 @@ export default function CustomerPage() {
         <table class="border-4 mb-6">
           <thead>
             <tr>
-              <th class="p-2 bg-slate-200">Project ID</th>
-              <th class="p-2 bg-slate-200">Title</th>
-              <th class="p-2 bg-slate-200">Description</th>
-              <th class="p-2 bg-slate-200">Delivery Date</th>
-              <th class="p-2 bg-slate-200">Status</th>
-              <th class="p-2 bg-slate-200">Customer</th>
+              <th class="p-2 bg-slate-200">Customer ID</th>
+              <th class="p-2 bg-slate-200">Company Name</th>
+              <th class="p-2 bg-slate-200">First Name</th>
+              <th class="p-2 bg-slate-200">Last Name</th>
+              <th class="p-2 bg-slate-200">Email</th>
+              <th class="p-2 bg-slate-200">Annual Revenue</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="p-1 border-2 text-center">1</td>
-              <td class="p-1 border-2">Excavation Log</td>
-              <td class="p-1 border-2">Archaeological mapping service</td>
-              <td class="p-1 border-2 text-center">2023-10-02</td>
-              <td class="p-1 border-2">In Progress</td>
-              <td class="p-1 border-2 text-center">4</td>
+              <td class="p-1 border-2">Carrera Terra</td>
+              <td class="p-1 border-2">John</td>
+              <td class="p-1 border-2 text-center">Carrera</td>
+              <td class="p-1 border-2">jcarrera@carreraterra.com</td>
+              <td class="p-1 border-2 text-center">$8200000.00</td>
             </tr>
-            <tr>
-              <td class="p-1 border-2 text-center">2</td>
-              <td class="p-1 border-2">Fingerprint Recognition Banking</td>
-              <td class="p-1 border-2">
-                Fingerprint account access restriction
-              </td>
-              <td class="p-1 border-2 text-center">2024-08-01</td>
-              <td class="p-1 border-2">In Progress</td>
-              <td class="p-1 border-2 text-center">2</td>
-            </tr>
-            <tr>
-              <td class="p-1 border-2 text-center">3</td>
-              <td class="p-1 border-2">Grocery Budget Tracker</td>
-              <td class="p-1 border-2">Grocery shopping budget app</td>
-              <td class="p-1 border-2 text-center">2022-12-09</td>
-              <td class="p-1 border-2">Completed</td>
-              <td class="p-1 border-2 text-center">5</td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -61,7 +45,7 @@ export default function CustomerPage() {
           
         >
           <legend class="text-lg font-bold text-center">
-            Search Projects
+            Search Customers
           </legend>
 
           <label for="title">Project Title</label>
@@ -79,7 +63,7 @@ export default function CustomerPage() {
           </div>
         </form>
       </div>
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
         <form
@@ -106,7 +90,7 @@ export default function CustomerPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
         <form
@@ -137,7 +121,7 @@ export default function CustomerPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-red-300">
         <form

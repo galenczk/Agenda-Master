@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 export default function TaskPage() {
 
 
+
   // DOM return
   return (
     <>
@@ -16,52 +17,32 @@ export default function TaskPage() {
         <table class="border-4 mb-6">
           <thead>
             <tr>
-              <th class="p-2 bg-slate-200">Project ID</th>
-              <th class="p-2 bg-slate-200">Title</th>
               <th class="p-2 bg-slate-200">Description</th>
-              <th class="p-2 bg-slate-200">Delivery Date</th>
-              <th class="p-2 bg-slate-200">Status</th>
-              <th class="p-2 bg-slate-200">Customer</th>
+              <th class="p-2 bg-slate-200">Due Date</th>
+              <th class="p-2 bg-slate-200">Priority</th>
+              <th class="p-2 bg-slate-200">Task Status</th>
+              <th class="p-2 bg-slate-200">Project ID</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="p-1 border-2 text-center">1</td>
-              <td class="p-1 border-2">Excavation Log</td>
-              <td class="p-1 border-2">Archaeological mapping service</td>
-              <td class="p-1 border-2 text-center">2023-10-02</td>
-              <td class="p-1 border-2">In Progress</td>
-              <td class="p-1 border-2 text-center">4</td>
-            </tr>
-            <tr>
-              <td class="p-1 border-2 text-center">2</td>
-              <td class="p-1 border-2">Fingerprint Recognition Banking</td>
-              <td class="p-1 border-2">
-                Fingerprint account access restriction
+              <td class="p-1 border-2 text-center">
+                Build out framework for UI
               </td>
-              <td class="p-1 border-2 text-center">2024-08-01</td>
-              <td class="p-1 border-2">In Progress</td>
-              <td class="p-1 border-2 text-center">2</td>
+              <td class="p-1 border-2">2022-10-22</td>
+              <td class="p-1 border-2">1</td>
+              <td class="p-1 border-2 text-center">In Progress</td>
+              <td class="p-1 border-2">1</td>
             </tr>
-            <tr>
-              <td class="p-1 border-2 text-center">3</td>
-              <td class="p-1 border-2">Grocery Budget Tracker</td>
-              <td class="p-1 border-2">Grocery shopping budget app</td>
-              <td class="p-1 border-2 text-center">2022-12-09</td>
-              <td class="p-1 border-2">Completed</td>
-              <td class="p-1 border-2 text-center">5</td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
 
       <div id="Search Form" class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
-            Search Projects
+            Search Tasks
           </legend>
 
           <label for="title">Project Title</label>
@@ -70,7 +51,6 @@ export default function TaskPage() {
             id="title"
             name="title"
             placeholder="Search for Projects"
-            
           />
 
           <div class="flex justify-between mt-6">
@@ -79,13 +59,10 @@ export default function TaskPage() {
           </div>
         </form>
       </div>
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-         
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">Add a Task</legend>
 
           <label for="description">Task Description</label>
@@ -106,13 +83,10 @@ export default function TaskPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">Update a Task</legend>
 
           <label for="task_id">Task ID</label>
@@ -135,13 +109,10 @@ export default function TaskPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-red-300">
-        <form
-          class="flex flex-col"
-         
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Delete a Project
           </legend>

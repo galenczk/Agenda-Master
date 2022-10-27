@@ -6,20 +6,8 @@ import { useFormik } from "formik";
 
 // Page function
 export default function ProjectPage() {
-  const formik = useFormik({
-    initialValues: {
-      projectTitle: "",
-      description: "",
-      deliveryDate: "",
-      projectStatus: "",
-      customerID: "",
-      projectID: "",
-    },
-  });
+ 
 
-  function resetForm() {
-    formik.resetForm();
-  }
 
   // DOM return
   return (
@@ -90,6 +78,7 @@ export default function ProjectPage() {
         </form>
       </div>
 
+      <div class="h-8" />
 
       <div id="Add Project Form" class="p-8 bg-gray-300">
         <form class="flex flex-col">
@@ -113,7 +102,7 @@ export default function ProjectPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div id="Update Project Form" class="p-8 bg-gray-300">
         <form class="flex flex-col">
@@ -141,7 +130,7 @@ export default function ProjectPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div id="Delete Project Form" class="p-8 bg-red-300">
         <form class="flex flex-col">

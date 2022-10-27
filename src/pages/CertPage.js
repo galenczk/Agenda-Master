@@ -7,6 +7,8 @@ import { useFormik } from "formik";
 // Page function
 export default function CertPage() {
 
+
+
   // DOM return
   return (
     <>
@@ -15,41 +17,31 @@ export default function CertPage() {
         <table class="border-4 mb-6">
           <thead>
             <tr>
-              <th class="p-2 bg-slate-200">Project ID</th>
+              <th class="p-2 bg-slate-200">Certification ID</th>
               <th class="p-2 bg-slate-200">Title</th>
               <th class="p-2 bg-slate-200">Description</th>
-              <th class="p-2 bg-slate-200">Delivery Date</th>
-              <th class="p-2 bg-slate-200">Status</th>
-              <th class="p-2 bg-slate-200">Customer</th>
+              <th class="p-2 bg-slate-200">Duration</th>
+             
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="p-1 border-2 text-center">1</td>
-              <td class="p-1 border-2">Excavation Log</td>
-              <td class="p-1 border-2">Archaeological mapping service</td>
-              <td class="p-1 border-2 text-center">2023-10-02</td>
-              <td class="p-1 border-2">In Progress</td>
-              <td class="p-1 border-2 text-center">4</td>
+              <td class="p-1 border-2">Certified Information Systems Security Professional</td>
+              <td class="p-1 border-2">Required to work on government projects</td>
+              <td class="p-1 border-2 text-center">3 years</td>
+              
             </tr>
             <tr>
               <td class="p-1 border-2 text-center">2</td>
-              <td class="p-1 border-2">Fingerprint Recognition Banking</td>
+              <td class="p-1 border-2">Certified Ethical Hacker</td>
               <td class="p-1 border-2">
-                Fingerprint account access restriction
+                Required for tech lead position
               </td>
-              <td class="p-1 border-2 text-center">2024-08-01</td>
-              <td class="p-1 border-2">In Progress</td>
-              <td class="p-1 border-2 text-center">2</td>
+              <td class="p-1 border-2 text-center">3 years</td>
+              
             </tr>
-            <tr>
-              <td class="p-1 border-2 text-center">3</td>
-              <td class="p-1 border-2">Grocery Budget Tracker</td>
-              <td class="p-1 border-2">Grocery shopping budget app</td>
-              <td class="p-1 border-2 text-center">2022-12-09</td>
-              <td class="p-1 border-2">Completed</td>
-              <td class="p-1 border-2 text-center">5</td>
-            </tr>
+            
           </tbody>
         </table>
       </div>
@@ -60,7 +52,7 @@ export default function CertPage() {
           
         >
           <legend class="text-lg font-bold text-center">
-            Search Projects
+            Search Certifications
           </legend>
 
           <label for="title">Project Title</label>
@@ -78,7 +70,7 @@ export default function CertPage() {
           </div>
         </form>
       </div>
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
         <form
@@ -103,7 +95,7 @@ export default function CertPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
         <form
@@ -130,7 +122,7 @@ export default function CertPage() {
         </form>
       </div>
 
-      <div class="h-16" />
+      <div class="h-8" />
 
       <div class="p-8 bg-red-300">
         <form

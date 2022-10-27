@@ -34,16 +34,6 @@ export default function Navigation() {
         Projects
       </NavLink>
       <NavLink
-        to="../developers"
-        className={({ isActive }) =>
-          isActive
-            ? "bg-sky-800 text-center text-white p-2 flex-grow"
-            : "p-2 flex-grow text-center"
-        }
-      >
-        Developers
-      </NavLink>
-      <NavLink
         to="../tasks"
         className={({ isActive }) =>
           isActive
@@ -53,6 +43,17 @@ export default function Navigation() {
       >
         Tasks
       </NavLink>
+      <NavLink
+        to="../developers"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Developers
+      </NavLink>
+
       <NavLink
         to="../customers"
         className={({ isActive }) =>
