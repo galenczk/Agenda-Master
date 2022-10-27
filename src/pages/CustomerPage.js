@@ -53,7 +53,7 @@ export default function CustomerPage() {
             type="text"
             id="title"
             name="title"
-            placeholder="Search for Projects"
+            
            
           />
 

@@ -47,7 +47,7 @@ export default function DeveloperPage() {
             type="text"
             id="title"
             name="title"
-            placeholder="Search for Projects"
+            
           />
 
           <div class="flex justify-between mt-6">

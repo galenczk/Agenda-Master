@@ -6,9 +6,6 @@ import { useFormik } from "formik";
 
 // Page function
 export default function CertPage() {
-
-
-
   // DOM return
   return (
     <>
@@ -21,48 +18,37 @@ export default function CertPage() {
               <th class="p-2 bg-slate-200">Title</th>
               <th class="p-2 bg-slate-200">Description</th>
               <th class="p-2 bg-slate-200">Duration</th>
-             
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="p-1 border-2 text-center">1</td>
-              <td class="p-1 border-2">Certified Information Systems Security Professional</td>
-              <td class="p-1 border-2">Required to work on government projects</td>
+              <td class="p-1 border-2">
+                Certified Information Systems Security Professional
+              </td>
+              <td class="p-1 border-2">
+                Required to work on government projects
+              </td>
               <td class="p-1 border-2 text-center">3 years</td>
-              
             </tr>
             <tr>
               <td class="p-1 border-2 text-center">2</td>
               <td class="p-1 border-2">Certified Ethical Hacker</td>
-              <td class="p-1 border-2">
-                Required for tech lead position
-              </td>
+              <td class="p-1 border-2">Required for tech lead position</td>
               <td class="p-1 border-2 text-center">3 years</td>
-              
             </tr>
-            
           </tbody>
         </table>
       </div>
 
       <div id="Search Form" class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Search Certifications
           </legend>
 
           <label for="title">Project Title</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            placeholder="Search for Projects"
-            
-          />
+          <input type="text" id="title" name="title" />
 
           <div class="flex justify-between mt-6">
             <button class="btn btn-blue">Search</button>
@@ -73,10 +59,7 @@ export default function CertPage() {
       <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-         
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Add a Certification
           </legend>
@@ -98,10 +81,7 @@ export default function CertPage() {
       <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
-        <form
-          class="flex flex-col"
-          
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Update a Certification
           </legend>
@@ -125,10 +105,7 @@ export default function CertPage() {
       <div class="h-8" />
 
       <div class="p-8 bg-red-300">
-        <form
-          class="flex flex-col"
-         
-        >
+        <form class="flex flex-col">
           <legend class="text-lg font-bold text-center">
             Delete a Certification
           </legend>

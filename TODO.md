@@ -1,6 +1,6 @@
-- [] Make landing page with links to all other pages and short description of each pages functionality.
+- [x] Make landing page with links to all other pages and short description of each pages functionality.
 
-- [] Make tables displaying sample data for each entity page.
+- [x] Make tables displaying sample data for each entity page.
 
 - [] Make reset buttons work with Formik.
 
