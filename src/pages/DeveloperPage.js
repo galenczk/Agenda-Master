@@ -11,7 +11,7 @@ export default function DeveloperPage() {
     <>
       <h3 class="text-3xl p-6">Developers</h3>
 
-      <div id="Search Display Table" class="place-self-center">
+      <div id="Results Display Table" class="place-self-center">
         <table class="border-4 mb-6">
           <thead>
             <tr>
@@ -51,6 +51,51 @@ export default function DeveloperPage() {
           </div>
         </form>
       </div>
+
+      <div class="h-8" />
+
+      <div id="Search Form" class="p-8 bg-gray-300">
+        <form class="flex flex-col">
+          <legend class="text-lg font-bold text-center">
+            Assign a Task to a Developer
+          </legend>
+
+          <label for="title">Task ID</label>
+          <input type="text" id="title" name="title" />
+          <label for="title">Developer First Name</label>
+          <input type="text" id="title" name="title" />
+          <label for="title">Developer Last Name</label>
+          <input type="text" id="title" name="title" />
+
+          <div class="flex justify-between mt-6">
+            <button class="btn btn-blue">Search</button>
+            <button class="btn btn-gray">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="h-8" />
+
+      <div id="Search Form" class="p-8 bg-gray-300">
+        <form class="flex flex-col">
+          <legend class="text-lg font-bold text-center">
+            Award a Certification to a Developer
+          </legend>
+
+          <label for="title">Certification Title</label>
+          <input type="text" id="title" name="title" />
+          <label for="title">Developer First Name</label>
+          <input type="text" id="title" name="title" />
+          <label for="title">Developer Last Name</label>
+          <input type="text" id="title" name="title" />
+
+          <div class="flex justify-between mt-6">
+            <button class="btn btn-blue">Search</button>
+            <button class="btn btn-gray">Reset</button>
+          </div>
+        </form>
+      </div>
+
       <div class="h-8" />
 
       <div class="p-8 bg-gray-300">
