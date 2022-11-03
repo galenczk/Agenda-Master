@@ -20,6 +20,7 @@ export default function DeveloperPage() {
               <th class="p-2 bg-slate-200">Last Name</th>
               <th class="p-2 bg-slate-200">Email</th>
               <th class="p-2 bg-slate-200">Phone Number</th>
+              <th class="p-2 bg-slate-200">Project ID</th>
             </tr>
           </thead>
           <tbody>
@@ -31,6 +32,7 @@ export default function DeveloperPage() {
                 mbrawn@keyenergetics.com
               </td>
               <td class="p-1 border-2">1910023476</td>
+              <td class="p-1 border-2">1</td>
             </tr>
           </tbody>
         </table>
