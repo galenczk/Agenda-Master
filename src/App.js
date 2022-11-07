@@ -3,12 +3,31 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import pages
-import ProjectPage from "./pages/ProjectPage";
+import AllProjectsPage from "./pages/projects/AllProjectsPage";
+import AddProjectPage from "./pages/projects/AddProjectPage"
+import EditProjectPage from "./pages/projects/EditProjectPage";
+import ProjectDetailsPage from "./pages/projects/ProjectDetailsPage"
+
+import AllCustomersPage from "./pages/customers/AllCustomersPage";
+import CustomerDetailsPage from "./pages/customers/CustomerDetailsPage"
+import AddCustomerPage from "./pages/customers/AddCustomerPage"
+import EditCustomerPage from "./pages/customers/EditCustomerPage"
+
 import DeveloperPage from "./pages/DeveloperPage";
+//import AddDeveloperPage from "./pages/AddDeveloperPage"
+//import EditDeveloperPage from "./pages/EditDeveloperPage"
+
 import CertPage from "./pages/CertPage";
+//import AddCertPage from "./pages/AddCertPage";
+//import EditCertPage from "./pages/EditCertPage";
+
 import TaskPage from "./pages/TaskPage";
-import CustomerPage from "./pages/CustomerPage";
+//import AddTaskPage from "./pages/AddTaskPage";
+//import EditTaskPage from "./pages/EditTaskPage";
+
+
 import LandingPage from "./pages/LandingPage"
+
 
 // Import components
 import Navigation from "./components/Navigation";
@@ -30,11 +49,22 @@ export default function App() {
         <main class="flex flex-col flex-grow">
           <Routes>
             <Route path="/" exact element={<LandingPage />} />
-            <Route path="/projects" exact element={<ProjectPage />} />
+            
+            <Route path="/projects" exact element={<AllProjectsPage />} />
+            <Route path="/add-project" exact element={<AddProjectPage />} />
+            <Route path="/edit-project" exact element={<EditProjectPage />} />
+            <Route path="/project" exact element={<ProjectDetailsPage />} />
+            
+            <Route path="/customers" exact element={<AllCustomersPage />} />
+            <Route path="/customer" exact element={<CustomerDetailsPage />} />
+            <Route path="/add-customer" exact element={<AddCustomerPage />} />
+            <Route path="/edit-customer" exact element={<EditCustomerPage />} />
+
             <Route path="/developers" exact element={<DeveloperPage />} />
             <Route path="/certifications" exact element={<CertPage />} />
             <Route path="/tasks" exact element={<TaskPage />} />
-            <Route path="/customers" exact element={<CustomerPage />} />
+            
+
           </Routes>
         </main>
 

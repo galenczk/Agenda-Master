@@ -34,14 +34,14 @@ export default function Navigation() {
         Projects
       </NavLink>
       <NavLink
-        to="../tasks"
+        to="../customers"
         className={({ isActive }) =>
           isActive
             ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >
-        Tasks
+        Customers
       </NavLink>
       <NavLink
         to="../developers"
@@ -53,17 +53,19 @@ export default function Navigation() {
       >
         Developers
       </NavLink>
-
       <NavLink
-        to="../customers"
+        to="../tasks"
         className={({ isActive }) =>
           isActive
             ? "bg-sky-800 text-center text-white p-2 flex-grow"
             : "p-2 flex-grow text-center"
         }
       >
-        Customers
+        Tasks
       </NavLink>
+      
+
+      
       <NavLink
         to="../certifications"
         className={({ isActive }) =>
