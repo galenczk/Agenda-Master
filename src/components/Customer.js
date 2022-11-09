@@ -9,7 +9,7 @@ export default function Customer({ customer }) {
   return (
     <>
       <tr class="text-center">
-        <td>{customer.company}</td>
+        <td>{customer.company_name}</td>
         <td>{customer.first_name}</td>
         <td>{customer.last_name}</td>
         <td>{customer.email}</td>
