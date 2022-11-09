@@ -16,11 +16,11 @@ export default function AddProjectPage() {
       <div id="Add Project Form" class="p-8 bg-gray-300 mx-auto w-1/2">
         <Formik
           initialValues={{
-            company: "Fake Business",
-            first_name: "Galen",
-            last_name: "Ciszek",
-            email: "ciszekg@oregonstate.edu",
-            annual_revenue: "10000000",
+            company: "",
+            first_name: "",
+            last_name: "",
+            email: "",
+            annual_revenue: "",
           }}
           onSubmit={async (values) => {
             axios.post("http://localhost:3001/customers", values);

@@ -28,6 +28,12 @@ export default function AllCustomersPage() {
     // Make this developers/:id for dynamic routing
     //navigate("/customer")
   }
+  async function onDelete(customer_id) {
+    const response = await axios.post("http://localhost:3001/customers/delete", { customer_id });
+    if (response.status === 201) {
+      loadCustomers();
+    }
+  }
 
   const navigate = useNavigate();
 
@@ -36,7 +42,7 @@ export default function AllCustomersPage() {
     <>
       <h1 class="text-3xl p-4">Customers</h1>
 
-      <CustomerTable customers={customers} button={"View"} buttonFunc={onView} />
+      <CustomerTable customers={customers} onView={onView} onDelete={onDelete} />
 
       <div class="flex-grow" />
 

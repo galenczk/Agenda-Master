@@ -34,13 +34,29 @@ app.post("/customers", (req, res) => {
 
   const query = "INSERT INTO Customers (company_name, first_name, last_name, email, annual_revenue) VALUES (?,?,?,?,?)";
 
-  db.pool.query(query, [company, first_name, last_name, email, annual_revenue], (error, result) => {
+  db.pool.query(query, [company, first_name, last_name, email, annual_revenue], (error) => {
     if (!error) {
       res.status(201).send(`Insert of ${company}, ${first_name}, ${last_name} successful!`);
     } else {
       console.log(error);
     }
   });
+});
+
+app.post(`/customers/delete`, (req, res) => {
+  
+  const id = req.body.customer_id;
+  console.log(id)
+  
+  query = "DELETE FROM Customers WHERE Customers.customer_id = ?";
+  
+  db.pool.query(query, id, (error) => {
+    if (!error) {
+      res.status(201).send("Delete successful!");
+    } else {
+    }
+  });
+
 });
 
 app.use((error, req, res, next) => {

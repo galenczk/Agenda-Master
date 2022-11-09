@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export default function Customer({ customer }) {
+export default function Customer({ customer, onView, onDelete }) {
 
     const navigate = useNavigate()
 
@@ -16,10 +16,24 @@ export default function Customer({ customer }) {
         <td>{customer.phone_number}</td>
         <td>{customer.annual_revenue}</td>
         <td>
-          <button class="btn btn-green" onClick={() =>{navigate("/customer")}}>View</button>
+          <button
+            class="btn btn-green"
+            onClick={() => {
+              onView();
+            }}
+          >
+            View
+          </button>
         </td>
         <td>
-          <button class="btn-small btn-red" onClick={() =>{}}>Delete</button>
+          <button
+            class="btn-small btn-red"
+            onClick={() => {
+              onDelete(customer.customer_id);
+            }}
+          >
+            Delete
+          </button>
         </td>
       </tr>
     </>
