@@ -15,7 +15,7 @@ export default function AllCustomersPage() {
   const [customers, setCustomers] = useState([]);
 
   async function loadCustomers() {
-    const response = await axios.get("http://flip2.engr.oregonstate.edu:33525/customers");
+    const response = await axios.get("http://flip2.engr.oregonstate.edu:33525/");
     const customers = response.data;
     setCustomers(customers);
   }
