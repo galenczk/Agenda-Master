@@ -1,34 +1,29 @@
 // Import dependencies
 import React from "react";
 import { useFormik } from "formik";
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
+
+import axios from "axios"
 
 // Import components
 import Navigation from "../../components/Navigation";
-import { useNavigate } from "react-router-dom";
 import CustomerTable from "../../components/CustomerTable";
 
 // Page function
 export default function AllCustomersPage() {
-  const customers = [
-    {
-      first_name: "Mark",
-      last_name: "Brawn",
-      email: "mbrawn@keyenergetics.com",
-      phone_number: "1910023476",
-    },
-    {
-      first_name: "Mark",
-      last_name: "Brawn",
-      email: "mbrawn@keyenergetics.com",
-      phone_number: "1910023476",
-    },
-    {
-      first_name: "Mark",
-      last_name: "Brawn",
-      email: "mbrawn@keyenergetics.com",
-      phone_number: "1910023476",
-    },
-  ];
+
+  const [customers, setCustomers] = useState([])
+  
+  async function loadCustomers(){
+    const response = await axios.get("http://flip3.engr.oregonstate.edu:33525build/customers")
+    const customers = response.data
+    setCustomers(customers)
+  }
+
+  useEffect(() =>{
+    loadCustomers()
+  }, [])
 
   function onView() {
     // Make this developers/:id for dynamic routing
@@ -59,9 +54,10 @@ export default function AllCustomersPage() {
 
           <div class="flex">
             <div class="flex flex-col flex-grow">
-              <label for="title">Company</label>
-              <input type="text" id="title" name="title" />
+              
               <label for="title">First Name</label>
+              <input type="text" id="title" name="title" />
+              <label for="title">Last Name</label>
               <input type="text" id="title" name="title" />
               
             </div>
@@ -69,7 +65,8 @@ export default function AllCustomersPage() {
             <div class="w-6"/>
             
             <div class="flex flex-col flex-grow"> 
-              <label for="title">Last Name</label>
+              
+              <label for="title">Company</label>
               <input type="text" id="title" name="title" />
               <label for="title">Customer ID</label>
               <input type="text" id="title" name="title" />

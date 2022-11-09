@@ -1,8 +1,11 @@
 // import dependencies
 const express = require("express")
+const cors = require("cors")
 
 const app = express()
-const PORT = 33524
+const PORT = 33525
+
+app.use(cors())
 
 const db = require("./database/db-connector")
 
@@ -16,6 +19,10 @@ app.get("/customers", (req, res) => {
     db.pool.query(query1, function(error, result, fields){
         res.send(JSON.stringify(result))
     })
+})
+
+app.post("/customers", (req, res) => {
+  res.send(req)
 })
 
 
