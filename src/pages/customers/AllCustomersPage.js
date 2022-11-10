@@ -24,10 +24,10 @@ export default function AllCustomersPage() {
     loadCustomers();
   }, []);
 
-  function onView() {
-    // Make this developers/:id for dynamic routing
-    //navigate("/customer")
+  async function onView(customer_id) {
+    navigate(`/customers/${customer_id}`)
   }
+  
   async function onDelete(customer_id) {
     const response = await axios.post("http://localhost:3001/customers/delete", { customer_id });
     if (response.status === 201) {

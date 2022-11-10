@@ -11,7 +11,6 @@ export default function ProjectTable({ projects, onOpen }) {
             <th>Description</th>
             <th>Delivery Date</th>
             <th>Status</th>
-            <th>Customer</th>
           </tr>
         </thead>
         <tbody>

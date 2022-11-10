@@ -56,9 +56,9 @@ export default function App() {
             <Route path="/project" exact element={<ProjectDetailsPage />} />
             
             <Route path="/customers" exact element={<AllCustomersPage />} />
-            <Route path="/customer" exact element={<CustomerDetailsPage />} />
+            <Route path="/customers/:customer_id" exact element={<CustomerDetailsPage />} />
             <Route path="/add-customer" exact element={<AddCustomerPage />} />
-            <Route path="/edit-customer" exact element={<EditCustomerPage />} />
+            <Route path="/edit-customer/:customer_id" exact element={<EditCustomerPage />} />
 
             <Route path="/developers" exact element={<DeveloperPage />} />
             <Route path="/certifications" exact element={<CertPage />} />

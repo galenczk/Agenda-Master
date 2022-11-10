@@ -19,7 +19,7 @@ export default function Customer({ customer, onView, onDelete }) {
           <button
             class="btn btn-green"
             onClick={() => {
-              onView();
+              onView(customer.customer_id);
             }}
           >
             View

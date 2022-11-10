@@ -2,13 +2,12 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
-
-// Import components
 
 // Page function
 export default function AddProjectPage() {
-  // DOM return
+// DOM return
   return (
     <>
       <h1 class="text-3xl p-6 text-center"> Add a Customer</h1>
@@ -16,11 +15,11 @@ export default function AddProjectPage() {
       <div id="Add Project Form" class="p-8 bg-gray-300 mx-auto w-1/2">
         <Formik
           initialValues={{
-            company: "",
-            first_name: "",
-            last_name: "",
-            email: "",
-            annual_revenue: "",
+            company: "Fake Business",
+            first_name: "Galen",
+            last_name: "Ciszek",
+            email: "ciszekg@oregonstate.edu",
+            annual_revenue: "10000000",
           }}
           onSubmit={async (values) => {
             axios.post("http://localhost:3001/customers", values);
