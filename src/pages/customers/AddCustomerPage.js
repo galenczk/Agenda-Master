@@ -9,6 +9,10 @@ import axios from "axios";
 export default function AddCustomerPage() {
 
   const navigate = useNavigate()
+
+  async function onAdd(values){
+    await axios.post("http://flip2.engr.oregonstate.edu:33522/customers", values);
+  }
 // DOM return
   return (
     <>
@@ -24,8 +28,7 @@ export default function AddCustomerPage() {
             annual_revenue: "10000000",
           }}
           onSubmit={async (values) => {
-            axios.post("http://localhost:3001/customers", values);
-            navigate("/customers", {replace: true})
+            onAdd(values)
           }}
         >
           <Form class="flex flex-col">

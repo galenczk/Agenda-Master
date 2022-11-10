@@ -15,7 +15,7 @@ export default function AllCustomersPage() {
   const [customers, setCustomers] = useState([]);
 
   async function loadCustomers() {
-    const response = await axios.get("http://localhost:3001/customers");
+    const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/customers");
     const customers = response.data;
     setCustomers(customers);
   }
@@ -29,7 +29,7 @@ export default function AllCustomersPage() {
   }
 
   async function onDelete(customer_id) {
-    const response = await axios.post("http://localhost:3001/customers/delete", { customer_id });
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/customers/delete", { customer_id });
     if (response.status === 201) {
       loadCustomers();
     }

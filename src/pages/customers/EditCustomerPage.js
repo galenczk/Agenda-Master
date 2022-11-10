@@ -17,7 +17,7 @@ export default function EditProjectPage() {
   const [customer, setCustomer] = useState({});
 
   async function loadCustomer(customer_id) {
-    const response = await axios.get(`http://localhost:3001/customers/${customer_id}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
     const data = response.data;
     const customer = data[0];
     setCustomer(customer);
@@ -65,7 +65,7 @@ export default function EditProjectPage() {
               <tr>
                 <th>Annual Revenue</th>
                 <div class="w-24" />
-                <td>${customer.annual_revenue.toLocaleString("en-US")}</td>
+                <td>${customer.annual_revenue}</td>
               </tr>
             </tbody>
           </table>
@@ -89,9 +89,8 @@ export default function EditProjectPage() {
             }}
             values={customer}
             onSubmit={async (values) => {
-              axios.post("http://localhost:3001/customers/update", values);
-              console.log(values);
-              navigate(-1);
+              axios.post("http://flip2.engr.oregonstate.edu:33522/customers/update", values)
+              .then(navigate("/customers", {replace: true}))
             }}
           >
             <Form class="flex flex-col">

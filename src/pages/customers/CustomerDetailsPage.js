@@ -17,7 +17,7 @@ export default function CustomerDetailsPage() {
   const [projects, setProjects] = useState([]);
 
   async function loadCustomer(customer_id) {
-    const response = await axios.get(`http://localhost:3001/customers/${customer_id}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
     const data = response.data; 
     const customer = data[0] 
 
@@ -26,7 +26,7 @@ export default function CustomerDetailsPage() {
   }
 
   async function loadProjects(customer_id) {
-    const response = await axios.get(`http://localhost:3001/projects/${customer_id}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
     const data = response.data;
 
     if(!projects){
@@ -44,7 +44,7 @@ export default function CustomerDetailsPage() {
   const navigate = useNavigate();
 
   async function onDelete(customer_id) {
-    const response = await axios.post("http://localhost:3001/customers/delete", { customer_id });
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/customers/delete", { customer_id });
     if (response.status === 201) {
       navigate("/customers")
     } 
