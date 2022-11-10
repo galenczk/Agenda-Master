@@ -92,7 +92,6 @@ app.post("/customers/update", (req, res) => {
   const last_name = req.body.last_name;
   const email = req.body.email;
   const annual_revenue = req.body.annual_revenue;
-  console.log(req.body)
 
   const query =
     "UPDATE Customers SET company_name = ?, first_name = ?, last_name = ?, email = ?, annual_revenue = ? WHERE Customers.customer_id = ?";

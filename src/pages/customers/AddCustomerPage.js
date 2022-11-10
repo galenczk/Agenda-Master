@@ -6,7 +6,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 // Page function
-export default function AddProjectPage() {
+export default function AddCustomerPage() {
+
+  const navigate = useNavigate()
 // DOM return
   return (
     <>
@@ -23,6 +25,7 @@ export default function AddProjectPage() {
           }}
           onSubmit={async (values) => {
             axios.post("http://localhost:3001/customers", values);
+            navigate("/customers", {replace: true})
           }}
         >
           <Form class="flex flex-col">
@@ -38,7 +41,7 @@ export default function AddProjectPage() {
             <Field type="text" id="annual_revenue" name="annual_revenue" />
 
             <div class="flex justify-between mt-6">
-              <button class="btn-small btn-gray" type="submit">
+              <button class="btn-small btn-gray" type="reset">
                 Reset
               </button>
               <button class="btn btn-green" type="submit">

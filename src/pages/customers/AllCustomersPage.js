@@ -1,6 +1,6 @@
 // Import dependencies
 import React from "react";
-import { useFormik } from "formik";
+import { Formik, Field, Form } from "formik";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -25,9 +25,9 @@ export default function AllCustomersPage() {
   }, []);
 
   async function onView(customer_id) {
-    navigate(`/customers/${customer_id}`)
+    navigate(`/customers/${customer_id}`);
   }
-  
+
   async function onDelete(customer_id) {
     const response = await axios.post("http://localhost:3001/customers/delete", { customer_id });
     if (response.status === 201) {
@@ -57,32 +57,41 @@ export default function AllCustomersPage() {
         </button>
 
         <div class="p-4 bg-gray-200 w-1/2 m-6">
-          <form class="flex flex-col">
-            <legend class="text-lg font-bold mb-4">Search Customers</legend>
+          <Formik
+            initialValues={{
+              first_name: "",
+              last_name: "",
+              company_name: "",
+              customer_id: ""
+            }}
+          >
+            <Form class="flex flex-col">
+              <legend class="text-lg font-bold mb-4">Search Customers</legend>
 
-            <div class="flex">
-              <div class="flex flex-col flex-grow">
-                <label for="title">First Name</label>
-                <input type="text" id="title" name="title" />
-                <label for="title">Last Name</label>
-                <input type="text" id="title" name="title" />
+              <div class="flex">
+                <div class="flex flex-col flex-grow">
+                  <label for="title">First Name</label>
+                  <Field type="text" id="title" name="title" />
+                  <label for="title">Last Name</label>
+                  <Field type="text" id="title" name="title" />
+                </div>
+
+                <div class="w-6" />
+
+                <div class="flex flex-col flex-grow">
+                  <label for="title">Company Name</label>
+                  <Field type="text" id="title" name="title" />
+                  <label for="title">Customer ID</label>
+                  <Field type="text" id="title" name="title" />
+                </div>
               </div>
 
-              <div class="w-6" />
-
-              <div class="flex flex-col flex-grow">
-                <label for="title">Company</label>
-                <input type="text" id="title" name="title" />
-                <label for="title">Customer ID</label>
-                <input type="text" id="title" name="title" />
+              <div class="flex justify-between mt-6">
+                <button class="btn-small btn-gray">Reset</button>
+                <button class="btn btn-blue">Search</button>
               </div>
-            </div>
-
-            <div class="flex justify-between mt-6">
-              <button class="btn-small btn-gray">Reset</button>
-              <button class="btn btn-blue">Search</button>
-            </div>
-          </form>
+            </Form>
+          </Formik>
         </div>
       </div>
     </>
