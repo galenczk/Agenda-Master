@@ -7,3 +7,6 @@ frontend:
 backend:
 - `forever start index.js` to start hosting process
 - `forever restart index.js` to update after changes
+
+
+- `alias forever='./node_modules/forever/bin/forever'`
