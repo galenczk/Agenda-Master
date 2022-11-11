@@ -51,6 +51,9 @@ export default function ProjectDetailsPage({ projectID }) {
           <h2 class="text-2xl m-4 mr-12">[dueDate]</h2>
         </div>
       </div>
+      <div>
+        <h2 class="text-xl m-4">[customer information]</h2>
+      </div>
 
       <div class="bg-slate-200 flex flex-col p-8">
         <h2 class="text-2xl mb-4">Tasks</h2>
@@ -63,14 +66,10 @@ export default function ProjectDetailsPage({ projectID }) {
       <div class="flex flex-col p-8">
         <h2 class="text-2xl mb-4">Developers</h2>
         <DeveloperTable developers={developers} button={"Remove"} />
-        <button class="btn btn-green m-6 place-self-start">Assign Developer</button>
+        <button class="btn btn-green m-6 place-self-start">Edit Developer Roster</button>
       </div>
 
       <div class="flex-grow" />
-
-      <div>
-        <h2 class="text-xl m-4">[customer information]</h2>
-      </div>
 
       <div class="flex justify-between">
         <button class="btn btn-blue m-6" onClick={() => navigate("/edit-project")}>

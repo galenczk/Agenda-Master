@@ -32,6 +32,7 @@ import LandingPage from "./pages/LandingPage"
 
 // Import components
 import Navigation from "./components/Navigation";
+import NavigationBottom from "./components/NavigationBottom";
 
 // Page function
 export default function App() {
@@ -72,9 +73,10 @@ export default function App() {
             
 
           </Routes>
+          <NavigationBottom />
         </main>
 
-        <footer class="flex justify-center text-center bg-slate-400 p-0.5">
+        <footer class="flex justify-center text-center text-white bg-slate-800 p-0.5">
           <p class="mr-2">Galen Ciszek and Ashwini Chawla</p>
           <p class="ml-2"> &copy; 2022</p>
         </footer>

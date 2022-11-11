@@ -7,10 +7,11 @@ export default function ProjectTable({ projects, onOpen }) {
       <table class="border-separate border-spacing-2">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Project Title</th>
-            <th>Description</th>
             <th>Delivery Date</th>
             <th>Status</th>
+            <th>Customer</th>
           </tr>
         </thead>
         <tbody>

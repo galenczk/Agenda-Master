@@ -1,15 +1,7 @@
-- [x] Make landing page with links to all other pages and short description of each pages functionality.
+- Style tables better, smaller rows with some background color to differentiate
 
-- [x] Make tables displaying sample data for each entity page.
+- ProjectTable/Project is reused on CustomersPage, delete button needs to have a prop.
+Or have different components for each page, and organize these into folders.
 
-- [] Can you have multiple instances of Formik running separate forms?
-
-- [] Wire up all forms with Formik, submission behavior, validation, and reset button
-
-- [] Size input fields appropriately for their content (descriptions should be 
-large)
-
-- [] Space input labels and fields better
-
-- [] Create a space to browse database entries (above or to the side of the forms?)
+- Delete should have a confirmation attached to it.
 

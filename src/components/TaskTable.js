@@ -11,6 +11,7 @@ export default function TaskTable({ tasks, onOpen }) {
             <th>Due Date</th>
             <th>Priority</th>
             <th>Status</th>
+            <th>Developers Assigned</th>
           </tr>
         </thead>
         <tbody>

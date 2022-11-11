@@ -9,39 +9,58 @@ import { useNavigate } from "react-router-dom";
 // Page function
 const projects = [
   {
+    project_id: 1,
     title: "Excavation Log",
     description: "Archaeological mapping service requested by Carrera Terra.",
-    deliveryDate: "2023-10-02",
-    status: "In progress",
+    delivery_date: "2023-10-02",
+    proj_status: "In progress",
     customer: 4,
+    devs_assigned: 10,
+    tasks_open: 6,
   },
   {
+    project_id: 2,
+
     title: "Fingerprint Recognition Banking",
     description: "Fingerprint account access restriction requested by Scoutain Bank.",
-    deliveryDate: "2024-08-01",
-    status: "In progress",
+    delivery_date: "2024-08-01",
+    proj_status: "In progress",
     customer: 2,
+    devs_assigned: 10,
+    tasks_open: 6,
   },
   {
+    project_id: 3,
+
     title: "Grocery Budget Tracker",
     description: "Grocery shopping budget app requested by Aria Apron.",
-    deliveryDate: "2022-12-09",
-    status: "Completed",
+    delivery_date: "2022-12-09",
+    proj_status: "Completed",
     customer: 5,
+    devs_assigned: 10,
+    tasks_open: 6,
   },
   {
+    project_id: 4,
+
     title: "Weather Forecasting App",
     description: "Meteorology tracking app requested by Meteorology Mobile.",
-    deliveryDate: "2025-09-02",
-    status: "On hold",
+    delivery_date: "2025-09-02",
+    proj_status: "On hold",
     customer: 3,
+    devs_assigned: 10,
+    tasks_open: 6,
   },
   {
+    project_id: 5,
+
     title: "Taco Time",
     description: "Taco sale mapping app for regional taco deals requested by Taco Time.",
-    deliveryDate: "2022-07-10",
-    status: "In progress",
+    delivery_date: "2022-07-10",
+    proj_status: "In progress",
     customer: 1,
+    devs_assigned: 10,
+    tasks_open: 6,
   },
 ];
 
@@ -66,39 +85,6 @@ export default function AllProjectsPage() {
         >
           Create a New Project
         </button>
-
-        <div id="Search Form" class="p-4 bg-gray-200 w-1/2 m-6">
-          <form class="flex flex-col">
-            <legend class="text-lg font-bold">Search Projects</legend>
-
-            <div class="flex">
-              <div class="flex flex-col flex-grow">
-                <div class="flex-grow" />
-                <label for="title">Project Title</label>
-                <input type="text" id="title" name="title" />
-                <label for="title">Delivery Date</label>
-                <input type="text" id="title" name="title" />
-                <div class="flex-grow" />
-              </div>
-
-              <div class="w-6" />
-
-              <div class="flex flex-col flex-grow">
-                <label for="title">Status</label>
-                <input type="text" id="title" name="title" />
-                <label for="title">Customer</label>
-                <input type="text" id="title" name="title" />
-                <label for="title">Project ID</label>
-                <input type="text" id="title" name="title" />
-              </div>
-            </div>
-
-            <div class="flex justify-between mt-6">
-              <button class="btn-small btn-gray">Reset</button>
-              <button class="btn btn-blue">Search</button>
-            </div>
-          </form>
-        </div>
       </div>
     </>
   );

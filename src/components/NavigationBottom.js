@@ -8,52 +8,32 @@ const activeStyle = {
 };
 
 // Component function
-export default function Navigation() {
+export default function NavigationBottom() {
   return (
     <nav class="flex justify-between bg-sky-200">
-      <NavLink
-        to="/"
-        end
-        className={({ isActive }) =>
-          isActive
-            ? "bg-emerald-800 px-6 text-center text-white p-2"
-            : "p-2 px-6  text-center"
-        }
-      >
-        {<MdHomeFilled size="22" />}
-      </NavLink>
-      <NavLink
-        to="/projects"
-        end
-        className={({ isActive }) =>
-          isActive
-            ? "bg-sky-800 text-center text-white p-2 flex-grow"
-            : "p-2 flex-grow text-center"
-        }
-      >
-        Projects
-      </NavLink>
-      <NavLink
-        to="../customers"
-        className={({ isActive }) =>
-          isActive
-            ? "bg-sky-800 text-center text-white p-2 flex-grow"
-            : "p-2 flex-grow text-center"
-        }
-      >
-        Customers
-      </NavLink>
-      <NavLink
-        to="../developers"
-        className={({ isActive }) =>
-          isActive
-            ? "bg-sky-800 text-center text-white p-2 flex-grow"
-            : "p-2 flex-grow text-center"
-        }
-      >
-        Developers
-      </NavLink>
       
+      <NavLink
+        to="../tasks"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        All Tasks
+      </NavLink>
+      <div class="flex-grow bg-sky-100"/>
+      <NavLink
+        to="../certifications"
+        className={({ isActive }) =>
+          isActive
+            ? "bg-sky-800 text-center text-white p-2 flex-grow"
+            : "p-2 flex-grow text-center"
+        }
+      >
+        Certifications
+      </NavLink>
+
     </nav>
   );
 }
