@@ -13,9 +13,10 @@ import CustomerDetailsPage from "./pages/customers/CustomerDetailsPage"
 import AddCustomerPage from "./pages/customers/AddCustomerPage"
 import EditCustomerPage from "./pages/customers/EditCustomerPage"
 
-import DeveloperPage from "./pages/DeveloperPage";
-//import AddDeveloperPage from "./pages/AddDeveloperPage"
-//import EditDeveloperPage from "./pages/EditDeveloperPage"
+import AllDevelopersPage from "./pages/developers/AllDevelopersPage";
+import DeveloperDetailsPage from "./pages/developers/DeveloperDetailsPage"
+import AddDeveloperPage from "./pages/developers/AddDeveloperPage";
+import EditDeveloperPage from "./pages/developers/EditDeveloperPage";
 
 import CertPage from "./pages/CertPage";
 //import AddCertPage from "./pages/AddCertPage";
@@ -40,7 +41,7 @@ export default function App() {
       <Router>
         <div class="sticky top-0 z-50">
           <header class="bg-slate-800 text-center text-white text2xl py-2 sticky top-0 z-50">
-            Project Management Tool by Key Energetics
+           Agenda Master - The Database Management Tool by Key Energetics
           </header>
 
           <Navigation />
@@ -60,7 +61,12 @@ export default function App() {
             <Route path="/add-customer" exact element={<AddCustomerPage />} />
             <Route path="/edit-customer/:customer_id" exact element={<EditCustomerPage />} />
 
-            <Route path="/developers" exact element={<DeveloperPage />} />
+            <Route path="/developers" exact element={<AllDevelopersPage />} />
+            <Route path="/developers/1" exact element={<DeveloperDetailsPage />} />
+            <Route path="/add-developer" exact element={<AddDeveloperPage />} />
+            <Route path="/edit-developer/1" exact element={<EditDeveloperPage />} />
+            
+            
             <Route path="/certifications" exact element={<CertPage />} />
             <Route path="/tasks" exact element={<TaskPage />} />
             

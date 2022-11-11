@@ -7,53 +7,31 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 
 import TaskTable from "../../components/TaskTable";
-import DevTable from "../../components/DevTable";
+import DeveloperTable from "../../components/DeveloperTable";
 
 // Page function
 export default function ProjectDetailsPage({ projectID }) {
   const tasks = [
     {
-      description: "Make UI",
-      dueDate: "2022-10-19",
-      priority: "2",
-      status: "In Progress",
+      description: "[description]",
+      dueDate: "[due_date]",
+      priority: "[priority]",
+      status: "[status]",
     },
-    {
-      description: "Make Backend",
-      dueDate: "2022-10-19",
-      priority: "2",
-      status: "In Progress",
-    },
-    {
-      description: "Integrate FE and BE",
-      dueDate: "2022-10-19",
-      priority: "2",
-      status: "In Progress",
-    },
+    
   ];
 
-  const devs = [
+  const developers = [
     {
-      first_name: "Mark",
-      last_name: "Brawn",
-      email: "mbrawn@keyenergetics.com",
-      phone_number: "1910023476",
+      first_name: "[first_name]",
+      last_name: "[last_name]",
+      email: "[email]",
+      phone_number: "[phone_number]",
     },
-    {
-      first_name: "Gordon",
-      last_name: "Freeman",
-      email: "mbrawn@keyenergetics.com",
-      phone_number: "1910023476",
-    },
-    {
-      first_name: "Joe",
-      last_name: "Dev",
-      email: "mbrawn@keyenergetics.com",
-      phone_number: "1910023476",
-    },
+    
   ];
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onEdit = () => {
     // Pop a modal for editing form.
@@ -80,11 +58,11 @@ export default function ProjectDetailsPage({ projectID }) {
         <button class="btn btn-green m-6 place-self-start">Add Task</button>
       </div>
 
-      <div class="h-16"/>
+      <div class="h-16" />
 
       <div class="flex flex-col p-8">
         <h2 class="text-2xl mb-4">Developers</h2>
-        <DevTable devs={devs} button={"Remove"} />
+        <DeveloperTable developers={developers} button={"Remove"} />
         <button class="btn btn-green m-6 place-self-start">Assign Developer</button>
       </div>
 
@@ -95,7 +73,9 @@ export default function ProjectDetailsPage({ projectID }) {
       </div>
 
       <div class="flex justify-between">
-        <button class="btn btn-blue m-6" onClick={() => navigate("/edit-project")}>Edit Project</button>
+        <button class="btn btn-blue m-6" onClick={() => navigate("/edit-project")}>
+          Edit Project
+        </button>
 
         <button class="btn btn-red m-6">Delete Project</button>
       </div>

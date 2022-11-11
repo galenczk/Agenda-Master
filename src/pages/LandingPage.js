@@ -14,7 +14,7 @@ export default function LandingPage() {
   return (
     <>
       <div class="text-center flex-grow">
-        <h1 class="text-3xl mt-16">Welcome to our Project Management Tool</h1>
+        <h1 class="text-3xl mt-16">Welcome to Agenda Master - The Database Management Tool by Key Energetics</h1>
         <h2 class="mt-6">
           Please use the navigation bar above to explore the pages of our
           application.

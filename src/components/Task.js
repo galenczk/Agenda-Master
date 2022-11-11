@@ -9,10 +9,7 @@ export default function Task({ task }) {
         <td>{task.priority}</td>
         <td>{task.status}</td>
         <td>
-          <button class="btn-small btn-blue">Edit</button>
-        </td>
-        <td>
-          <button class="btn-small btn-red">Delete</button>
+          <button class="btn btn-green">View</button>
         </td>
       </tr>
     </>

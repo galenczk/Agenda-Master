@@ -42,7 +42,7 @@ export default function AllCustomersPage() {
     <>
       <h1 class="text-3xl p-4">Customers</h1>
 
-      <CustomerTable customers={customers} onView={onView} onDelete={onDelete} />
+      <CustomerTable customers={customers} onView={onView} />
 
       <div class="flex-grow" />
 
@@ -55,44 +55,6 @@ export default function AllCustomersPage() {
         >
           Add a New Customer
         </button>
-
-        <div class="p-4 bg-gray-200 w-1/2 m-6">
-          <Formik
-            initialValues={{
-              first_name: "",
-              last_name: "",
-              company_name: "",
-              customer_id: ""
-            }}
-          >
-            <Form class="flex flex-col">
-              <legend class="text-lg font-bold mb-4">Search Customers</legend>
-
-              <div class="flex">
-                <div class="flex flex-col flex-grow">
-                  <label for="title">First Name</label>
-                  <Field type="text" id="title" name="title" />
-                  <label for="title">Last Name</label>
-                  <Field type="text" id="title" name="title" />
-                </div>
-
-                <div class="w-6" />
-
-                <div class="flex flex-col flex-grow">
-                  <label for="title">Company Name</label>
-                  <Field type="text" id="title" name="title" />
-                  <label for="title">Customer ID</label>
-                  <Field type="text" id="title" name="title" />
-                </div>
-              </div>
-
-              <div class="flex justify-between mt-6">
-                <button class="btn-small btn-gray">Reset</button>
-                <button class="btn btn-blue">Search</button>
-              </div>
-            </Form>
-          </Formik>
-        </div>
       </div>
     </>
   );

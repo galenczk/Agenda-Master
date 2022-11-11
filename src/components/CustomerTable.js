@@ -1,7 +1,7 @@
 import React from "react";
 import Customer from "./Customer";
 
-export default function CustomerTable({ customers, onView, onDelete }) {
+export default function CustomerTable({ customers, onView }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
@@ -17,7 +17,7 @@ export default function CustomerTable({ customers, onView, onDelete }) {
         </thead>
         <tbody>
           {customers.map((customer, i) => (
-            <Customer customer={customer} key={i} onView={onView} onDelete={onDelete} />
+            <Customer customer={customer} key={i} onView={onView} />
           ))}
         </tbody>
       </table>
