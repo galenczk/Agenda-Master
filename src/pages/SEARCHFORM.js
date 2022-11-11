@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import Navigation from "../../components/Navigation";
-import CustomerTable from "../../components/CustomerTable";
+import Navigation from "../components/Navigation";
+import CustomerTable from "../components/CustomerTable";
 
 // Page function
 export default function YoullRenderNothingAndYoullBeHappy() {

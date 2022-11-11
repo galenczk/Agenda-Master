@@ -66,7 +66,7 @@ export default function ProjectDetailsPage({ projectID }) {
       <div class="flex flex-col p-8">
         <h2 class="text-2xl mb-4">Developers</h2>
         <DeveloperTable developers={developers} button={"Remove"} />
-        <button class="btn btn-green m-6 place-self-start">Edit Developer Roster</button>
+        <button class="btn btn-blue m-6 place-self-start">Edit Developer Roster</button>
       </div>
 
       <div class="flex-grow" />

@@ -64,7 +64,7 @@ export default function AllDevelopersPage() {
   return (
     <>
       <h1 class="text-3xl p-4">
-        All Developers
+        Developers
       </h1>
           
       <DeveloperTable developers={developers} onView={onView} />

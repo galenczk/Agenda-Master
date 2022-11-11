@@ -25,6 +25,16 @@ export default function Customer({ customer, onView }) {
             View
           </button>
         </td>
+        <td>
+          <button
+            class="btn-small btn-red"
+            onClick={() => {
+              onView(customer.customer_id);
+            }}
+          >
+            Del
+          </button>
+        </td>
       </tr>
     </>
   );
