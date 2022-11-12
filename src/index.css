@@ -17,15 +17,11 @@ code {
 }
 
 .btn {
-    @apply font-bold py-2 px-4 ;
-  }
-
-.btn-row {
-    @apply  px-4 ;
+    @apply font-bold py-1 px-4 rounded-sm;
   }
 
 .btn-small {
-  @apply px-2 mt-auto p-1;
+  @apply px-2 mt-auto rounded-sm;
 }
 
 .btn-green {

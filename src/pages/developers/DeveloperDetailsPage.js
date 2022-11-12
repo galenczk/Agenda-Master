@@ -46,7 +46,7 @@ export default function DeveloperDetailsPage() {
   // DOM return
   return (
     <>
-      <div class="flex justify-between">
+      <div class="flex justify-between bg-slate-200">
         <div>
           <h2 class="text-3xl m-4 mt-10">[first_name, last_name]</h2>
         </div>
@@ -55,6 +55,10 @@ export default function DeveloperDetailsPage() {
           <h2 class="text-2xl m-4">[email]</h2>
           <h2 class="text-2xl m-4 ">[phone_number]</h2>
         </div>
+      </div>
+      <div class="flex">
+        <h2 class="text-2xl m-4">Assigned to [project] (id: [project_id])</h2>
+        <button class="btn btn-blue my-auto mx-12">View</button>
       </div>
 
       <div class="bg-slate-200 flex flex-col p-8">
