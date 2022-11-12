@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "../../components/Navigation";
 
 import TaskTable from "../../components/tasks/TaskTable";
-import CertificationTable from "../../components/CertificationTable";
+import CertificationTableDeveloperDetails from "../../components/certifications/CertificationTableDeveloperDetails";
 
 // Page function
 export default function DeveloperDetailsPage() {
@@ -47,7 +47,10 @@ export default function DeveloperDetailsPage() {
   return (
     <>
       <div class="flex justify-between">
-        <h2 class="text-3xl m-4 mt-10">[first_name, last_name]</h2>
+        <div>
+          <h2 class="text-3xl m-4 mt-10">[first_name, last_name]</h2>
+        </div>
+
         <div class="flex flex-col">
           <h2 class="text-2xl m-4">[email]</h2>
           <h2 class="text-2xl m-4 ">[phone_number]</h2>
@@ -55,7 +58,7 @@ export default function DeveloperDetailsPage() {
       </div>
 
       <div class="bg-slate-200 flex flex-col p-8">
-        <h2 class="text-2xl mb-4">Tasks Assigned to [first_name]</h2>
+        <h2 class="text-2xl mb-4">Tasks Assigned</h2>
         <TaskTable tasks={tasks} />
         <button class="btn btn-blue m-6 place-self-start">Tasks Table</button>
       </div>
@@ -63,9 +66,9 @@ export default function DeveloperDetailsPage() {
       <div class="h-16" />
 
       <div class="flex flex-col p-8">
-        <h2 class="text-2xl mb-4">Certifications Held by [first_name]</h2>
-        <CertificationTable certifications={certifications} button={"Remove"} />
-        <button class="btn btn-green m-6 place-self-start">Award a New Certificaiton</button>
+        <h2 class="text-2xl mb-4">Certifications Held</h2>
+        <CertificationTableDeveloperDetails certifications={certifications} button={"Remove"} />
+        <button class="btn btn-green m-6 place-self-start">Award a New Certification</button>
       </div>
 
       <div class="flex-grow" />

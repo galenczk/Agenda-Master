@@ -18,9 +18,9 @@ import DeveloperDetailsPage from "./pages/developers/DeveloperDetailsPage"
 import AddDeveloperPage from "./pages/developers/AddDeveloperPage";
 import EditDeveloperPage from "./pages/developers/EditDeveloperPage";
 
-import CertPage from "./pages/CertPage";
-//import AddCertPage from "./pages/AddCertPage";
-//import EditCertPage from "./pages/EditCertPage";
+import AllCerificationsPage from "./pages/certifications/AllCertificationsPage";
+import AddCertificationPage from "./pages/certifications/AddCertificationPage";
+import EditCertificationPage from "./pages/certifications/EditCertificationPage";
 
 import AllTasksPage from "./pages/tasks/AllTasksPage";
 import AddTaskPage from "./pages/tasks/AddTaskPage";
@@ -71,10 +71,10 @@ export default function App() {
             <Route path="/add-task" exact element={<AddTaskPage />} />
             <Route path="/edit-task/1" exact element={<EditTaskPage />} />
             
+            <Route path="/certifications" exact element={<AllCerificationsPage />} />
+            <Route path="/add-certification" exact element={<AddCertificationPage />} />
+            <Route path="/edit-certification/1" exact element={<EditCertificationPage />} />
             
-            <Route path="/certifications" exact element={<CertPage />} />
-            
-
           </Routes>
         </main>
 

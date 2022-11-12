@@ -1,5 +1,5 @@
 import React from "react";
-import Certification from "./Certification";
+import CertificationDeveloperDetails from "./CertificationDeveloperDetails";
 
 export default function CertificationTable({ certifications, onOpen }) {
   return (
@@ -14,7 +14,7 @@ export default function CertificationTable({ certifications, onOpen }) {
         </thead>
         <tbody>
           {certifications.map((certification, i) => (
-            <Certification certification={certification} key={i} />
+            <CertificationDeveloperDetails certification={certification} key={i} />
           ))}
         </tbody>
       </table>
