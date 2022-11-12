@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 // Import components
 import Navigation from "../../components/Navigation";
 
-import TaskTable from "../../components/TaskTable";
-import DeveloperTable from "../../components/DeveloperTable";
+import TaskTable from "../../components/tasks/TaskTable";
+import DeveloperTableProjectDetails from "../../components/developers/DeveloperTableProjectDetails";
 
 // Page function
 export default function ProjectDetailsPage({ projectID }) {
@@ -65,7 +65,7 @@ export default function ProjectDetailsPage({ projectID }) {
 
       <div class="flex flex-col p-8">
         <h2 class="text-2xl mb-4">Developers</h2>
-        <DeveloperTable developers={developers} button={"Remove"} />
+        <DeveloperTableProjectDetails developers={developers} button={"Remove"} />
         <button class="btn btn-blue m-6 place-self-start">Edit Developer Roster</button>
       </div>
 

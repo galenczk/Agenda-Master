@@ -22,9 +22,9 @@ import CertPage from "./pages/CertPage";
 //import AddCertPage from "./pages/AddCertPage";
 //import EditCertPage from "./pages/EditCertPage";
 
-import TaskPage from "./pages/TaskPage";
-//import AddTaskPage from "./pages/AddTaskPage";
-//import EditTaskPage from "./pages/EditTaskPage";
+import AllTasksPage from "./pages/tasks/AllTasksPage";
+import AddTaskPage from "./pages/tasks/AddTaskPage";
+import EditTaskPage from "./pages/tasks/EditTaskPage";
 
 
 import LandingPage from "./pages/LandingPage"
@@ -55,7 +55,7 @@ export default function App() {
             <Route path="/projects" exact element={<AllProjectsPage />} />
             <Route path="/add-project" exact element={<AddProjectPage />} />
             <Route path="/edit-project" exact element={<EditProjectPage />} />
-            <Route path="/project" exact element={<ProjectDetailsPage />} />
+            <Route path="/projects/1" exact element={<ProjectDetailsPage />} />
             
             <Route path="/customers" exact element={<AllCustomersPage />} />
             <Route path="/customers/:customer_id" exact element={<CustomerDetailsPage />} />
@@ -67,13 +67,15 @@ export default function App() {
             <Route path="/add-developer" exact element={<AddDeveloperPage />} />
             <Route path="/edit-developer/1" exact element={<EditDeveloperPage />} />
             
+            <Route path="/tasks" exact element={<AllTasksPage />} />
+            <Route path="/add-task" exact element={<AddTaskPage />} />
+            <Route path="/edit-task/1" exact element={<EditTaskPage />} />
+            
             
             <Route path="/certifications" exact element={<CertPage />} />
-            <Route path="/tasks" exact element={<TaskPage />} />
             
 
           </Routes>
-          <NavigationBottom />
         </main>
 
         <footer class="flex justify-center text-center text-white bg-slate-800 p-0.5">

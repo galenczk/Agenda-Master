@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 
 // Import components
 import Navigation from "../../components/Navigation";
-import ProjectTable from "../../components/ProjectTable";
+import ProjectTable from "../../components/projects/ProjectTable";
 import { useNavigate } from "react-router-dom";
 // Page function
 const projects = [
@@ -72,7 +72,7 @@ export default function AllProjectsPage() {
     <>
       <h1 class="text-3xl p-4">Projects</h1>
 
-      <ProjectTable projects={projects} onOpen={() => navigate("/project")} />
+      <ProjectTable projects={projects} onOpen={() => navigate("/projects/1")} />
 
       <div class="flex-grow" />
 

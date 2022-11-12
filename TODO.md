@@ -5,3 +5,7 @@ Or have different components for each page, and organize these into folders.
 
 - Delete should have a confirmation attached to it.
 
+- Can the display tables have sorting buttons on columns?
+
+
+

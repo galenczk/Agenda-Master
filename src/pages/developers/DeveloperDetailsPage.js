@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 // Import components
 import Navigation from "../../components/Navigation";
 
-import TaskTable from "../../components/TaskTable";
+import TaskTable from "../../components/tasks/TaskTable";
 import CertificationTable from "../../components/CertificationTable";
 
 // Page function

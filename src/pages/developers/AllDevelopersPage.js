@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 
 // Import components
 import Navigation from "../../components/Navigation"
-import DeveloperTable from "../../components/DeveloperTable"
+import DeveloperTable from "../../components/developers/DeveloperTable"
 import { useNavigate } from "react-router-dom";
 
 

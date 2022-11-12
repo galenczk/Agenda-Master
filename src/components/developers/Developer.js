@@ -9,7 +9,8 @@ export default function Developer({ developer, onView }) {
         <td>{developer.last_name}</td>
         <td>{developer.email}</td>
         <td>{developer.phone_number}</td>
-        
+        <td><button class="btn btn-blue" onClick={onView}>View</button></td>
+        <td><button class="btn-small btn-red">Del</button></td>
       </tr>
     </>
   );

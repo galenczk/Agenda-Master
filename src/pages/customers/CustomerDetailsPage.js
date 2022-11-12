@@ -6,7 +6,7 @@ import axios from "axios";
 
 // Import components
 import Navigation from "../../components/Navigation";
-import ProjectTable from "../../components/ProjectTable";
+import ProjectTableCustomerDetails from "../../components/projects/ProjectTableCustomerDetails";
 
 
 // Page function
@@ -70,7 +70,7 @@ export default function CustomerDetailsPage() {
 
       <div class="h-16" />
 
-      <ProjectTable projects={projects} onOpen={() => navigate("/project")} />
+      <ProjectTableCustomerDetails projects={projects} onOpen={() => navigate("/project")} />
 
       <div class="flex-grow" />
 
