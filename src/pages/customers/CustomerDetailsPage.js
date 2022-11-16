@@ -15,6 +15,7 @@ export default function CustomerDetailsPage() {
 
   const [customer, setCustomer] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [noProjects, setNoProjects] = useState("");
 
   async function loadCustomer(customer_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
@@ -26,14 +27,13 @@ export default function CustomerDetailsPage() {
   }
 
   async function loadProjects(customer_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${customer_id}`);
     const data = response.data;
-
-    if(!projects){
-      console.log("no projects")
-    }
-
-    setProjects(data);
+    console.log(data)
+    if(data.length){
+      setProjects(data);
+    } else{setNoProjects("This customer has no projects currently.")}
+    console.log(noProjects)
   }
 
   useEffect(() => {
@@ -70,7 +70,10 @@ export default function CustomerDetailsPage() {
 
       <div class="h-16" />
 
+      {projects.length > 0 ?
       <ProjectTableCustomerDetails projects={projects} onOpen={() => navigate("/project")} />
+      : <p className="text-center">This customer has no projects currently.</p>
+      }
 
       <div class="flex-grow" />
 

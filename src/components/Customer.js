@@ -12,6 +12,7 @@ export default function Customer({ customer, onView, onDelete, onEdit }) {
   return (
     <>
       <tr class="text-center">
+        <td>{customer.customer_id}</td>
         <td>{customer.company_name}</td>
         <td>{customer.first_name}</td>
         <td>{customer.last_name}</td>

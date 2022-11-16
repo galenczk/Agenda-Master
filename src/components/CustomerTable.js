@@ -7,6 +7,7 @@ export default function CustomerTable({ customers, onView, onDelete, onEdit }) {
       <table class="border-separate border-spacing-2">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Company</th>
             <th>First Name</th>
             <th>Last Name</th>
