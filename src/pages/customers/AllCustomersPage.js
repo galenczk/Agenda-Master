@@ -35,6 +35,10 @@ export default function AllCustomersPage() {
     }
   }
 
+    async function onEdit(customer_id) {
+      navigate(`/edit-customer/${customer_id}`)
+    }
+
   const navigate = useNavigate();
 
   // DOM return
@@ -42,7 +46,7 @@ export default function AllCustomersPage() {
     <>
       <h1 class="text-3xl p-4">Customers</h1>
 
-      <CustomerTable customers={customers} onView={onView} />
+      <CustomerTable customers={customers} onView={onView} onDelete={onDelete} onEdit={onEdit} />
 
       <div class="flex-grow" />
 

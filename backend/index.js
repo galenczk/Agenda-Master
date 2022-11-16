@@ -120,6 +120,10 @@ app.get("/projects/:customer_id", (req, res) => {
   });
 });
 
+
+
+
+
 /**
  * ERROR HANDLING
  */

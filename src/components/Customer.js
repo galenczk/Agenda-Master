@@ -1,8 +1,11 @@
 import React from "react";
+import { MdOutlineDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md"
 
 
-export default function Customer({ customer, onView }) {
+export default function Customer({ customer, onView, onDelete, onEdit }) {
 
     const navigate = useNavigate()
 
@@ -13,11 +16,10 @@ export default function Customer({ customer, onView }) {
         <td>{customer.first_name}</td>
         <td>{customer.last_name}</td>
         <td>{customer.email}</td>
-        <td>{customer.phone_number}</td>
         <td>{customer.annual_revenue}</td>
         <td>
           <button
-            class="btn btn-blue"
+            class="btn btn-green"
             onClick={() => {
               onView(customer.customer_id);
             }}
@@ -27,12 +29,20 @@ export default function Customer({ customer, onView }) {
         </td>
         <td>
           <button
-            class="btn-small btn-red"
+            class="btn-icon btn-blue"
             onClick={() => {
-              onView(customer.customer_id);
+              onEdit(customer.customer_id);
             }}
           >
-            Del
+            {<FaEdit size="20" />}
+          </button>
+          <button
+            class="btn-icon-delete btn-red ml-6"
+            onClick={() => {
+              onDelete(customer.customer_id);
+            }}
+          >
+            {<MdDeleteForever size="20" />}
           </button>
         </td>
       </tr>

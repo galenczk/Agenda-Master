@@ -23,6 +23,12 @@ code {
 .btn-small {
   @apply px-2 mt-auto rounded-sm;
 }
+.btn-icon {
+  @apply p-2 mt-auto rounded-md pl-3;
+}
+.btn-icon-delete {
+  @apply p-2 mt-auto rounded-md;
+}
 
 .btn-green {
     @apply bg-emerald-700 text-white;

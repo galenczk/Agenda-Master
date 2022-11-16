@@ -11,7 +11,10 @@ export default function AddCustomerPage() {
   const navigate = useNavigate()
 
   async function onAdd(values){
-    await axios.post("http://flip2.engr.oregonstate.edu:33522/customers", values);
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/customers", values);
+    if (response.status === 201) {
+      navigate("/customers");
+    }
   }
 // DOM return
   return (
