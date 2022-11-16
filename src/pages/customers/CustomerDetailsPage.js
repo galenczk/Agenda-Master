@@ -72,7 +72,7 @@ export default function CustomerDetailsPage() {
 
       {projects.length > 0 ?
       <ProjectTableCustomerDetails projects={projects} onOpen={() => navigate("/project")} />
-      : <p className="text-center">This customer has no projects currently.</p>
+      : <p className="text-center bg-slate-200 px-36 mx-auto">This customer has no projects currently.</p>
       }
 
       <div class="flex-grow" />
