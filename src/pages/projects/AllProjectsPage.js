@@ -1,11 +1,16 @@
 // Import dependencies
 import React from "react";
-import { useFormik } from "formik";
+import { Formik, Field, Form } from "formik";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+import axios from "axios";
 
 // Import components
 import Navigation from "../../components/Navigation";
 import ProjectTable from "../../components/projects/ProjectTable";
 import { useNavigate } from "react-router-dom";
+
 // Page function
 const projects = [
   {
@@ -65,6 +70,29 @@ const projects = [
 ];
 
 export default function AllProjectsPage() {
+  const [projects, setProjects] = useState([]);
+
+  async function loadProjects() {
+    const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/projects");
+    const projects = response.data;
+    setProjects(projects);
+  }
+
+  useEffect(() => {
+    loadProjects();
+  }, []);
+
+  async function onView(title) {
+    navigate(`/customers/${title}`);
+  }
+
+  async function onDelete(title) {
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/projects/delete", { title });
+    if (response.status === 201) {
+      loadProjects();
+    }
+  }
+
   const navigate = useNavigate();
 
   // DOM return
@@ -72,18 +100,18 @@ export default function AllProjectsPage() {
     <>
       <h1 class="text-3xl p-4">Projects</h1>
 
-      <ProjectTable projects={projects} onOpen={() => navigate("/projects/1")} />
+      <ProjectTable projects={projects} onView={onView} />
 
       <div class="flex-grow" />
 
-      <div class="flex justify-between">
+      <div id="add and search" class="flex justify-between">
         <button
           class="btn btn-green m-6 place-self-end"
           onClick={() => {
             navigate("/add-project");
           }}
         >
-          Create a New Project
+          Add a New Project
         </button>
       </div>
     </>
