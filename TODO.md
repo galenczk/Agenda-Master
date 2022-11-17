@@ -8,5 +8,3 @@
 
 Galen
 Details pages for Projects, Developers, Certifications, Tasks
-
-Make routes for Developers, Certifications, Tasks

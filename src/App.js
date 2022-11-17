@@ -65,7 +65,7 @@ export default function App() {
             <Route path="/developers" exact element={<AllDevelopersPage />} />
             <Route path="/developers/:developer_id" exact element={<DeveloperDetailsPage />} />
             <Route path="/add-developer" exact element={<AddDeveloperPage />} />
-            <Route path="/edit-developer/1" exact element={<EditDeveloperPage />} />
+            <Route path="/edit-developer/:developer_id" exact element={<EditDeveloperPage />} />
             
             <Route path="/tasks" exact element={<AllTasksPage />} />
             <Route path="/add-task" exact element={<AddTaskPage />} />

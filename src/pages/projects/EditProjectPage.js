@@ -18,7 +18,7 @@ export default function EditProjectPage() {
   const [project, setProject] = useState({});
 
   async function loadProject(project_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${[project_id]}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${project_id}`);
     const data = response.data;
     const project = data[0];
     setProject(project);

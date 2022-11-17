@@ -130,7 +130,7 @@ app.get("/projects", (req, res) => {
 
 //ROUTE -- GET SPECIFIC PROJECT ON project_id
 app.get("/projects/:project_id", (req, res) => {
-  const project_id = req.params.customer_id;
+  const project_id = req.params.project_id;
   const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.project_id = ?`;
   db.pool.query(query, project_id, async (error, result) => {
     if (!error) {
@@ -163,7 +163,7 @@ app.post("/projects", (req, res) => {
 //ROUTE -- DELETE SPECIFIC PROJECT ON project_id
 app.post(`/projects/delete`, (req, res) => {
   const project_id = req.body.project_id;
-  query = "DELETE FROM Projects WHERE Customers.project_id = ?";
+  query = "DELETE FROM Projects WHERE Projects.project_id = ?";
 
   db.pool.query(query, project_id, (error) => {
     if (!error) {
@@ -367,7 +367,7 @@ app.post(`/tasks/delete`, (req, res) => {
 });
 
 //ROUTE -- UPDATE AN EXISTING TASK ENTRY ON task_id
-app.post("/projects/update", (req, res) => {
+app.post("/tasks/update", (req, res) => {
   const task_id = req.body.task_id;
   const description = req.body.description;
   const due_date = req.body.due_date;
