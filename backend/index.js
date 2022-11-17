@@ -422,7 +422,7 @@ app.post("/certifications", (req, res) => {
   const description = req.body.description;
   const duration = req.body.duration;
 
-  const query = "INSERT INTO Certifications (title, description, duration) VALUES (?,?,?)
+  const query = "INSERT INTO Certifications (title, description, duration) VALUES (?,?,?)"
 
   db.pool.query(query, [title, description, duration], (error) => {
     if (!error) {
