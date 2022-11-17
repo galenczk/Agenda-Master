@@ -47,7 +47,7 @@ app.get("/customers/:customer_id", (req, res) => {
 
 //ROUTE -- INSERT NEW CUSTOMER
 app.post("/customers", (req, res) => {
-  const company = req.body.company;
+  const company_name = req.body.company;
   const first_name = req.body.first_name;
   const last_name = req.body.last_name;
   const email = req.body.email;
@@ -55,9 +55,9 @@ app.post("/customers", (req, res) => {
 
   const query = "INSERT INTO Customers (company_name, first_name, last_name, email, annual_revenue) VALUES (?,?,?,?,?)";
 
-  db.pool.query(query, [company, first_name, last_name, email, annual_revenue], (error) => {
+  db.pool.query(query, [company_name, first_name, last_name, email, annual_revenue], (error) => {
     if (!error) {
-      res.status(201).send(`Insert of ${company}, ${first_name}, ${last_name} successful!`);
+      res.status(201).send(`Insert of ${company_name}, ${first_name}, ${last_name} successful!`);
     } else {
       console.log(error);
     }
@@ -155,7 +155,7 @@ app.post("/projects", (req, res) => {
     if (!error) {
       res.status(201).send(`Insert of ${title} successful!`);
     } else {
-      console.log(error);
+      res.status(500).send(error);
     }
   });
 });
