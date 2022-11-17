@@ -240,7 +240,7 @@ app.get("/developers", (req, res) => {
 //ROUTE -- GET SPECIFIC DEVELOPER ON developer_id
 app.get("/developers/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
-  const query = `SELECT developer_id, first_name, last_name, email, phone, project_id FROM Developers WHERE Developers.developer_id = ?`;
+  const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.developer_id = ?`;
   db.pool.query(query, developer_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
