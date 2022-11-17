@@ -13,7 +13,6 @@ export default function CustomerDetailsPage() {
 
   const [customer, setCustomer] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [noProjects, setNoProjects] = useState("");
 
   async function loadCustomer(customer_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
@@ -28,10 +27,8 @@ export default function CustomerDetailsPage() {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${customer_id}`);
     const data = response.data;
     console.log(data)
-    if(data.length){
-      setProjects(data);
-    } else{setNoProjects("This customer has no projects currently.")}
-    console.log(noProjects)
+    setProjects(data);
+    
   }
 
   useEffect(() => {

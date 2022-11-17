@@ -24,8 +24,8 @@ export default function LandingPage() {
               This page allows a user to interact with the Project table in the company's database.
               <br />
               <br />
-              The "Add a New Project" button will allow a user to add an entry to the table. We have left some
-              default values in this form to make testing easy. Feel free to change these to match your needs!
+              The "Add a New Project" button will allow a user to add an entry to the table. We have left some default
+              values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
               The blue button on the right of each table entry allows a user to edit that table entry.
@@ -34,8 +34,7 @@ export default function LandingPage() {
               The red button allows a user to delete this table entry.
               <br />
               <br />
-              The "View" button does not function at this time, but will allow a user to view additional details
-              regarding the table entry.
+              The "View" button allows a user to view additional details regarding the table entry.
             </p>
           </div>
 
@@ -45,8 +44,8 @@ export default function LandingPage() {
               This page allows a user to interact with the Customers table in the company's database.
               <br />
               <br />
-              The "Add a New Customer" button will allow a user to add an entry to the table. We have left some
-              default values in this form to make testing easy. Feel free to change these to match your needs!
+              The "Add a New Customer" button will allow a user to add an entry to the table. We have left some default
+              values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
               The blue button on the right of each table entry allows a user to edit that table entry.
@@ -65,8 +64,8 @@ export default function LandingPage() {
               This page allows a user to interact with the Developer table in the company's database.
               <br />
               <br />
-              The "Add a New Developer" button will allow a user to add an entry to the table. We have left some
-              default values in this form to make testing easy. Feel free to change these to match your needs!
+              The "Add a New Developer" button will allow a user to add an entry to the table. We have left some default
+              values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
               The blue button on the right of each table entry allows a user to edit that table entry.
@@ -75,8 +74,7 @@ export default function LandingPage() {
               The red button allows a user to delete this table entry.
               <br />
               <br />
-              The "View" button does not function at this time, but will allow a user to view additional details
-              regarding the table entry.
+              The "View" button allows a user to view additional details regarding the table entry.
             </p>
           </div>
 
@@ -86,8 +84,8 @@ export default function LandingPage() {
               This page allows a user to interact with the Tasks table in the company's database.
               <br />
               <br />
-              The "Add a New Project" button will allow a user to add an entry to the table. We have left some
-              default values in this form to make testing easy. Feel free to change these to match your needs!
+              The "Add a New Project" button will allow a user to add an entry to the table. We have left some default
+              values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
               The blue button on the right of each table entry allows a user to edit that table entry.
@@ -96,8 +94,7 @@ export default function LandingPage() {
               The red button allows a user to delete this table entry.
               <br />
               <br />
-              The "View" button does not function at this time, but will allow a user to view additional details
-              regarding the table entry.
+              The "View" button allows a user to view additional details regarding the table entry.
             </p>
           </div>
 
@@ -107,8 +104,8 @@ export default function LandingPage() {
               This page allows a user to interact with the Certifications table in the company's database.
               <br />
               <br />
-              The "Add a New Project" button will allow a user to add an entry to the table. We have left some
-              default values in this form to make testing easy. Feel free to change these to match your needs!
+              The "Add a New Project" button will allow a user to add an entry to the table. We have left some default
+              values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
               The blue button on the right of each table entry allows a user to edit that table entry.
@@ -117,8 +114,7 @@ export default function LandingPage() {
               The red button allows a user to delete this table entry.
               <br />
               <br />
-              The "View" button does not function at this time, but will allow a user to view additional details
-              regarding the table entry.
+              The "View" button allows a user to view additional details regarding the table entry.
             </p>
           </div>
         </div>

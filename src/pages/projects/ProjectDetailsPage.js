@@ -5,48 +5,51 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import ProjectTableCustomerDetails from "../../components/projects/ProjectTableCustomerDetails";
+import TaskTableProjectDetails from "../../components/tasks/TaskTableProjectDetails";
+import DeveloperTableProjectDetails from "../../components/developers/DeveloperTableProjectDetails";
 
 // Page function
-export default function CustomerDetailsPage() {
-  const { customer_id } = useParams();
+export default function ProjectDetailsPage() {
+  const { project_id } = useParams();
 
-  const [customer, setCustomer] = useState([]);
-  const [projects, setProjects] = useState([]);
-  const [noProjects, setNoProjects] = useState("");
+  const [project, setProject] = useState([]);
+  const [developers, setDevelopers] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
-  async function loadCustomer(customer_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
+  async function loadProject(project_id) {
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${project_id}`);
     const data = response.data;
-    const customer = data[0];
+    const project = data[0];
 
-    setCustomer(customer);
-    setCustomer({ ...customer, annual_revenue: customer.annual_revenue.toLocaleString("en-US") });
+    setProject(project);
   }
 
-  async function loadProjects(customer_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${customer_id}`);
+  async function loadDevelopers(project_id) {
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/for-projects/${project_id}`);
     const data = response.data;
-    console.log(data);
-    if (data.length) {
-      setProjects(data);
-    } else {
-      setNoProjects("This customer has no projects currently.");
-    }
-    console.log(noProjects);
+
+    setDevelopers(data);
+  }
+
+  async function loadTasks(project_id) {
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/tasks/for-projects/${project_id}`);
+    const data = response.data;
+
+    setTasks(data);
   }
 
   useEffect(() => {
-    loadCustomer(customer_id);
-    loadProjects(customer_id);
+    loadProject(project_id);
+    loadDevelopers(project_id);
+    loadTasks(project_id);
   }, []);
 
   const navigate = useNavigate();
 
-  async function onDelete(customer_id) {
-    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/customers/delete", { customer_id });
+  async function onDelete(project_id) {
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/projects/delete", { project_id });
     if (response.status === 201) {
-      navigate("/customers");
+      navigate("/projects");
     }
   }
 
@@ -55,40 +58,48 @@ export default function CustomerDetailsPage() {
     <>
       <div class="flex flex-col justify-between">
         <div class="flex justify-between">
-          <h2 class="text-3xl m-4">{customer.company_name}</h2>
+          <h2 class="text-3xl m-4">{project.title}</h2>
           <div class="w-16" />
-          <h2 class="text-2xl m-4">{customer.first_name}</h2>
-          <h2 class="text-2xl m-4">{customer.last_name}</h2>
+          <h2 class="text-2xl m-4">{project.description}</h2>
+          <h2 class="text-2xl m-4">{project.delivery_date}</h2>
           <div class="max-w-1/2 flex-grow" />
-          <h2 class="text-2xl m-4 mr-12">${customer.annual_revenue}</h2>
+          <h2 class="text-2xl m-4 mr-12">{project.proj_status}</h2>
         </div>
 
         <div class="flex">
-          <h2 class="text-2xl m-4 mr-12">{customer.email}</h2>
+          <h2 class="text-2xl m-4 mr-12">{project.customer_id}</h2>
         </div>
       </div>
 
       <div class="h-16" />
 
-      {projects.length > 0 ? (
-        <ProjectTableCustomerDetails projects={projects} onOpen={() => navigate("/project")} />
+      {tasks.length > 0 ? (
+        <TaskTableProjectDetails tasks={tasks} />
       ) : (
-        <p className="text-center bg-slate-200 px-36 mx-auto">This customer has no projects currently.</p>
+        <p className="text-center bg-slate-200 px-36 mx-auto">This project does not have any tasks currently.</p>
+      )}
+
+      <div class="flex-grow" />
+
+      {developers.length > 0 ? (
+        <DeveloperTableProjectDetails developers={developers} />
+      ) : (
+        <p className="text-center bg-slate-200 px-36 mx-auto">This project does not have any developers currently.</p>
       )}
 
       <div class="flex-grow" />
 
       <div class="flex justify-between">
-        <button class="btn btn-blue place-self-start m-4" onClick={() => navigate(`/edit-customer/${customer_id}`)}>
-          Edit Customer
+        <button class="btn btn-blue place-self-start m-4" onClick={() => navigate(`/edit-project/${project_id}`)}>
+          Edit Project
         </button>
         <button
           class="btn btn-red place-self-start m-4"
           onClick={() => {
-            onDelete(customer.customer_id);
+            onDelete(project.project_id);
           }}
         >
-          Delete Customer
+          Delete Project
         </button>
       </div>
     </>

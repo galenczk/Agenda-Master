@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import DeveloperTable from "../../components/developers/DeveloperTable";
 import TaskTableProjectDetails from "../../components/tasks/TaskTableProjectDetails";
 import CertificationTableDeveloperDetails from "../../components/certifications/CertificationTableDeveloperDetails";
 
@@ -17,7 +16,7 @@ export default function DeveloperDetailsPage() {
   const [tasks, setTasks] = useState([]);
   const [certifications, setCertifications] = useState([]);
 
-  async function loadDeveloper(customer_id) {
+  async function loadDeveloper(developer_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/${developer_id}`);
     const data = response.data;
     const developer = data[0];

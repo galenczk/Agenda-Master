@@ -7,5 +7,7 @@
 - Comment throughout
 - "Back" buttons on edit pages need to work.
 
+- Make sure that all function names are correct.
+
 Galen
 Details pages for Projects, Developers, Certifications, Tasks
