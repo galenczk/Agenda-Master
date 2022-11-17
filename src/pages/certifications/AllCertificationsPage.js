@@ -9,29 +9,6 @@ import axios from "axios";
 // Import components
 import Navigation from "../../components/Navigation";
 import CertificationTable from "../../components/certifications/CertificationTable";
-import { useNavigate } from "react-router-dom";
-
-const certifications = [
-  {
-    certfication_id: 1,
-    title: "Certified Information Systems Security Professional",
-    description: "Required to work on government projects",
-    duration: "3 years",
-  },
-  {
-    certfication_id: 2,
-    title: "Certified Ethical Hacker(CEH)",
-    description: "Required for tech lead positions.",
-    duration: "3 years",
-  },
-  {
-    certfication_id: 3,
-    title: "AWS Certified Solutions Architect",
-    description: "Required for cloud application development.",
-    duration: "3 years",
-  },
-];
-
 export default function AllCertificationsPage() {
 
   const [certifications, setCertifications] = useState([]);
@@ -47,7 +24,7 @@ export default function AllCertificationsPage() {
     loadCertifications();
   }, []);
 
-  async function onView(certfication_id) {
+  async function onView(certification_id) {
     navigate(`/certifications/${certification_id}`);
   }
 
@@ -58,7 +35,7 @@ export default function AllCertificationsPage() {
     }
   }
 
-  async function onEdit() {
+  async function onEdit(certification_id) {
     navigate(`/edit-certification/${certification_id}`);
   }
 

@@ -24,7 +24,7 @@ export default function AddProjectPage() {
           initialValues={{
             title: "Excavation Log",
             description: "Archaeological mapping service requested by Carrera Terra",
-            delivery_date: 2023-10-02,
+            delivery_date: "2023-10-02",
             proj_status: "In progress",
             customer_id: "4",
           }}
