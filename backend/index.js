@@ -67,7 +67,7 @@ app.post("/customers", (req, res) => {
 //ROUTE -- DELETE SPECIFIC CUSTOMER ON customer_id
 app.post(`/customers/delete`, (req, res) => {
   const customer_id = req.body.customer_id;
-  query = "DELETE FROM Customers WHERE Customers.customer_id = ?";
+  const query = "DELETE FROM Customers WHERE Customers.customer_id = ?";
 
   db.pool.query(query, customer_id, (error) => {
     if (!error) {
@@ -163,7 +163,7 @@ app.post("/projects", (req, res) => {
 //ROUTE -- DELETE SPECIFIC PROJECT ON project_id
 app.post(`/projects/delete`, (req, res) => {
   const project_id = req.body.project_id;
-  query = "DELETE FROM Projects WHERE Projects.project_id = ?";
+  const query = "DELETE FROM Projects WHERE Projects.project_id = ?";
 
   db.pool.query(query, project_id, (error) => {
     if (!error) {
@@ -272,7 +272,7 @@ app.post("/developers", (req, res) => {
 //ROUTE -- DELETE SPECIFIC CUSTOMER ON customer_id
 app.post(`/developers/delete`, (req, res) => {
   const developer_id = req.body.developer_id;
-  query = "DELETE FROM Developers WHERE Developers.developer_id = ?";
+  const query = "DELETE FROM Developers WHERE Developers.developer_id = ?";
 
   db.pool.query(query, developer_id, (error) => {
     if (!error) {
@@ -283,7 +283,7 @@ app.post(`/developers/delete`, (req, res) => {
   });
 });
 
-//ROUTE -- UPDATE AN EXISTING DEVELOPER ENTRY ON developer_id
+//ROUTE -- UPDATE AN EXISTING CUSTOMER ENTRY ON customer_id
 app.post("/developers/update", (req, res) => {
   const developer_id = req.body.developer_id;
   const first_name = req.body.first_name;
