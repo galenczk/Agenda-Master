@@ -195,11 +195,11 @@ app.post("/projects/update", (req, res) => {
   });
 });
 
-//ROUTE GET TASKS FOR PROJECT ON project_id**********************************THIS AND NEXT ONE NEED WORK
-app.get("/tasks/for-project/:project_id", (req, res) => {
+// ROUTE -- GET DEVELOPERS FOR PROJECT ON project_id
+app.get("/developers/for-projects/:project_id", (req, res) => {
   const project_id = req.params.project_id;
-  const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.customer_id = ?`;
-  db.pool.query(query, customer_id, async (error, result) => {
+  const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id = ?`;
+  db.pool.query(query, project_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
     } else {
@@ -208,11 +208,11 @@ app.get("/tasks/for-project/:project_id", (req, res) => {
   });
 });
 
-//ROUTE GET DEVELOPERS FOR PROJECT ON project_id
-app.get("/projects/for-customer/:customer_id", (req, res) => {
-  const customer_id = req.params.customer_id;
-  const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.customer_id = ?`;
-  db.pool.query(query, customer_id, async (error, result) => {
+// ROUTE -- GET TASKS FOR PROJECT ON project_id
+app.get("/tasks/for-projects/:project_id", (req, res) => {
+  const project_id = req.params.project_id;
+  const query = `SELECT task_id, description, due_date, priority, task_status, project_id FROM Tasks WHERE Tasks.project_id = ?`;
+  db.pool.query(query, project_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
     } else {
@@ -298,6 +298,32 @@ app.post("/developers/update", (req, res) => {
   db.pool.query(query, [first_name, last_name, email, phone_number, project_id, developer_id], (error) => {
     if (!error) {
       res.status(201).send(`Update of Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+// ROUTE -- GET TASKS FOR DEVELOPER ON developer_id 
+app.get("/tasks/for-developers/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT task_id, description, due_date, priority, task_status, project_id FROM Tasks WHERE Tasks.developer_id = ?`;
+  db.pool.query(query, developer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+// ROUTE -- GET CERTIFICATIONS FOR DEVELOPER ON developer_id
+app.get("/certifications/for-developers/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT certification_id, title, description, duration FROM Certifications WHERE Certifications.developer_id = ?`;
+  db.pool.query(query, developer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
     } else {
       console.log(error);
     }
