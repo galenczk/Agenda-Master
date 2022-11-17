@@ -5,9 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import Navigation from "../../components/Navigation";
 import ProjectTableCustomerDetails from "../../components/projects/ProjectTableCustomerDetails";
-
 
 // Page function
 export default function CustomerDetailsPage() {
