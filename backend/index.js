@@ -130,7 +130,7 @@ app.get("/projects", (req, res) => {
 
 //ROUTE -- GET SPECIFIC PROJECT ON project_id
 app.get("/projects/:project_id", (req, res) => {
-  const project_id = req.params.customer_id;
+  const project_id = req.params.project_id;
   const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.project_id = ?`;
   db.pool.query(query, project_id, async (error, result) => {
     if (!error) {

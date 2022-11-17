@@ -1,7 +1,7 @@
 import React from "react";
 import Project from "./Project";
 
-export default function ProjectTable({ projects, onOpen }) {
+export default function ProjectTable({ projects, onEdit, onView, onDelete }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
@@ -16,7 +16,7 @@ export default function ProjectTable({ projects, onOpen }) {
         </thead>
         <tbody>
           {projects.map((project, i) => (
-            <Project project={project} key={i} onOpen={onOpen} />
+            <Project project={project} key={i} onEdit={onEdit} onView={onView} onDelete={onDelete} />
           ))}
         </tbody>
       </table>

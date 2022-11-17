@@ -1,7 +1,7 @@
 import React from "react";
 import Developer from "./Developer";
 
-export default function Developertable({ developers, onView }) {
+export default function Developertable({ developers, onView, onEdit, onDelete }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
@@ -16,7 +16,7 @@ export default function Developertable({ developers, onView }) {
         </thead>
         <tbody>
           {developers.map((developer, i) => (
-            <Developer developer={developer} key={i} onView={onView} />
+            <Developer developer={developer} key={i} onView={onView} onEdit={onEdit} onDelete={onDelete} />
           ))}
         </tbody>
       </table>

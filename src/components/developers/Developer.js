@@ -1,6 +1,8 @@
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
-export default function Developer({ developer, onView }) {
+export default function Developer({ developer, onView, onEdit, onDelete }) {
   return (
     <>
       <tr class="text-center">
@@ -9,8 +11,36 @@ export default function Developer({ developer, onView }) {
         <td>{developer.last_name}</td>
         <td>{developer.email}</td>
         <td>{developer.phone_number}</td>
-        <td><button class="btn btn-blue" onClick={onView}>View</button></td>
-        <td><button class="btn-small btn-red">Del</button></td>
+        <td>
+          <button
+            class="btn btn-green"
+            onClick={() => {
+              onView(developer.developer_id);
+            }}
+          >
+            View
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn-icon btn-blue"
+            onClick={() => {
+              onEdit(developer.developer_id);
+            }}
+          >
+            {<FaEdit size="20" />}
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn-icon-delete btn-red"
+            onClick={() => {
+              onDelete(developer.developer_id);
+            }}
+          >
+            {<MdDeleteForever size="20" />}
+          </button>
+        </td>
       </tr>
     </>
   );

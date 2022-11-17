@@ -5,8 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import Navigation from "../../components/Navigation";
-
 import TaskTable from "../../components/tasks/TaskTable";
 import DeveloperTableProjectDetails from "../../components/developers/DeveloperTableProjectDetails";
 
