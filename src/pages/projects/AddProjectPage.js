@@ -34,7 +34,7 @@ export default function AddProjectPage() {
         >
         <Form class="flex flex-col">
           <label for="title">Title</label>
-          <Field type="text" id="title" name="Title" />
+          <Field type="text" id="title" name="title" />
           <label for="description">Description</label>
           <Field type="text" id="description" name="description" />
           <label for="delivery_date">Delivery Date</label>

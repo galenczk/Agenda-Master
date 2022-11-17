@@ -17,8 +17,8 @@ export default function EditProjectPage() {
 
   const [project, setProject] = useState({});
 
-  async function loadProject(title) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${title}`);
+  async function loadProject(project_id) {
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${[project_id]}`);
     const data = response.data;
     const project = data[0];
     setProject(project);
@@ -31,7 +31,7 @@ export default function EditProjectPage() {
   // DOM return
   return (
     <>
-      <h1 class="text-3xl p-6 text-center"> Edit Customer Details</h1>
+      <h1 class="text-3xl p-6 text-center"> Edit Project Details</h1>
 
       <div class="flex w-2/3 place-self-center">
         <div id="Existing Information" class="p-8 bg-gray-300 mx-auto w-1/2 flex flex-col">
