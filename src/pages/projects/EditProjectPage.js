@@ -6,13 +6,12 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
-
 // Import components
 
 // Page function
 export default function EditProjectPage() {
   const navigate = useNavigate();
-  
+
   const { project_id } = useParams();
 
   const [project, setProject] = useState({});
@@ -65,7 +64,13 @@ export default function EditProjectPage() {
           </table>
           <div class="flex-grow" />
           <div class="">
-            <button class="btn btn-blue" type="reset">
+            <button
+              class="btn btn-blue"
+              type="reset"
+              onClick={() => {
+                navigate("/developers");
+              }}
+            >
               Back
             </button>
           </div>
@@ -82,13 +87,14 @@ export default function EditProjectPage() {
             }}
             values={project}
             onSubmit={async (values) => {
-              axios.post("http://flip2.engr.oregonstate.edu:33522/projects/update", values)
-              .then(navigate("/projects", {replace: true}))
+              axios
+                .post("http://flip2.engr.oregonstate.edu:33522/projects/update", values)
+                .then(navigate("/projects", { replace: true }));
             }}
           >
             <Form class="flex flex-col">
               <label for="title">Title</label>
-              <Field type="text" id="title" name="Title" />
+              <Field type="text" id="title" name="title" />
               <label for="description">Description</label>
               <Field type="text" id="description" name="description" />
               <label for="delivery_date">Delivery Date</label>
@@ -103,7 +109,7 @@ export default function EditProjectPage() {
                   Reset
                 </button>
                 <button class="btn btn-green" type="submit">
-                  Add
+                  Update
                 </button>
               </div>
             </Form>
