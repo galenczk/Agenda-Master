@@ -64,7 +64,7 @@ export default function EditDeveloperPage() {
           </table>
           <div class="flex-grow" />
           <div class="">
-            <button class="btn btn-blue" type="reset">
+            <button class="btn btn-blue" type="reset" onClick={()=>{navigate("/developers")}}>
               Back
             </button>
           </div>
@@ -102,7 +102,7 @@ export default function EditDeveloperPage() {
                   Reset
                 </button>
                 <button class="btn btn-green" type="submit">
-                  Add
+                  Update
                 </button>
               </div>
             </Form>

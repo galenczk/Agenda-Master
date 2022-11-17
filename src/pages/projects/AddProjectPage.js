@@ -12,7 +12,10 @@ export default function AddProjectPage() {
   const navigate = useNavigate()
 
   async function onAdd(values){
-    await axios.post("http://flip2.engr.oregonstate.edu:33522/projects", values);
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/projects", values);
+    if (response.status === 201) {
+      navigate("/projects");
+    }
   }
   // DOM return
   return (
