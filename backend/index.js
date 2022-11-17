@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 
 
 /**
- * ****************************CUSTOMERS ROUTES
+ * *************************************************CUSTOMER ROUTES*************************************************
  */
 // ROUTE - GET ALL CUSTOMERS
 app.get("/customers", (req, res) => {
@@ -100,7 +100,7 @@ app.post("/customers/update", (req, res) => {
 });
 
 //ROUTE -- GET PROJECTS FOR CUSTOMER ON customer_id
-app.get("/projects/:customer_id", (req, res) => {
+app.get("/projects/for-customer/:customer_id", (req, res) => {
   const customer_id = req.params.customer_id;
   const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.customer_id = ?`;
   db.pool.query(query, customer_id, async (error, result) => {
@@ -114,7 +114,7 @@ app.get("/projects/:customer_id", (req, res) => {
 
 
 /**
- * ****************************PROJECT ROUTES
+ * *************************************************PROJECT ROUTES*************************************************
  */
 // ROUTE - GET ALL PROJECTS
 app.get("/projects", (req, res) => {
@@ -184,9 +184,9 @@ app.post("/projects/update", (req, res) => {
   const customer_id = req.body.customer_id;
 
   const query =
-    "UPDATE Projects SET title = ?, description = ?, delivery_date = ?, proj_status = ?, customer_id = ? WHERE Projects.customer_id = ?";
+    "UPDATE Projects SET title = ?, description = ?, delivery_date = ?, proj_status = ?, customer_id = ? WHERE Projects.project_id = ?";
 
-  db.pool.query(query, [title, description, delivery_date, proj_status, customer_id], (error) => {
+  db.pool.query(query, [title, description, delivery_date, proj_status, customer_id, project_id], (error) => {
     if (!error) {
       res.status(201).send(`Update of Project ${project_id} successful!`);
     } else {
@@ -195,8 +195,21 @@ app.post("/projects/update", (req, res) => {
   });
 });
 
-//ROUTE -- GET PROJECTS FOR CUSTOMER ON customer_id
-app.get("/projects/:customer_id", (req, res) => {
+//ROUTE GET TASKS FOR PROJECT ON project_id**********************************THIS AND NEXT ONE NEED WORK
+app.get("/tasks/for-project/:project_id", (req, res) => {
+  const project_id = req.params.project_id;
+  const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.customer_id = ?`;
+  db.pool.query(query, customer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE GET DEVELOPERS FOR PROJECT ON project_id
+app.get("/projects/for-customer/:customer_id", (req, res) => {
   const customer_id = req.params.customer_id;
   const query = `SELECT project_id, title, description, delivery_date, proj_status, customer_id FROM Projects WHERE Projects.customer_id = ?`;
   db.pool.query(query, customer_id, async (error, result) => {
@@ -209,10 +222,249 @@ app.get("/projects/:customer_id", (req, res) => {
 });
 
 
+/**
+ * *************************************************DEVELOPER ROUTES*************************************************
+ */
+// ROUTE - GET ALL DEVELOPERS
+app.get("/developers", (req, res) => {
+  const query = "SELECT * FROM Developers;";
+  db.pool.query(query, (error, result) => {
+    if (!error) {
+      res.send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET SPECIFIC DEVELOPER ON developer_id
+app.get("/developers/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT developer_id, first_name, last_name, email, phone, project_id FROM Developers WHERE Developers.developer_id = ?`;
+  db.pool.query(query, developer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- INSERT NEW DEVELOPER
+app.post("/developers", (req, res) => {
+  const first_name = req.body.first_name;
+  const last_name = req.body.last_name;
+  const email = req.body.email;
+  const phone_number = req.body.phone_number;
+  const project_id = req.body.project_id;
+
+  const query = "INSERT INTO Developers (first_name, last_name, email, phone_number, project_id) VALUES (?,?,?,?,?)";
+
+  db.pool.query(query, [first_name, last_name, email, phone_number, project_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Insert of ${first_name}, ${last_name} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- DELETE SPECIFIC DEVELOPER ON developer_id 
+app.post(`/developers/delete`, (req, res) => {
+  const developer_id = req.body.developer_id;
+  query = "DELETE FROM Developer WHERE Developers.developer_id = ?";
+
+  db.pool.query(query, developer_id, (error) => {
+    if (!error) {
+      res.status(201).send(`Delete on Developer ${developer_id} successful.`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- UPDATE AN EXISTING DEVELOPER ENTRY ON developer_id
+app.post("/developers/update", (req, res) => {
+  const developer_id = req.body.developer_id;
+  const first_name = req.body.first_name;
+  const last_name = req.body.last_name;
+  const email = req.body.email;
+  const phone_number = req.body.phone_number;
+  const project_id = req.body.project_id;
+
+  const query =
+    "UPDATE Developers SET first_name = ?, last_name = ?, email = ?, phone_number = ?, project_id = ? WHERE Developers.developer_id = ?";
+
+  db.pool.query(query, [first_name, last_name, email, phone_number, project_id, developer_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Update of Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
 
 
+/**
+ * *************************************************TASK ROUTES*************************************************
+ */
+// ROUTE - GET ALL TASKS
+app.get("/tasks", (req, res) => {
+  const query = "SELECT * FROM Tasks;";
+  db.pool.query(query, (error, result) => {
+    if (!error) {
+      res.send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET SPECIFIC TASK ON task_id
+app.get("/tasks/:task_id", (req, res) => {
+  const task_id = req.params.task_id;
+  const query = `SELECT task_id, description, due_date, priority, task_status, project_id FROM Tasks WHERE Tasks.task_id = ?`;
+  db.pool.query(query, task_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- INSERT NEW TASK
+app.post("/tasks", (req, res) => {
+  const description = req.body.description;
+  const due_date = req.body.due_date;
+  const priority = req.body.priority;
+  const task_status = req.body.task_status;
+  const project_id = req.body.project_id;
+
+  const query = "INSERT INTO Tasks (description, due_date, priority, task_status, project_id) VALUES (?,?,?,?,?)";
+
+  db.pool.query(query, [description, due_date, priority, task_status, project_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Insert of task successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- DELETE SPECIFIC TASK ON task_id
+app.post(`/tasks/delete`, (req, res) => {
+  const task_id = req.body.task_id;
+  query = "DELETE FROM Tasks WHERE Tasks.task_id = ?";
+
+  db.pool.query(query, task_id, (error) => {
+    if (!error) {
+      res.status(201).send(`Delete on Task ${task_id} successful.`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- UPDATE AN EXISTING TASK ENTRY ON task_id
+app.post("/projects/update", (req, res) => {
+  const task_id = req.body.task_id;
+  const description = req.body.description;
+  const due_date = req.body.due_date;
+  const priority = req.body.priority;
+  const task_status = req.body.task_status;
+  const project_id = req.body.project_id;
+
+  const query =
+    "UPDATE Tasks SET description = ?, due_date = ?, priority = ?, task_status = ?, project_id = ? WHERE Tasks.task_id = ?";
+
+  db.pool.query(query, [description, due_date, priority, task_status, project_id, task_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Update of Task ${task_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
 
 
+/**
+ * *************************************************CERTIFICATION ROUTES*************************************************
+ */
+// ROUTE - GET ALL CERTIFICATIONS
+app.get("/certifications", (req, res) => {
+  const query = "SELECT * FROM Certifications;";
+  db.pool.query(query, (error, result) => {
+    if (!error) {
+      res.send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET SPECIFIC CERTIFICATION ON certification_id
+app.get("/certifications/:certification_id", (req, res) => {
+  const certification_id = req.params.certification_id;
+  const query = `SELECT certification_id, title, description, duration FROM Certifications WHERE Certifications.certification_id = ?`;
+  db.pool.query(query, certification_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- INSERT NEW CERTIFICATION
+app.post("/certifications", (req, res) => {
+  const title = req.body.title;
+  const description = req.body.description;
+  const duration = req.body.duration;
+
+  const query = "INSERT INTO Certifications (title, description, duration) VALUES (?,?,?)
+
+  db.pool.query(query, [title, description, duration], (error) => {
+    if (!error) {
+      res.status(201).send(`Insert of ${title} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- DELETE SPECIFIC CERTIFICATION ON certification_id
+app.post(`/certifications/delete`, (req, res) => {
+  const certification_id = req.body.certification_id;
+  query = "DELETE FROM Certifications WHERE Certifications.certification_id = ?";
+
+  db.pool.query(query, certification_id, (error) => {
+    if (!error) {
+      res.status(201).send(`Delete on Certification ${certification_id} successful.`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- UPDATE AN EXISTING CERTIFICATION ENTRY ON certification_id
+app.post("/projects/update", (req, res) => {
+  const certification_id = req.body.certification_id;
+  const title = req.body.title;
+  const description = req.body.description;
+  const duration = req.body.duration;
+
+  const query =
+    "UPDATE Projects SET title = ?, description = ?, duration = ? WHERE Certifications.certification_id = ?";
+
+  db.pool.query(query, [title, description, duration, certification_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Update of Certification ${certification_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
 
 
 

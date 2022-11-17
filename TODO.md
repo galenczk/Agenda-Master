@@ -4,5 +4,9 @@
 
 - Can the display tables have sorting buttons on columns?
 
+- Comment throughout
 
+Galen
+Details pages for Projects, Developers, Certifications, Tasks
 
+Make routes for Developers, Certifications, Tasks

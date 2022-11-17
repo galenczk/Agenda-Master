@@ -55,7 +55,7 @@ export default function App() {
             <Route path="/projects" exact element={<AllProjectsPage />} />
             <Route path="/add-project" exact element={<AddProjectPage />} />
             <Route path="/edit-project" exact element={<EditProjectPage />} />
-            <Route path="/projects/1" exact element={<ProjectDetailsPage />} />
+            <Route path="/projects/:project_id" exact element={<ProjectDetailsPage />} />
             
             <Route path="/customers" exact element={<AllCustomersPage />} />
             <Route path="/customers/:customer_id" exact element={<CustomerDetailsPage />} />
@@ -63,7 +63,7 @@ export default function App() {
             <Route path="/edit-customer/:customer_id" exact element={<EditCustomerPage />} />
 
             <Route path="/developers" exact element={<AllDevelopersPage />} />
-            <Route path="/developers/1" exact element={<DeveloperDetailsPage />} />
+            <Route path="/developers/:developer_id" exact element={<DeveloperDetailsPage />} />
             <Route path="/add-developer" exact element={<AddDeveloperPage />} />
             <Route path="/edit-developer/1" exact element={<EditDeveloperPage />} />
             
