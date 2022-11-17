@@ -79,6 +79,7 @@ export default function EditProjectPage() {
           <Formik
             enableReinitialize={true}
             initialValues={{
+              project_id: project.project_id,
               title: project.title,
               description: project.description,
               delivery_date: project.delivery_date,
@@ -87,9 +88,10 @@ export default function EditProjectPage() {
             }}
             values={project}
             onSubmit={async (values) => {
-              axios
-                .post("http://flip2.engr.oregonstate.edu:33522/projects/update", values)
-                .then(navigate("/projects", { replace: true }));
+              const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/projects/update", values)
+                if (response.status === 201) {
+                  navigate("/projects");
+                }
             }}
           >
             <Form class="flex flex-col">

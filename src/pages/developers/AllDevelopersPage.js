@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import Navigation from "../../components/Navigation"
 import DeveloperTable from "../../components/developers/DeveloperTable"
 
 

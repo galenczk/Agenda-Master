@@ -73,6 +73,7 @@ export default function EditDeveloperPage() {
           <Formik
             enableReinitialize={true}
             initialValues={{
+              developer_id: developer_id,
               first_name: developer.first_name,
               last_name: developer.last_name,
               email: developer.email,
@@ -81,8 +82,10 @@ export default function EditDeveloperPage() {
             }}
             values={developer}
             onSubmit={async (values) => {
-              axios.post("http://flip2.engr.oregonstate.edu:33522/developers/update", values)
-              .then(navigate("/developers", {replace: true}))
+              const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers/update", values)
+              if (response.status === 201) {
+                navigate("/developers");
+              }
             }}
           >
             <Form class="flex flex-col">

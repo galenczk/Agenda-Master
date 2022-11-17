@@ -10,7 +10,7 @@ export default function Project({ project, onEdit, onView, onDelete }) {
         <td>{project.title}</td>
         <td>{project.delivery_date}</td>
         <td>{project.proj_status}</td>
-        <td>{project.customer}</td>
+        <td>{project.customer_id}</td>
         <td>
           <button onClick={()=>{onView(project.project_id)}} class="btn btn-green mx-auto">
             View
