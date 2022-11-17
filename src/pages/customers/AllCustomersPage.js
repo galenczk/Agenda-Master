@@ -13,6 +13,7 @@ import CustomerTable from "../../components/CustomerTable";
 // Page function
 export default function AllCustomersPage() {
   const [customers, setCustomers] = useState([]);
+  const navigate = useNavigate();
 
   async function loadCustomers() {
     const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/customers");
@@ -38,8 +39,6 @@ export default function AllCustomersPage() {
     async function onEdit(customer_id) {
       navigate(`/edit-customer/${customer_id}`)
     }
-
-  const navigate = useNavigate();
 
   // DOM return
   return (

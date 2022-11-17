@@ -27,8 +27,6 @@ export default function EditProjectPage() {
     loadCustomer(customer_id);
   }, []);
 
-  const company = customer.company_name;
-
   // DOM return
   return (
     <>
