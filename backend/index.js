@@ -269,10 +269,10 @@ app.post("/developers", (req, res) => {
   });
 });
 
-//ROUTE -- DELETE SPECIFIC DEVELOPER ON developer_id 
+//ROUTE -- DELETE SPECIFIC CUSTOMER ON customer_id
 app.post(`/developers/delete`, (req, res) => {
   const developer_id = req.body.developer_id;
-  query = "DELETE FROM Developer WHERE Developers.developer_id = ?";
+  query = "DELETE FROM Developers WHERE Developers.developer_id = ?";
 
   db.pool.query(query, developer_id, (error) => {
     if (!error) {
