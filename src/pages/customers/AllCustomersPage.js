@@ -2,12 +2,11 @@
 import React from "react";
 import { Formik, Field, Form } from "formik";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 import axios from "axios";
 
 // Import components
-import Navigation from "../../components/Navigation";
 import CustomerTable from "../../components/CustomerTable";
 
 // Page function
@@ -36,9 +35,9 @@ export default function AllCustomersPage() {
     }
   }
 
-    async function onEdit(customer_id) {
-      navigate(`/edit-customer/${customer_id}`)
-    }
+  async function onEdit(customer_id) {
+    navigate(`/edit-customer/${customer_id}`);
+  }
 
   // DOM return
   return (

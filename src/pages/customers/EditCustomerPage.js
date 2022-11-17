@@ -87,8 +87,10 @@ export default function EditProjectPage() {
             }}
             values={customer}
             onSubmit={async (values) => {
-              axios.post("http://flip2.engr.oregonstate.edu:33522/customers/update", values)
-              .then(navigate("/customers", {replace: true}))
+              const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/customers/update", values);
+              if (response.status === 201) {
+                navigate("/customers");
+              }
             }}
           >
             <Form class="flex flex-col">

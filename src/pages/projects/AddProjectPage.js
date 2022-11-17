@@ -29,7 +29,7 @@ export default function AddProjectPage() {
             description: "Archaeological mapping service requested by Carrera Terra",
             delivery_date: "2023-10-02",
             proj_status: "In progress",
-            customer_id: "4",
+            customer_id: null,
           }}
           onSubmit={async (values) => {
             onAdd(values)

@@ -13,7 +13,10 @@ export default function AddDeveloperPage() {
   const navigate = useNavigate()
 
   async function onAdd(values){
-    await axios.post("http://flip2.engr.oregonstate.edu:33522/developers", values);
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers", values);
+    if(response.status === 201){
+      navigate("/developers")
+    }
   }
 
   // DOM return
@@ -28,7 +31,7 @@ export default function AddDeveloperPage() {
             last_name: "Brawn",
             email: "mbrawn@keyenergetics.com",
             phone_number: "1910023476",
-            project_id: "1",
+            project_id: null,
           }}
           onSubmit={async (values) => {
             onAdd(values)
