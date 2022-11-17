@@ -19,7 +19,7 @@ export default function LandingPage() {
 
         <div class="flex mt-10 justify-between">
           <div class="text-left px-6 py-4 bg-slate-200">
-            <h3 class="mb-4 font-bold">Projects Page</h3>
+            <h3 class="mb-4 font-bold text-center">Projects Page</h3>
             <p class="leading-relaxed">
               This page allows a user to interact with the Project table in the company's database.
               <br />
@@ -39,7 +39,7 @@ export default function LandingPage() {
           </div>
 
           <div class="text-left px-6 py-4">
-            <h3 class="mb-4 font-bold">Customers Page</h3>
+            <h3 class="mb-4 font-bold text-center">Customers Page</h3>
             <p class="leading-relaxed">
               This page allows a user to interact with the Customers table in the company's database.
               <br />
@@ -58,8 +58,8 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div class="text-left px-6 py-4 ">
-            <h3 class="mb-4 font-bold">Developers Page</h3>
+          <div class="text-left px-6 py-4 bg-slate-200">
+            <h3 class="mb-4 font-bold text-center">Developers Page</h3>
             <p class="leading-relaxed">
               This page allows a user to interact with the Developer table in the company's database.
               <br />
@@ -78,8 +78,8 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div class="text-left px-6 py-4 bg-slate-200">
-            <h3 class="mb-4 font-bold">Tasks Page</h3>
+          <div class="text-left px-6 py-4 ">
+            <h3 class="mb-4 font-bold text-center">Tasks Page</h3>
             <p class="leading-relaxed">
               This page allows a user to interact with the Tasks table in the company's database.
               <br />
@@ -99,13 +99,13 @@ export default function LandingPage() {
           </div>
 
           <div class="text-left px-6 py-4 bg-slate-200">
-            <h3 class="mb-4 font-bold">Certifications Page</h3>
+            <h3 class="mb-4 font-bold text-center">Certifications Page</h3>
             <p class="leading-relaxed">
               This page allows a user to interact with the Certifications table in the company's database.
               <br />
               <br />
-              The "Add a New Certification" button will allow a user to add an entry to the table. We have left some default
-              values in this form to make testing easy. Feel free to change these to match your needs!
+              The "Add a New Certification" button will allow a user to add an entry to the table. We have left some
+              default values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
               The blue button on the right of each table entry allows a user to edit that table entry.
