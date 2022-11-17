@@ -17,9 +17,9 @@ export default function EditDeveloperPage() {
   const [developer, setDeveloper] = useState({});
 
   async function loadDeveloper(developer_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/${[developer_id]}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/${developer_id}`);
     const data = response.data;
-    const project = data[0];
+    const developer = data[0];
     setDeveloper(developer);
   }
 

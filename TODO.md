@@ -4,10 +4,8 @@
 
 - Can the display tables have sorting buttons on columns?
 
+- Comment throughout
 - "Back" buttons on edit pages need to work.
-
 
 Galen
 Details pages for Projects, Developers, Certifications, Tasks
-
-Make routes 
