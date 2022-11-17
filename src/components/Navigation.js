@@ -51,7 +51,7 @@ export default function Navigation() {
           isActive ? "bg-sky-800 text-center text-white p-2 flex-grow" : "p-2 flex-grow text-center"
         }
       >
-        All Tasks
+        Tasks
       </NavLink>
       <NavLink
         to="../certifications"
