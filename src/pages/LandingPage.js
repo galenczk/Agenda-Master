@@ -84,7 +84,7 @@ export default function LandingPage() {
               This page allows a user to interact with the Tasks table in the company's database.
               <br />
               <br />
-              The "Add a New Project" button will allow a user to add an entry to the table. We have left some default
+              The "Add a New Task" button will allow a user to add an entry to the table. We have left some default
               values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
@@ -104,7 +104,7 @@ export default function LandingPage() {
               This page allows a user to interact with the Certifications table in the company's database.
               <br />
               <br />
-              The "Add a New Project" button will allow a user to add an entry to the table. We have left some default
+              The "Add a New Certification" button will allow a user to add an entry to the table. We have left some default
               values in this form to make testing easy. Feel free to change these to match your needs!
               <br />
               <br />
