@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 
-export default function TaskTable({ tasks, onEdit }) {
+export default function TaskTable({ tasks, onEdit, onDelete }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
@@ -17,7 +17,7 @@ export default function TaskTable({ tasks, onEdit }) {
         </thead>
         <tbody>
           {tasks.map((task, i) => (
-            <Task task={task} key={i} onEdit={onEdit} />
+            <Task task={task} key={i} onEdit={onEdit} onDelete={onDelete} />
           ))}
         </tbody>
       </table>

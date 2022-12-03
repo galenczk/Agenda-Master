@@ -19,6 +19,13 @@ export default function AddTaskPage() {
     setProjects(projects);
   }
 
+  async function onAdd(values) {
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/tasks", values);
+    if (response.status === 201) {
+      navigate("/tasks");
+    }
+  }
+
   useEffect(() => {
     loadProjects();
   }, []);
@@ -34,21 +41,28 @@ export default function AddTaskPage() {
             description: "",
             due_date: "",
             priority: "",
-            status: "",
+            task_status: "",
             project_id: "",
+          }}
+          onSubmit={async (values) => {
+            onAdd(values);
           }}
         >
           <Form class="flex flex-col">
             <label for="description">Description </label>
             <Field type="text" id="description" name="first_descriptionname" />
             <label for="due_date">Due Date</label>
-            <Field type="text" id="due_date" name="due_date" />
+            <Field type="date" id="due_date" name="due_date" />
             <label for="priority">Priority</label>
-            <Field type="date" id="priority" name="priority" />
-            <label for="status">Status</label>
-            <Field as="select" id="status" name="status" />
-            <label for="project">Project</label>
-            <Field as="select" id="project" name="project">
+            <Field as="select" id="priority" name="priority">
+              <option value="high">High</option>
+            </Field>
+            <label for="task_status">Status</label>
+            <Field as="select" id="task_status" name="task_status">
+              <option>In-Progress</option>
+            </Field>
+            <label for="project_id">Project</label>
+            <Field as="select" id="project_id" name="project_id">
               <option value=""> - </option>
               {projects.map((item, key) => {
                 return (
