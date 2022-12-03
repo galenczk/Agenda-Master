@@ -359,6 +359,19 @@ app.get("/tasks/:task_id", (req, res) => {
   });
 });
 
+// ROUTE -- GET TASKS BASED ON project_id
+app.get("/tasks/project/:project_id", (req, res) => {
+  const project_id = req.params.project_id;
+  const query = `SELECT task_id, description, due_date, priority, task_status, project_id FROM Tasks WHERE Tasks.project_id = ?`;
+  db.pool.query(query, project_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
 //ROUTE -- INSERT NEW TASK
 app.post("/tasks", (req, res) => {
   const description = req.body.description;

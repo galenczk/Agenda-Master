@@ -36,7 +36,7 @@ export default function App() {
   // DOM return
   return (
     <div class="flex flex-col min-h-screen">
-      <Router forceRefresh={true}>
+      <Router>
         <div class="sticky top-0 z-50">
           <header class="bg-slate-800 text-center text-white text2xl py-2 sticky top-0 z-50">
             Agenda Master - The Database Management Tool by Key Energetics
