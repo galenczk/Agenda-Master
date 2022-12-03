@@ -50,7 +50,7 @@ export default function AddTaskPage() {
         >
           <Form class="flex flex-col">
             <label for="description">Description </label>
-            <Field type="text" id="description" name="first_descriptionname" />
+            <Field type="text" id="description" name="description" />
             <label for="due_date">Due Date</label>
             <Field type="date" id="due_date" name="due_date" />
             <label for="priority">Priority</label>

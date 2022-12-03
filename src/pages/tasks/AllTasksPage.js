@@ -3,22 +3,36 @@ import React from "react";
 import { Formik, Field, Form } from "formik";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 // Import components
 import TaskTable from "../../components/tasks/TaskTable";
 
-
 export default function AllTasksPage() {
-  const [tasks, setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
+  const [projects, setProjects] = useState([]);
+
   const navigate = useNavigate();
 
-  async function loadTasks() {
-    const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/tasks");
-    const tasks = response.data;
-    setTasks(tasks);
+  async function loadTasks(projectID = -1) {
+    if (projectID == -1) {
+      const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/tasks");
+      const tasks = response.data;
+      setTasks(tasks);
+    } else {
+      const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/tasks/project/${projectID}`);
+      const tasks = response.data;
+      setTasks(tasks);
+    }
   }
-  
+
+  async function loadProjects() {
+    const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/projects");
+    const projects = response.data;
+    console.log(projects);
+    setProjects(projects);
+  }
+
   async function onDelete(task_id) {
     const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/tasks/delete", { task_id });
     if (response.status === 201) {
@@ -30,9 +44,10 @@ export default function AllTasksPage() {
     navigate(`/edit-task/${task_id}`);
   }
 
-   useEffect(() => {
-     loadTasks();
-   }, []);
+  useEffect(() => {
+    loadTasks();
+    loadProjects();
+  }, []);
 
   // DOM return
   return (
@@ -55,42 +70,40 @@ export default function AllTasksPage() {
           </button>
         </div>
 
-        <div class="p-4 bg-gray-200 w-1/2 m-6">
+        <div class="p-4 bg-gray-300 w-96 m-6">
           <Formik
             initialValues={{
-              ID: "",
-              dueDate: "",
-              priority: "",
-              status: "",
-              project: "",
+              project_id: -1,
+            }}
+            onSubmit={(values) => {
+              loadTasks(values.project_id);
+            }}
+            onReset={() => {
+              loadTasks(-1);
             }}
           >
             <Form class="flex flex-col">
-              <legend class="text-lg font-bold mb-4">Search Tasks</legend>
+              <legend class="text-lg font-bold mb-4">Filter Tasks</legend>
 
               <div class="flex">
                 <div class="flex flex-col flex-grow">
-                  <label for="task_ID">Task ID</label>
-                  <Field type="text" id="task_ID" name="task_ID" />
-                  <label for="dueDate">Due Date</label>
-                  <Field type="text" id="dueDate" name="dueDate" />
-                  <label for="priority">Priority</label>
-                  <Field type="text" id="priority" name="priority" />
-                </div>
-
-                <div class="w-6" />
-
-                <div class="flex flex-col flex-grow justify-center">
-                  <label for="status">Status</label>
-                  <Field type="text" id="status" name="status" />
-                  <label for="project">Project</label>
-                  <Field type="text" id="project" name="project" />
+                  <label for="project_id">Project</label>
+                  <Field as="select" id="project_id" name="project_id" className="bg-white">
+                    <option value={-1}>-</option>
+                    {projects.map((item, key) => {
+                      return <option value={item.project_id}>{item.title}</option>;
+                    })}
+                  </Field>
                 </div>
               </div>
 
               <div class="flex justify-between mt-6">
-                <button class="btn-small btn-gray">Reset</button>
-                <button class="btn btn-blue">Search</button>
+                <button class="btn-small btn-gray" type="reset">
+                  Reset
+                </button>
+                <button class="btn btn-blue" type="submit">
+                  Filter
+                </button>
               </div>
             </Form>
           </Formik>
