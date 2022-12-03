@@ -9,14 +9,26 @@ import axios from "axios";
 
 // Page function
 export default function AddProjectPage() {
+  const [customers, setCustomers] = useState([])
   const navigate = useNavigate()
 
+  async function loadCustomers() {
+    const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/customers");
+    const customers = response.data;
+    setCustomers(customers);
+  }
+  
   async function onAdd(values){
     const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/projects", values);
     if (response.status === 201) {
       navigate("/projects");
     }
   }
+
+  useEffect(()=>{
+    loadCustomers();
+  }, [])
+
   // DOM return
   return (
     <>
@@ -45,7 +57,13 @@ export default function AddProjectPage() {
           <label for="proj_status">Project Status</label>
           <Field type="text" id="proj_status" name="proj_status" />
           <label for="customer_id">Customer ID</label>
-          <Field type="text" id="customer_id" name="customer_id" />
+          <Field as="select" id="customer_id" name="customer_id">
+            <option value=""> - </option>
+            {customers.map(
+              (item, key)=>{
+              return <option key={key +1} value={item.customer_id}>{item.company_name}</option>
+            })}
+          </Field>
 
           <div class="flex justify-between mt-6">
               <button class="btn-small btn-gray" type="reset">

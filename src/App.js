@@ -66,7 +66,7 @@ export default function App() {
 
             <Route path="/tasks" exact element={<AllTasksPage />} />
             <Route path="/add-task" exact element={<AddTaskPage />} />
-            <Route path="/edit-task/1" exact element={<EditTaskPage />} />
+            <Route path="/edit-task/:task_id" exact element={<EditTaskPage />} />
 
             <Route path="/certifications" exact element={<AllCerificationsPage />} />
             <Route path="/add-certification" exact element={<AddCertificationPage />} />

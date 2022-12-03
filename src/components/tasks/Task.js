@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Task({ task, onEdit }) {
+export default function Task({ task, onEdit, onDelete }) {
   return (
     <>
       <tr class="text-center">
@@ -11,10 +11,24 @@ export default function Task({ task, onEdit }) {
         <td>{task.task_status}</td>
         <td>{task.project_id}</td>
         <td>
-          <button class="btn btn-blue" onClick={onEdit}>Edit</button>
+          <button
+            class="btn btn-blue"
+            onClick={() => {
+              onEdit(task.task_id);
+            }}
+          >
+            Edit
+          </button>
         </td>
         <td>
-          <button class="btn-small btn-red">Del</button>
+          <button
+            class="btn-small btn-red"
+            onClick={() => {
+              onDelete(task.task_id);
+            }}
+          >
+            Del
+          </button>
         </td>
       </tr>
     </>

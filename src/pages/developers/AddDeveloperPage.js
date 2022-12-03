@@ -9,15 +9,26 @@ import axios from "axios";
 
 // Page function
 export default function AddDeveloperPage() {
-  
-  const navigate = useNavigate()
+  const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
 
-  async function onAdd(values){
+  async function loadProjects() {
+    const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/projects");
+    const projects = response.data;
+    console.log(projects);
+    setProjects(projects);
+  }
+
+  async function onAdd(values) {
     const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers", values);
-    if(response.status === 201){
-      navigate("/developers")
+    if (response.status === 201) {
+      navigate("/developers");
     }
   }
+
+  useEffect(() => {
+    loadProjects();
+  }, []);
 
   // DOM return
   return (
@@ -34,22 +45,31 @@ export default function AddDeveloperPage() {
             project_id: null,
           }}
           onSubmit={async (values) => {
-            onAdd(values)
+            onAdd(values);
           }}
         >
-        <Form class="flex flex-col">
-          <label for="first_name">First Name</label>
-          <Field type="text" id="first_name" name="first_name" />
-          <label for="last_name">Last Name</label>
-          <Field type="text" id="last_name" name="last_name" />
-          <label for="email">Email</label>
-          <Field type="text" id="email" name="email" />
-          <label for="phone_number">Phone Number</label>
-          <Field type="text" id="phone_number" name="phone_number" />
-          <label for="project_id">Project ID</label>
-          <Field type="text" id="project_id" name="project_id" />
+          <Form class="flex flex-col">
+            <label for="first_name">First Name</label>
+            <Field type="text" id="first_name" name="first_name" />
+            <label for="last_name">Last Name</label>
+            <Field type="text" id="last_name" name="last_name" />
+            <label for="email">Email</label>
+            <Field type="text" id="email" name="email" />
+            <label for="phone_number">Phone Number</label>
+            <Field type="text" id="phone_number" name="phone_number" />
+            <label for="project_id">Project ID</label>
+            <Field as="select" id="project_id" name="project_id">
+              <option value=""> - </option>
+              {projects.map((item, key) => {
+                return (
+                  <option key={key + 1} value={item.project_id}>
+                    {item.title}
+                  </option>
+                );
+              })}
+            </Field>
 
-          <div class="flex justify-between mt-6">
+            <div class="flex justify-between mt-6">
               <button class="btn-small btn-gray" type="reset">
                 Reset
               </button>
