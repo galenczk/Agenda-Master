@@ -29,7 +29,9 @@ export default function EditDeveloperPage() {
 
           <div class="flex justify-between mt-6">
             <button class="btn-small btn-gray">Reset</button>
-            <button class="btn btn-green">Save</button>
+            <button class="btn btn-green"
+              onClick={()=>{navigate(-1)}}
+            >Save</button>
           </div>
         </form>
       </div>

@@ -506,6 +506,34 @@ app.post("/projects/update", (req, res) => {
 });
 
 
+/**
+ * *************************************************DEVELOPER ROSTER ROUTES*************************************************
+ */
+//ROUTE -- GET SPECIFIC DEVELOPER ON project_id
+app.get("/developers/roster-in/:project_id", (req, res) => {
+  const project_id = req.params.project_id;
+  const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id = ?`;
+  db.pool.query(query, project_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET SPECIFIC DEVELOPER NOT ON project_id
+app.get("/developers/roster-out/:project_id", (req, res) => {
+  const project_id = req.params.project_id;
+  const query = `SELECT project_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id != ?`;
+  db.pool.query(query, project_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
 
 
 /**

@@ -24,7 +24,10 @@ import EditCertificationPage from "./pages/certifications/EditCertificationPage"
 
 import AllTasksPage from "./pages/tasks/AllTasksPage";
 import AddTaskPage from "./pages/tasks/AddTaskPage";
+import AddTaskToProjectPage from "./pages/tasks/AddTaskToProjectPage"
 import EditTaskPage from "./pages/tasks/EditTaskPage";
+
+import DevRosterPage from "./pages/DevRosterPage";
 
 import LandingPage from "./pages/LandingPage";
 
@@ -54,6 +57,8 @@ export default function App() {
             <Route path="/projects/:project_id" exact element={<ProjectDetailsPage />} />
             <Route path="/edit-project/:project_id" exact element={<EditProjectPage />} />
 
+            <Route path="/dev-roster/:project_id" exact element={<DevRosterPage />} />
+
             <Route path="/customers" exact element={<AllCustomersPage />} />
             <Route path="/add-customer" exact element={<AddCustomerPage />} />
             <Route path="/customers/:customer_id" exact element={<CustomerDetailsPage />} />
@@ -66,6 +71,7 @@ export default function App() {
 
             <Route path="/tasks" exact element={<AllTasksPage />} />
             <Route path="/add-task" exact element={<AddTaskPage />} />
+            <Route path="/add-task/:project_id" exact element={<AddTaskToProjectPage />} />
             <Route path="/edit-task/:task_id" exact element={<EditTaskPage />} />
 
             <Route path="/certifications" exact element={<AllCerificationsPage />} />

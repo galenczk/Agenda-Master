@@ -1,4 +1,8 @@
+// Import dependencies
 import React from "react";
+
+// Moment handles date formatting
+import Moment from "react-moment";
 
 export default function Task({ task, onEdit, onDelete }) {
   return (
@@ -6,7 +10,7 @@ export default function Task({ task, onEdit, onDelete }) {
       <tr class="text-center">
         <td>{task.task_id}</td>
         <td>{task.description}</td>
-        <td>{task.due_date}</td>
+        <td>{<Moment format="YYYY/MM/DD">{task.due_date}</Moment>}</td>
         <td>{task.priority}</td>
         <td>{task.task_status}</td>
         <td>{task.project_id}</td>

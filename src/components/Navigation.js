@@ -22,7 +22,6 @@ export default function Navigation() {
       </NavLink>
       <NavLink
         to="/projects"
-        end
         className={({ isActive }) =>
           isActive ? "bg-sky-800 text-center text-white p-2 flex-grow" : "p-2 flex-grow text-center"
         }

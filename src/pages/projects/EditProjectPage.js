@@ -6,9 +6,7 @@ import { useState, useEffect } from "react";
 
 import axios from "axios";
 
-// Import components
 
-// Page function
 export default function EditProjectPage() {
   const navigate = useNavigate();
 

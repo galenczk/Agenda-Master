@@ -1,7 +1,7 @@
 import React from "react";
-import TaskProjectDetails from "./Task";
+import TaskProjectDetails from "./TaskProjectDetails";
 
-export default function TaskTableProjectDetails({ tasks, onOpen }) {
+export default function TaskTableProjectDetails({ tasks, onEditTask, onDeleteTask }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
@@ -11,12 +11,11 @@ export default function TaskTableProjectDetails({ tasks, onOpen }) {
             <th>Due Date</th>
             <th>Priority</th>
             <th>Status</th>
-            <th>Developers Assigned</th>
           </tr>
         </thead>
         <tbody>
           {tasks.map((task, i) => (
-            <TaskProjectDetails task={task} key={i} />
+            <TaskProjectDetails task={task} key={i} onEditTask={onEditTask} onDeleteTask={onDeleteTask} />
           ))}
         </tbody>
       </table>
