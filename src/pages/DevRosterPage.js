@@ -28,6 +28,7 @@ export default function DevRosterPage() {
   async function loadDevsOut(project_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/roster-out/${project_id}`);
     const data = response.data;
+    console.log(data)
     setDevsOut(data);
   }
 
