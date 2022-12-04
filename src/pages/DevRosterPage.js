@@ -37,8 +37,8 @@ export default function DevRosterPage() {
       developer_id: developer_id,
     })
     if(response.status === 201){
-      loadDevsIn()
-      loadDevsOut()
+      loadDevsIn(project_id);
+      loadDevsOut(project_id);
     }
   }
   async function unassignDev(project_id, developer_id) {
@@ -46,8 +46,8 @@ export default function DevRosterPage() {
       developer_id: developer_id
     })
     if(response.status === 201){
-      loadDevsIn()
-      loadDevsOut()
+      loadDevsIn(project_id);
+      loadDevsOut(project_id);
     }
   }
 
@@ -70,12 +70,28 @@ export default function DevRosterPage() {
         <div className="flex">
           <div>
             <h2>Assigned to Project</h2>
-            {<DeveloperTableRoster developers={devsIn} chirality={"left"} />}
+            {
+              <DeveloperTableRoster
+                developers={devsIn}
+                chirality={"left"}
+                assignDev={assignDev}
+                unassignDev={unassignDev}
+                project_id={project_id}
+              />
+            }
           </div>
           <div className="w-32" />
           <div>
             <h2 className="text-end ">Not Assigned to Project</h2>
-            {<DeveloperTableRoster developers={devsOut} chirality={"right"} />}
+            {
+              <DeveloperTableRoster
+                developers={devsOut}
+                chirality={"right"}
+                assignDev={assignDev}
+                unassignDev={unassignDev}
+                project_id={project_id}
+              />
+            }
           </div>
         </div>
       </div>

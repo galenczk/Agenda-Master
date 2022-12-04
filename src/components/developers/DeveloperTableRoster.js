@@ -1,7 +1,7 @@
 import React from "react";
 import DeveloperRoster from "./DeveloperRoster";
 
-export default function Developertable({ developers, chirality }) {
+export default function Developertable({ developers, chirality, assignDev, unassignDev, project_id }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
@@ -16,7 +16,14 @@ export default function Developertable({ developers, chirality }) {
         </thead>
         <tbody>
           {developers.map((developer, i) => (
-            <DeveloperRoster developer={developer} key={i} chirality={chirality} />
+            <DeveloperRoster
+              developer={developer}
+              key={i}
+              chirality={chirality}
+              assignDev={assignDev}
+              unassignDev={unassignDev}
+              project_id={project_id}
+            />
           ))}
         </tbody>
       </table>

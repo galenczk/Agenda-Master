@@ -525,7 +525,7 @@ app.get("/developers/roster-in/:project_id", (req, res) => {
 //ROUTE -- GET LIST OF DEVELOPERS NOT ON project_id
 app.get("/developers/roster-out/:project_id", (req, res) => {
   const project_id = req.params.project_id;
-  const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id != ?`;
+  const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id != ? OR Developers.project_id = NULL`;
   db.pool.query(query, project_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
@@ -555,7 +555,7 @@ app.post("/developers/assign", (req, res) =>{
 app.post("/developers/unassign", (req, res) => {
   const developer_id = req.body.developer_id;
 
-  const query = "UPDATE Developers SET project_id = NULL WHERE Developers.developer_id = ?";
+  const query = "UPDATE Developers SET project_id = -1 WHERE Developers.developer_id = ?";
 
   db.pool.query(query, developer_id, (error) => {
     if (!error) {
