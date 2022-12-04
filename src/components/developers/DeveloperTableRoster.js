@@ -1,21 +1,22 @@
 import React from "react";
 import DeveloperRoster from "./DeveloperRoster";
 
-
-export default function Developertable({ developers }) {
+export default function Developertable({ developers, chirality }) {
   return (
     <>
       <table class="border-separate border-spacing-2">
         <thead>
           <tr>
+            {chirality === "right" && <th>Add</th>}
             <th>ID</th>
             <th>First Name</th>
             <th>Last Name</th>
+            {chirality === "left" && <th>Remove</th>}
           </tr>
         </thead>
         <tbody>
           {developers.map((developer, i) => (
-            <DeveloperRoster developer={developer} key={i}/>
+            <DeveloperRoster developer={developer} key={i} chirality={chirality} />
           ))}
         </tbody>
       </table>

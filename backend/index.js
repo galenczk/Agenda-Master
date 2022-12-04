@@ -283,7 +283,7 @@ app.post(`/developers/delete`, (req, res) => {
   });
 });
 
-//ROUTE -- UPDATE AN EXISTING CUSTOMER ENTRY ON customer_id
+//ROUTE -- UPDATE AN EXISTING DEVELOPER ENTRY ON developer_id
 app.post("/developers/update", (req, res) => {
   const developer_id = req.body.developer_id;
   const first_name = req.body.first_name;
@@ -535,19 +535,36 @@ app.get("/developers/roster-out/:project_id", (req, res) => {
   });
 });
 
-// ROUTE -- GET DEVELOPERS FOR PROJECT ON project_id
-app.get("/developers/for-projects/:project_id", (req, res) => {
-  const project_id = req.params.project_id;
-  const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id = ?`;
-  db.pool.query(query, project_id, async (error, result) => {
+//ROUTE -- ADD DEV TO PROJECT on project_id
+app.post("/developers/assign", (req, res) =>{
+  const developer_id = req.body.developer_id
+  const project_id = req.body.project_id
+
+  const query = "UPDATE Developers SET project_id = ? WHERE Developers.developer_id = ?"
+
+  db.pool.query(query, [project_id, developer_id], (error) => {
+    if (!error){
+      res.status(201).send(`Assignment of Developer ${developer_id} successful!`)
+    } else{
+      console.log(error)
+    }
+  })
+})
+
+//ROUTE -- REMOVE DEV FROM PROJECT on project_id
+app.post("/developers/unassign", (req, res) => {
+  const developer_id = req.body.developer_id;
+
+  const query = "UPDATE Developers SET project_id = NULL WHERE Developers.developer_id = ?";
+
+  db.pool.query(query, developer_id, (error) => {
     if (!error) {
-      res.status(201).send(JSON.stringify(result));
+      res.status(201).send(`Assignment of Developer ${developer_id} successful!`);
     } else {
       console.log(error);
     }
   });
 });
-
 
 /**
  * ERROR HANDLING

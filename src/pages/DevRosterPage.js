@@ -31,11 +31,31 @@ export default function DevRosterPage() {
     setDevsOut(data);
   }
 
-  useEffect(()=>{
+  async function assignDev(project_id, developer_id) {
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers/assign", {
+      project_id: project_id,
+      developer_id: developer_id,
+    })
+    if(response.status === 201){
+      loadDevsIn()
+      loadDevsOut()
+    }
+  }
+  async function unassignDev(project_id, developer_id) {
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers/unassign", {
+      developer_id: developer_id
+    })
+    if(response.status === 201){
+      loadDevsIn()
+      loadDevsOut()
+    }
+  }
+
+  useEffect(() => {
     loadProject(project_id);
     loadDevsIn(project_id);
     loadDevsOut(project_id);
-  }, [])
+  }, []);
 
   // DOM return
   return (
@@ -50,12 +70,12 @@ export default function DevRosterPage() {
         <div className="flex">
           <div>
             <h2>Assigned to Project</h2>
-            {<DeveloperTableRoster developers={devsIn} />}
+            {<DeveloperTableRoster developers={devsIn} chirality={"left"} />}
           </div>
           <div className="w-32" />
           <div>
             <h2 className="text-end ">Not Assigned to Project</h2>
-            {<DeveloperTableRoster developers={devsOut} />}
+            {<DeveloperTableRoster developers={devsOut} chirality={"right"} />}
           </div>
         </div>
       </div>
