@@ -13,7 +13,7 @@ export default function Project({ project, onEdit, onView, onDelete }) {
         <td>{project.title}</td>
         <td>{<Moment format="MM/DD/YYYY">{project.delivery_date}</Moment>}</td>
         <td>{project.proj_status}</td>
-        <td>{project.customer_id}</td>
+        <td>{project.customer_id || <p>N/A</p>}</td>
         <td>
           <button
             onClick={() => {

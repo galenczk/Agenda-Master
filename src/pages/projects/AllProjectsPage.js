@@ -20,12 +20,6 @@ export default function AllProjectsPage() {
     setProjects(projects);
   }
 
-  async function loadCustomer(project_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
-    const projects = response.data;
-    setProjects(projects);
-  }
-
   useEffect(() => {
     loadProjects();
 
@@ -51,7 +45,7 @@ export default function AllProjectsPage() {
     <>
       <h1 class="text-3xl p-4">Projects</h1>
 
-      <ProjectTable projects={projects} onView={onView} onEdit={onEdit} onDelete={onDelete}/>
+      <ProjectTable projects={projects} onView={onView} onEdit={onEdit} onDelete={onDelete} />
 
       <div class="flex-grow" />
 

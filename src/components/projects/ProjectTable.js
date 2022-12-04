@@ -12,6 +12,9 @@ export default function ProjectTable({ projects, onEdit, onView, onDelete }) {
             <th>Delivery Date</th>
             <th>Status</th>
             <th>Customer</th>
+            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

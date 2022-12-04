@@ -44,19 +44,6 @@ app.get("/customers/:customer_id", (req, res) => {
   });
 });
 
-//ROUTE -- GET SPECIFIC CUSTOMER ON project_id
-app.get("/customers/:customer_id", (req, res) => {
-  const project_id = req.params.project_id;
-  const query = `SELECT customer_id, company_name, first_name, last_name, email, annual_revenue FROM Customers WHERE Customers.project_id = ?`;
-  db.pool.query(query, project_id, async (error, result) => {
-    if (!error) {
-      res.status(201).send(JSON.stringify(result));
-    } else {
-      console.log(error);
-    }
-  });
-});
-
 //ROUTE -- INSERT NEW CUSTOMER
 app.post("/customers", (req, res) => {
   const company_name = req.body.company;

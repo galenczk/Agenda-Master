@@ -1,5 +1,7 @@
 // Import dependencies
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 // Moment handles date formatting
 import Moment from "react-moment";
@@ -21,17 +23,17 @@ export default function Task({ task, onEdit, onDelete }) {
               onEdit(task.task_id);
             }}
           >
-            Edit
+            {<FaEdit size="20" />}
           </button>
         </td>
         <td>
           <button
-            class="btn-small btn-red"
+            class="btn btn-red"
             onClick={() => {
               onDelete(task.task_id);
             }}
           >
-            Del
+            {<MdDeleteForever size="20" />}
           </button>
         </td>
       </tr>
