@@ -21,7 +21,7 @@ export default function Project({ project, onEdit, onView, onDelete }) {
             }}
             class="btn btn-green mx-auto"
           >
-            View
+            Manage Project
           </button>
         </td>
         <td>

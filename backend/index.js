@@ -16,7 +16,6 @@ app.get("/", (req, res) => {
   res.send("Server connected");
 });
 
-
 /**
  * *************************************************CUSTOMER ROUTES*************************************************
  */
@@ -37,6 +36,19 @@ app.get("/customers/:customer_id", (req, res) => {
   const customer_id = req.params.customer_id;
   const query = `SELECT customer_id, company_name, first_name, last_name, email, annual_revenue FROM Customers WHERE Customers.customer_id = ?`;
   db.pool.query(query, customer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET SPECIFIC CUSTOMER ON project_id
+app.get("/customers/:customer_id", (req, res) => {
+  const project_id = req.params.project_id;
+  const query = `SELECT customer_id, company_name, first_name, last_name, email, annual_revenue FROM Customers WHERE Customers.project_id = ?`;
+  db.pool.query(query, project_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
     } else {
@@ -111,7 +123,6 @@ app.get("/projects/for-customer/:customer_id", (req, res) => {
     }
   });
 });
-
 
 /**
  * *************************************************PROJECT ROUTES*************************************************
@@ -221,7 +232,6 @@ app.get("/tasks/for-projects/:project_id", (req, res) => {
   });
 });
 
-
 /**
  * *************************************************DEVELOPER ROUTES*************************************************
  */
@@ -304,7 +314,7 @@ app.post("/developers/update", (req, res) => {
   });
 });
 
-// ROUTE -- GET TASKS FOR DEVELOPER ON developer_id 
+// ROUTE -- GET TASKS FOR DEVELOPER ON developer_id
 app.get("/tasks/for-developers/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
   const query = `SELECT task_id, description, due_date, priority, task_status, project_id FROM Tasks WHERE Tasks.developer_id = ?`;
@@ -329,7 +339,6 @@ app.get("/certifications/for-developers/:developer_id", (req, res) => {
     }
   });
 });
-
 
 /**
  * *************************************************TASK ROUTES*************************************************
@@ -426,7 +435,6 @@ app.post("/tasks/update", (req, res) => {
   });
 });
 
-
 /**
  * *************************************************CERTIFICATION ROUTES*************************************************
  */
@@ -461,7 +469,7 @@ app.post("/certifications", (req, res) => {
   const description = req.body.description;
   const duration = req.body.duration;
 
-  const query = "INSERT INTO Certifications (title, description, duration) VALUES (?,?,?)"
+  const query = "INSERT INTO Certifications (title, description, duration) VALUES (?,?,?)";
 
   db.pool.query(query, [title, description, duration], (error) => {
     if (!error) {
@@ -505,7 +513,6 @@ app.post("/projects/update", (req, res) => {
   });
 });
 
-
 /**
  * *************************************************DEVELOPER ROSTER ROUTES*************************************************
  */
@@ -536,20 +543,20 @@ app.get("/developers/roster-out/:project_id", (req, res) => {
 });
 
 //ROUTE -- ADD DEV TO PROJECT on project_id
-app.post("/developers/assign", (req, res) =>{
-  const developer_id = req.body.developer_id
-  const project_id = req.body.project_id
+app.post("/developers/assign", (req, res) => {
+  const developer_id = req.body.developer_id;
+  const project_id = req.body.project_id;
 
-  const query = "UPDATE Developers SET project_id = ? WHERE Developers.developer_id = ?"
+  const query = "UPDATE Developers SET project_id = ? WHERE Developers.developer_id = ?";
 
   db.pool.query(query, [project_id, developer_id], (error) => {
-    if (!error){
-      res.status(201).send(`Assignment of Developer ${developer_id} successful!`)
-    } else{
-      console.log(error)
+    if (!error) {
+      res.status(201).send(`Assignment of Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
     }
-  })
-})
+  });
+});
 
 //ROUTE -- REMOVE DEV FROM PROJECT on project_id
 app.post("/developers/unassign/:developer_id", (req, res) => {

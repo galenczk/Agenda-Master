@@ -20,8 +20,15 @@ export default function AllProjectsPage() {
     setProjects(projects);
   }
 
+  async function loadCustomer(project_id) {
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/${customer_id}`);
+    const projects = response.data;
+    setProjects(projects);
+  }
+
   useEffect(() => {
     loadProjects();
+
   }, []);
 
   async function onView(project_id) {
