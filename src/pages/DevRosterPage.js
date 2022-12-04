@@ -43,9 +43,7 @@ export default function DevRosterPage() {
     }
   }
   async function unassignDev(project_id, developer_id) {
-    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers/unassign", {
-      developer_id: developer_id
-    })
+    const response = await axios.post(`http://flip2.engr.oregonstate.edu:33522/developers/unassign/${developer_id}`,)
     if(response.status === 201){
       loadDevsIn(project_id);
       loadDevsOut(project_id);

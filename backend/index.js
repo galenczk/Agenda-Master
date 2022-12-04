@@ -552,8 +552,8 @@ app.post("/developers/assign", (req, res) =>{
 })
 
 //ROUTE -- REMOVE DEV FROM PROJECT on project_id
-app.post("/developers/unassign", (req, res) => {
-  const developer_id = req.body.developer_id;
+app.post("/developers/unassign/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
 
   const query = "UPDATE Developers SET project_id = 0 WHERE Developers.developer_id = ?";
 
