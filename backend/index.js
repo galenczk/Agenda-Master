@@ -540,7 +540,7 @@ app.post("/developers/assign", (req, res) =>{
   const developer_id = req.body.developer_id
   const project_id = req.body.project_id
 
-  const query = "UPDATE Developers SET project_id = NULL WHERE Developers.developer_id = ?"
+  const query = "UPDATE Developers SET project_id = ? WHERE Developers.developer_id = ?"
 
   db.pool.query(query, [project_id, developer_id], (error) => {
     if (!error){
