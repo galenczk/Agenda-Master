@@ -20,39 +20,39 @@ export default function DevRosterPage() {
   }
 
   async function loadDevsIn(project_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/roster-in/${project_id}`);
+    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/for-projects/${project_id}`);
     const data = response.data;
-    const project = data[0];
-    setDevsIn(project);
+    setDevsIn(data);
   }
 
   async function loadDevsOut(project_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/roster-out/${project_id}`);
     const data = response.data;
-    const project = data[0];
-    setDevsOut(project);
+    setDevsOut(data);
   }
 
   useEffect(()=>{
-    loadProject()
-    loadDevsIn()
-    loadDevsOut()
+    loadProject(project_id);
+    loadDevsIn(project_id);
+    loadDevsOut(project_id);
   }, [])
 
   // DOM return
   return (
     <>
       <div className="flex flex-col items-center">
-        <div>
-          <h2>Developer Roster - </h2>
-          <h2>{project.title}</h2>
+        <div className="text-center">
+          <h2>Developer</h2>
+          <h2>
+            RosterProject {project.project_id} - {project.title}
+          </h2>
         </div>
         <div className="flex">
           <div>
             <h2>Assigned to Project</h2>
             {<DeveloperTableRoster developers={devsIn} />}
           </div>
-          <div className="w-16" />
+          <div className="w-32" />
           <div>
             <h2 className="text-end ">Not Assigned to Project</h2>
             {<DeveloperTableRoster developers={devsOut} />}
