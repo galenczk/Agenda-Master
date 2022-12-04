@@ -123,7 +123,7 @@ export default function ProjectDetailsPage() {
             This project does not have any developers assigned currently.
           </p>
         )}
-        <button class="btn btn-green place-self-start m-4" onClick={() => navigate(`/dev-roster/${project_id}`)}>
+        <button class="btn btn-green place-self-start m-4" onClick={() => navigate(`/projects/dev-roster/${project_id}`)}>
           Developer Roster
         </button>
       </div>

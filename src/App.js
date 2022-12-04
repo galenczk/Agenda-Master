@@ -57,7 +57,7 @@ export default function App() {
             <Route path="/projects/:project_id" exact element={<ProjectDetailsPage />} />
             <Route path="/edit-project/:project_id" exact element={<EditProjectPage />} />
 
-            <Route path="/dev-roster/:project_id" exact element={<DevRosterPage />} />
+            <Route path="/projects/dev-roster/:project_id" exact element={<DevRosterPage />} />
 
             <Route path="/customers" exact element={<AllCustomersPage />} />
             <Route path="/add-customer" exact element={<AddCustomerPage />} />

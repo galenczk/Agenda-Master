@@ -555,7 +555,7 @@ app.post("/developers/assign", (req, res) =>{
 app.post("/developers/unassign/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
 
-  const query = "UPDATE Developers SET project_id = 0 WHERE Developers.developer_id = ?";
+  const query = "UPDATE Developers SET project_id = NULL WHERE Developers.developer_id = ?";
 
   db.pool.query(query, developer_id, (error) => {
     if (!error) {
