@@ -12,6 +12,9 @@ export default function Developertable({ developers, onView, onEdit, onDelete })
             <th>Last Name</th>
             <th>Email</th>
             <th>Phone Number</th>
+            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

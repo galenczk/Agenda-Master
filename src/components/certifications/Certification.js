@@ -1,4 +1,6 @@
 import React from "react";
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 export default function Certification({ certification, onEdit, onDelete }) {
   return (
@@ -7,10 +9,17 @@ export default function Certification({ certification, onEdit, onDelete }) {
         <td>{certification.title}</td>
         <td>{certification.description}</td>
         <td>{certification.duration}</td>
-        <td><button class="btn btn-blue" onClick={onEdit}>Edit</button></td>
-        <td><button class="btn-small btn-red" onClick={onDelete}>Del</button></td>
         <td>
+          <button class="btn-icon btn-blue" onClick={onEdit}>
+            {<FaEdit size="20" />}
+          </button>
         </td>
+        <td>
+          <button class="btn-icon-delete btn-red" onClick={onDelete}>
+            {<MdDeleteForever size="20" />}
+          </button>
+        </td>
+        <td></td>
       </tr>
     </>
   );

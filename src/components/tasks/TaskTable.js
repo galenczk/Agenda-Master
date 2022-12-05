@@ -13,6 +13,8 @@ export default function TaskTable({ tasks, onEdit, onDelete }) {
             <th>Priority</th>
             <th>Status</th>
             <th>Project</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

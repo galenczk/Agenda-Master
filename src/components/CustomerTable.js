@@ -13,6 +13,9 @@ export default function CustomerTable({ customers, onView, onDelete, onEdit }) {
             <th>Last Name</th>
             <th>Email</th>
             <th>Annual Revenue</th>
+            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
