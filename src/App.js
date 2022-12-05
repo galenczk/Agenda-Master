@@ -8,6 +8,8 @@ import AddProjectPage from "./pages/projects/AddProjectPage";
 import EditProjectPage from "./pages/projects/EditProjectPage";
 import ProjectDetailsPage from "./pages/projects/ProjectDetailsPage";
 
+import DevRosterPage from "./pages/DevRosterPage";
+
 import AllCustomersPage from "./pages/customers/AllCustomersPage";
 import CustomerDetailsPage from "./pages/customers/CustomerDetailsPage";
 import AddCustomerPage from "./pages/customers/AddCustomerPage";
@@ -18,6 +20,8 @@ import DeveloperDetailsPage from "./pages/developers/DeveloperDetailsPage";
 import AddDeveloperPage from "./pages/developers/AddDeveloperPage";
 import EditDeveloperPage from "./pages/developers/EditDeveloperPage";
 
+import DevCertPage from "./pages/DevCertPage";
+
 import AllCerificationsPage from "./pages/certifications/AllCertificationsPage";
 import AddCertificationPage from "./pages/certifications/AddCertificationPage";
 import EditCertificationPage from "./pages/certifications/EditCertificationPage";
@@ -27,7 +31,7 @@ import AddTaskPage from "./pages/tasks/AddTaskPage";
 import AddTaskToProjectPage from "./pages/tasks/AddTaskToProjectPage"
 import EditTaskPage from "./pages/tasks/EditTaskPage";
 
-import DevRosterPage from "./pages/DevRosterPage";
+
 
 import LandingPage from "./pages/LandingPage";
 
@@ -68,6 +72,8 @@ export default function App() {
             <Route path="/add-developer" exact element={<AddDeveloperPage />} />
             <Route path="/developers/:developer_id" exact element={<DeveloperDetailsPage />} />
             <Route path="/edit-developer/:developer_id" exact element={<EditDeveloperPage />} />
+
+            <Route path="/dev-certs/:developer_id" exact element={<DevCertPage />} />
 
             <Route path="/tasks" exact element={<AllTasksPage />} />
             <Route path="/add-task" exact element={<AddTaskPage />} />

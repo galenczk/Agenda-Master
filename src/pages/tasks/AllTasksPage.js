@@ -29,7 +29,6 @@ export default function AllTasksPage() {
   async function loadProjects() {
     const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/projects");
     const projects = response.data;
-    console.log(projects);
     setProjects(projects);
   }
 

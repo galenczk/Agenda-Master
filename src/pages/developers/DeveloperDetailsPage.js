@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 // Import components
-import TaskTableProjectDetails from "../../components/tasks/TaskTableProjectDetails";
 import CertificationTableDeveloperDetails from "../../components/certifications/CertificationTableDeveloperDetails";
 
 // Page function
@@ -24,13 +23,6 @@ export default function DeveloperDetailsPage() {
     setDeveloper(developer);
   }
 
-  async function loadTasks(developer_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/tasks/for-developers/${developer_id}`);
-    const data = response.data;
-    console.log(data);
-
-    setTasks(data);
-  }
   async function loadCertifications(developer_id) {
     const response = await axios.get(
       `http://flip2.engr.oregonstate.edu:33522/certifications/for-developers/${developer_id}`
@@ -43,7 +35,6 @@ export default function DeveloperDetailsPage() {
 
   useEffect(() => {
     loadDeveloper(developer_id);
-    loadTasks(developer_id);
     loadCertifications(developer_id);
   }, []);
 
@@ -75,22 +66,20 @@ export default function DeveloperDetailsPage() {
       </div>
 
       <div class="h-16" />
-
-      {tasks.length > 0 ? (
-        <TaskTableProjectDetails tasks={tasks} onOpen={() => navigate("/project")} />
-      ) : (
-        <p className="text-center bg-slate-200 px-36 mx-auto">
-          This developer has no tasks assigned to them currently.
-        </p>
-      )}
-
-      <div class="flex-grow" />
-
-      {certifications.length > 0 ? (
-        <CertificationTableDeveloperDetails certifications={certifications} onOpen={() => navigate("/project")} />
-      ) : (
-        <p className="text-center bg-slate-200 px-36 mx-auto">This developer holds no certifications currently.</p>
-      )}
+      <div className="mx-auto">
+        <h2 className="text-xl ml-8">Certifications</h2>
+        {certifications.length > 0 ? (
+          <CertificationTableDeveloperDetails certifications={certifications} onOpen={() => navigate("/project")} />
+        ) : (
+          <p className="text-center bg-slate-200 px-36 mx-auto">This developer holds no certifications currently.</p>
+        )}
+        <button
+          class="btn btn-green place-self-start m-4"
+          onClick={() => navigate(`/dev-certs/${developer_id}`)}
+        >
+          Manage Certifications
+        </button>
+      </div>
 
       <div class="flex-grow" />
 

@@ -15,10 +15,10 @@ export default function Developertable({ developers, chirality, assignDev, unass
           </tr>
         </thead>
         <tbody>
-          {developers.map((developer, i) => (
+          {developers.map((developer, key) => (
             <DeveloperRoster
               developer={developer}
-              key={i}
+              key={key}
               chirality={chirality}
               assignDev={assignDev}
               unassignDev={unassignDev}

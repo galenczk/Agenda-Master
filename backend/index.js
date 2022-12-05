@@ -317,7 +317,7 @@ app.get("/tasks/for-developers/:developer_id", (req, res) => {
 // ROUTE -- GET CERTIFICATIONS FOR DEVELOPER ON developer_id
 app.get("/certifications/for-developers/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
-  const query = `SELECT certification_id, title, description, duration FROM Certifications WHERE Certifications.developer_id = ?`;
+  const query = `SELECT Certifications.certification_id, Certifications.title, Certifications.description FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?`;
   db.pool.query(query, developer_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
@@ -521,6 +521,68 @@ app.get("/developers/roster-out/:project_id", (req, res) => {
   const project_id = req.params.project_id;
   const query = `SELECT developer_id, first_name, last_name, email, phone_number, project_id FROM Developers WHERE Developers.project_id != ? OR Developers.project_id IS NULL`;
   db.pool.query(query, project_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- ADD DEV TO PROJECT on project_id
+app.post("/developers/assign", (req, res) => {
+  const developer_id = req.body.developer_id;
+  const project_id = req.body.project_id;
+
+  const query = "UPDATE Developers SET project_id = ? WHERE Developers.developer_id = ?";
+
+  db.pool.query(query, [project_id, developer_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Assignment of Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- REMOVE DEV FROM PROJECT on project_id
+app.post("/developers/unassign/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+
+  const query = "UPDATE Developers SET project_id = NULL WHERE Developers.developer_id = ?";
+
+  db.pool.query(query, developer_id, (error) => {
+    if (!error) {
+      res.status(201).send(`Assignment of Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+
+/**
+ * *************************************************DEVELOPER HAS CERTIFICATION ROUTES*************************************************
+ */
+
+//ROUTE -- GET LIST OF CERTIFICATIONS HELD on developer_id
+app.get("/certifications/held/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT Certifications.title FROM Certifications JOIN Developer_has_Certifications ON Developer_has_Certifications.certificate_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?`;
+  db.pool.query(query, developer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET LIST OF DEVELOPERS NOT HELD on developer_id
+app.get("/certifications/not-held/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT Certifications.title FROM Certifications EXCEPT (SELECT Certifications.title FROM Certifications JOIN Developer_has_Certifications ON Developer_has_Certifications.certificate_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?)`;
+  db.pool.query(query, developer_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
     } else {
