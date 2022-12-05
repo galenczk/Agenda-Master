@@ -317,7 +317,7 @@ app.get("/tasks/for-developers/:developer_id", (req, res) => {
 // ROUTE -- GET CERTIFICATIONS FOR DEVELOPER ON developer_id
 app.get("/certifications/for-developers/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
-  const query = `SELECT certification_id, title, description, duration FROM Certifications WHERE Certifications.developer_id = ?`;
+  const query = `SELECT Certifications.certification_id, Certifications.title, Certifications.description FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?`;
   db.pool.query(query, developer_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
@@ -559,6 +559,70 @@ app.post("/developers/unassign/:developer_id", (req, res) => {
     }
   });
 });
+
+/**
+ * *************************************************DEVELOPER HAS CERTIFICATION ROUTES*************************************************
+ */
+
+//ROUTE -- GET LIST OF CERTIFICATIONS HELD on developer_id
+app.get("/certifications/held/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT Certifications.title FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?`;
+  db.pool.query(query, developer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- GET LIST OF DEVELOPERS NOT HELD on developer_id
+app.get("/certifications/not-held/:developer_id", (req, res) => {
+  const developer_id = req.params.developer_id;
+  const query = `SELECT Certifications.title FROM Certifications EXCEPT (SELECT Certifications.title FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?)`;
+  db.pool.query(query, developer_id, async (error, result) => {
+    if (!error) {
+      res.status(201).send(JSON.stringify(result));
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- ADD CERTIFICATION TO DEVELOPER on developer_id
+app.post("/dev-cert/award", (req, res) => {
+  const developer_id = req.body.developer_id;
+  const certification_id = req.body.certification_id;
+
+  const query = "INSERT INTO Developer_has_Certification (developer_id, certification_id) VALUES (?, ?)";
+
+  db.pool.query(query, [developer_id, certification_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Award of Certification ${certification_id} to Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+//ROUTE -- REMOVE CERTIFICATION FROM DEVELOPER on developer_id
+app.post("/dev-cert/remove/:developer_id", (req, res) => {
+  const developer_id = req.body.developer_id;
+  const certification_id = req.body.certification_id;
+
+  const query = "DELETE FROM Developer_has_Certification WHERE Developer_has_Certification.developer_id = ? AND Developer_has_Certification.certification_id = ?";
+
+  db.pool.query(query, [developer_id, certification_id], (error) => {
+    if (!error) {
+      res.status(201).send(`Removal of Certification ${certification_id} from Developer ${developer_id} successful!`);
+    } else {
+      console.log(error);
+    }
+  });
+});
+
+
 
 /**
  * ERROR HANDLING
