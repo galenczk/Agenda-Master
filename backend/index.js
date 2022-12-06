@@ -301,19 +301,6 @@ app.post("/developers/update", (req, res) => {
   });
 });
 
-// ROUTE -- GET TASKS FOR DEVELOPER ON developer_id
-app.get("/tasks/for-developers/:developer_id", (req, res) => {
-  const developer_id = req.params.developer_id;
-  const query = `SELECT task_id, description, due_date, priority, task_status, project_id FROM Tasks WHERE Tasks.developer_id = ?`;
-  db.pool.query(query, developer_id, async (error, result) => {
-    if (!error) {
-      res.status(201).send(JSON.stringify(result));
-    } else {
-      console.log(error);
-    }
-  });
-});
-
 // ROUTE -- GET CERTIFICATIONS FOR DEVELOPER ON developer_id
 app.get("/certifications/for-developers/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
@@ -408,12 +395,11 @@ app.post("/tasks/update", (req, res) => {
   const due_date = req.body.due_date;
   const priority = req.body.priority;
   const task_status = req.body.task_status;
-  const project_id = req.body.project_id;
 
   const query =
-    "UPDATE Tasks SET description = ?, due_date = ?, priority = ?, task_status = ?, project_id = ? WHERE Tasks.task_id = ?";
+    "UPDATE Tasks SET description = ?, due_date = ?, priority = ?, task_status = ? WHERE Tasks.task_id = ?";
 
-  db.pool.query(query, [description, due_date, priority, task_status, project_id, task_id], (error) => {
+  db.pool.query(query, [description, due_date, priority, task_status, task_id], (error) => {
     if (!error) {
       res.status(201).send(`Update of Task ${task_id} successful!`);
     } else {
@@ -482,14 +468,14 @@ app.post(`/certifications/delete`, (req, res) => {
 });
 
 //ROUTE -- UPDATE AN EXISTING CERTIFICATION ENTRY ON certification_id
-app.post("/projects/update", (req, res) => {
+app.post("/certifications/update", (req, res) => {
   const certification_id = req.body.certification_id;
   const title = req.body.title;
   const description = req.body.description;
   const duration = req.body.duration;
 
   const query =
-    "UPDATE Projects SET title = ?, description = ?, duration = ? WHERE Certifications.certification_id = ?";
+    "UPDATE Certifications SET title = ?, description = ?, duration = ? WHERE Certifications.certification_id = ?";
 
   db.pool.query(query, [title, description, duration, certification_id], (error) => {
     if (!error) {
@@ -567,7 +553,7 @@ app.post("/developers/unassign/:developer_id", (req, res) => {
 //ROUTE -- GET LIST OF CERTIFICATIONS HELD on developer_id
 app.get("/certifications/held/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
-  const query = `SELECT Certifications.title FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?`;
+  const query = `SELECT Certifications.certification_id, Certifications.title FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?`;
   db.pool.query(query, developer_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
@@ -580,7 +566,7 @@ app.get("/certifications/held/:developer_id", (req, res) => {
 //ROUTE -- GET LIST OF DEVELOPERS NOT HELD on developer_id
 app.get("/certifications/not-held/:developer_id", (req, res) => {
   const developer_id = req.params.developer_id;
-  const query = `SELECT Certifications.title FROM Certifications EXCEPT (SELECT Certifications.title FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?)`;
+  const query = `SELECT Certifications.certification_id, Certifications.title FROM Certifications EXCEPT (SELECT Certifications.certification_id, Certifications.title FROM Certifications JOIN Developer_has_Certification ON Developer_has_Certification.certification_id = Certifications.certification_id WHERE Developer_has_Certification.developer_id = ?)`;
   db.pool.query(query, developer_id, async (error, result) => {
     if (!error) {
       res.status(201).send(JSON.stringify(result));
@@ -607,7 +593,7 @@ app.post("/dev-cert/award", (req, res) => {
 });
 
 //ROUTE -- REMOVE CERTIFICATION FROM DEVELOPER on developer_id
-app.post("/dev-cert/remove/:developer_id", (req, res) => {
+app.post("/dev-cert/remove", (req, res) => {
   const developer_id = req.body.developer_id;
   const certification_id = req.body.certification_id;
 
