@@ -42,11 +42,13 @@ export default function AddTaskToProjectPage() {
             <Field type="date" id="due_date" name="due_date" />
             <label for="priority">Priority</label>
             <Field as="select" id="priority" name="priority">
-              <option value="high">High</option>
+              <option value="Normal">Normal</option>
+              <option value="High">High</option>
             </Field>
             <label for="task_status">Status</label>
             <Field as="select" id="task_status" name="task_status">
               <option>In-Progress</option>
+              <option>Awaiting Approval</option>
             </Field>
             <label for="project_id">Project</label>
             <Field as="select" id="project_id" name="project_id">

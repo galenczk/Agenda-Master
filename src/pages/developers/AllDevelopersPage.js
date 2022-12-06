@@ -26,7 +26,7 @@ export default function AllDevelopersPage() {
   }, []);
 
   async function onView(developer_id) {
-    navigate(`/developers/${developer_id}`);
+    navigate(`/dev-certs/${developer_id}`);
   }
 
   async function onDelete(developer_id) {

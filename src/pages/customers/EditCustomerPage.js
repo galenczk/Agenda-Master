@@ -69,7 +69,13 @@ export default function EditProjectPage() {
           </table>
           <div class="flex-grow" />
           <div class="">
-            <button class="btn btn-blue" type="reset">
+            <button
+              class="btn btn-blue"
+              type="reset"
+              onClick={() => {
+                navigate("/customers");
+              }}
+            >
               Back
             </button>
           </div>

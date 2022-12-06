@@ -10,12 +10,22 @@ export default function Certification({ certification, onEdit, onDelete }) {
         <td>{certification.description}</td>
         <td>{certification.duration}</td>
         <td>
-          <button class="btn-icon btn-blue" onClick={onEdit}>
+          <button
+            class="btn-icon btn-blue"
+            onClick={() => {
+              onEdit(certification.certification_id);
+            }}
+          >
             {<FaEdit size="20" />}
           </button>
         </td>
         <td>
-          <button class="btn-icon-delete btn-red" onClick={onDelete}>
+          <button
+            class="btn-icon-delete btn-red"
+            onClick={() => {
+              onDelete(certification.certification_id);
+            }}
+          >
             {<MdDeleteForever size="20" />}
           </button>
         </td>

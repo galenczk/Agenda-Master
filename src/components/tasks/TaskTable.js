@@ -18,8 +18,8 @@ export default function TaskTable({ tasks, onEdit, onDelete }) {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task, i) => (
-            <Task task={task} key={i} onEdit={onEdit} onDelete={onDelete} />
+          {tasks.map((task, key) => (
+            <Task task={task} key={key} onEdit={onEdit} onDelete={onDelete} />
           ))}
         </tbody>
       </table>

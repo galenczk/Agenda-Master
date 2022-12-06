@@ -12,6 +12,8 @@ export default function DevRosterPage() {
   const [devsIn, setDevsIn] = useState([]);
   const [devsOut, setDevsOut] = useState([]);
 
+  const navigate = useNavigate()
+
   async function loadProject(project_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/projects/${project_id}`);
     const data = response.data;
@@ -28,7 +30,6 @@ export default function DevRosterPage() {
   async function loadDevsOut(project_id) {
     const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/developers/roster-out/${project_id}`);
     const data = response.data;
-    console.log(data)
     setDevsOut(data);
   }
 
@@ -93,6 +94,7 @@ export default function DevRosterPage() {
             }
           </div>
         </div>
+        <button className="btn-icon btn-blue" onClick={()=>{navigate(-1)}}>Back</button>
       </div>
     </>
   );

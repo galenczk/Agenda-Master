@@ -57,7 +57,7 @@ export default function DeveloperDetailsPage() {
           <h2 class="text-2xl m-4">{developer.last_name}</h2>
           <h2 class="text-2xl m-4">{developer.email}</h2>
           <div class="max-w-1/2 flex-grow" />
-          <h2 class="text-2xl m-4 mr-12">${developer.phone_number}</h2>
+          <h2 class="text-2xl m-4 mr-12">{developer.phone_number}</h2>
         </div>
 
         <div class="flex">
@@ -82,20 +82,6 @@ export default function DeveloperDetailsPage() {
       </div>
 
       <div class="flex-grow" />
-
-      <div class="flex justify-between">
-        <button class="btn btn-blue place-self-start m-4" onClick={() => navigate(`/edit-developer/${developer_id}`)}>
-          Edit Developer
-        </button>
-        <button
-          class="btn btn-red place-self-start m-4"
-          onClick={() => {
-            onDelete(developer.developer_id);
-          }}
-        >
-          Delete Developer
-        </button>
-      </div>
     </>
   );
 }
