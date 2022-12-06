@@ -1,4 +1,6 @@
 import React from 'react'
+import { FaEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 
 export default function Project({ project, onView }) {
 

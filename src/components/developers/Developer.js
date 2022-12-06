@@ -18,7 +18,7 @@ export default function Developer({ developer, onView, onEdit, onDelete }) {
               onView(developer.developer_id);
             }}
           >
-            View
+            Certifications
           </button>
         </td>
         <td>

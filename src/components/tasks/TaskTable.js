@@ -13,11 +13,13 @@ export default function TaskTable({ tasks, onEdit, onDelete }) {
             <th>Priority</th>
             <th>Status</th>
             <th>Project</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task, i) => (
-            <Task task={task} key={i} onEdit={onEdit} onDelete={onDelete} />
+          {tasks.map((task, key) => (
+            <Task task={task} key={key} onEdit={onEdit} onDelete={onDelete} />
           ))}
         </tbody>
       </table>

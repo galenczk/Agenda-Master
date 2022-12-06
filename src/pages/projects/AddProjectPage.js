@@ -44,28 +44,36 @@ export default function AddProjectPage() {
             customer_id: null,
           }}
           onSubmit={async (values) => {
-            onAdd(values)
+            onAdd(values);
           }}
         >
-        <Form class="flex flex-col">
-          <label for="title">Title</label>
-          <Field type="text" id="title" name="title" />
-          <label for="description">Description</label>
-          <Field type="text" id="description" name="description" />
-          <label for="delivery_date">Delivery Date</label>
-          <Field type="date" id="delivery_date" name="delivery_date" />
-          <label for="proj_status">Project Status</label>
-          <Field type="text" id="proj_status" name="proj_status" />
-          <label for="customer_id">Customer ID</label>
-          <Field as="select" id="customer_id" name="customer_id">
-            <option value=""> - </option>
-            {customers.map(
-              (item, key)=>{
-              return <option key={key +1} value={item.customer_id}>{item.company_name}</option>
-            })}
-          </Field>
+          <Form class="flex flex-col">
+            <label for="title">Title</label>
+            <Field type="text" id="title" name="title" />
+            <label for="description">Description</label>
+            <Field type="text" id="description" name="description" />
+            <label for="delivery_date">Delivery Date</label>
+            <Field type="date" id="delivery_date" name="delivery_date" />
+            <label for="proj_status">Project Status</label>
+            <Field as="select" id="proj_status" name="proj_status">
+              <option value=""> - </option>
+              <option value="Awaiting Customer Approval">Awaiting Customer Approval</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Delivered">Delivered</option>
+            </Field>
+            <label for="customer_id">Customer ID</label>
+            <Field as="select" id="customer_id" name="customer_id">
+              <option value=""> - </option>
+              {customers.map((item, key) => {
+                return (
+                  <option key={key + 1} value={item.customer_id}>
+                    {item.company_name}
+                  </option>
+                );
+              })}
+            </Field>
 
-          <div class="flex justify-between mt-6">
+            <div class="flex justify-between mt-6">
               <button class="btn-small btn-gray" type="reset">
                 Reset
               </button>

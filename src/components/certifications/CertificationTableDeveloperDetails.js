@@ -9,7 +9,6 @@ export default function CertificationTable({ certifications, onOpen }) {
           <tr>
             <th>Title</th>
             <th>Description</th>
-            <th>Duration</th>
           </tr>
         </thead>
         <tbody>

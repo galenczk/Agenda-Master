@@ -11,6 +11,8 @@ export default function TaskTableProjectDetails({ tasks, onEditTask, onDeleteTas
             <th>Due Date</th>
             <th>Priority</th>
             <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

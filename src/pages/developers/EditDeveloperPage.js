@@ -64,7 +64,13 @@ export default function EditDeveloperPage() {
           </table>
           <div class="flex-grow" />
           <div class="">
-            <button class="btn btn-blue" type="reset" onClick={()=>{navigate("/developers")}}>
+            <button
+              class="btn btn-blue"
+              type="reset"
+              onClick={() => {
+                navigate("/developers");
+              }}
+            >
               Back
             </button>
           </div>
@@ -82,13 +88,14 @@ export default function EditDeveloperPage() {
             }}
             values={developer}
             onSubmit={async (values) => {
-              const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers/update", values)
+              const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/developers/update", values);
               if (response.status === 201) {
                 navigate("/developers");
               }
             }}
           >
             <Form class="flex flex-col">
+              <legend class="text-xl text-center">New values</legend>
               <label for="first_name">First Name</label>
               <Field type="text" id="first_name" name="first_name" />
               <label for="last_name">Last Name</label>
@@ -97,8 +104,6 @@ export default function EditDeveloperPage() {
               <Field type="text" id="email" name="email" />
               <label for="phone_number">Phone Number</label>
               <Field type="text" id="phone_number" name="phone_number" />
-              <label for="project_id">Project ID</label>
-              <Field type="text" id="project_id" name="project_id" />
 
               <div class="flex justify-between mt-6">
                 <button class="btn-small btn-gray" type="reset">

@@ -15,7 +15,6 @@ export default function AddTaskPage() {
   async function loadProjects() {
     const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/projects");
     const projects = response.data;
-    console.log(projects);
     setProjects(projects);
   }
 
@@ -40,9 +39,9 @@ export default function AddTaskPage() {
           initialValues={{
             description: "",
             due_date: "",
-            priority: "",
-            task_status: "",
-            project_id: "",
+            priority: 2,
+            task_status: "In-Progress",
+            project_id: null,
           }}
           onSubmit={async (values) => {
             onAdd(values);
@@ -55,11 +54,13 @@ export default function AddTaskPage() {
             <Field type="date" id="due_date" name="due_date" />
             <label for="priority">Priority</label>
             <Field as="select" id="priority" name="priority">
-              <option value="high">High</option>
+              <option value={2}>2</option>
+              <option value={1}>1</option>
             </Field>
             <label for="task_status">Status</label>
             <Field as="select" id="task_status" name="task_status">
-              <option>In-Progress</option>
+              <option value="In-Progress">In-Progress</option>
+              <option value="Awaiting Approval">Awaiting Approval</option>
             </Field>
             <label for="project_id">Project</label>
             <Field as="select" id="project_id" name="project_id">

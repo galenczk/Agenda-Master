@@ -10,6 +10,8 @@ export default function CertificationTable({ certifications, onEdit, onDelete })
             <th>Title</th>
             <th>Description</th>
             <th>Duration</th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>

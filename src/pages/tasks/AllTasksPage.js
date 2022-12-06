@@ -21,15 +21,15 @@ export default function AllTasksPage() {
       setTasks(tasks);
     } else {
       const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/tasks/project/${projectID}`);
-      const tasks = response.data;
-      setTasks(tasks);
+      const data = response.data;
+      setTasks(data);
+      console.log(data)
     }
   }
 
   async function loadProjects() {
     const response = await axios.get("http://flip2.engr.oregonstate.edu:33522/projects");
     const projects = response.data;
-    console.log(projects);
     setProjects(projects);
   }
 
@@ -91,7 +91,7 @@ export default function AllTasksPage() {
                   <Field as="select" id="project_id" name="project_id" className="bg-white">
                     <option value={-1}>-</option>
                     {projects.map((item, key) => {
-                      return <option value={item.project_id}>{item.title}</option>;
+                      return <option value={item.project_id} key={key}>{item.title}</option>;
                     })}
                   </Field>
                 </div>

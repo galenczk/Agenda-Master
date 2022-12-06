@@ -13,7 +13,10 @@ export default function AddCertificationPage() {
   const navigate = useNavigate()
 
   async function onAdd(values){
-    await axios.post("http://flip2.engr.oregonstate.edu:33522/certifications", values);
+    const response = await axios.post("http://flip2.engr.oregonstate.edu:33522/certifications", values)
+    if (response.status === 201) {
+      navigate("/certifications");
+    }
   }
 
   // DOM return

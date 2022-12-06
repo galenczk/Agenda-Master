@@ -17,16 +17,6 @@ export default function Customer({ customer, onView, onDelete, onEdit }) {
         <td>{customer.annual_revenue}</td>
         <td>
           <button
-            class="btn btn-green"
-            onClick={() => {
-              onView(customer.customer_id);
-            }}
-          >
-            View
-          </button>
-        </td>
-        <td>
-          <button
             class="btn-icon btn-blue"
             onClick={() => {
               onEdit(customer.customer_id);

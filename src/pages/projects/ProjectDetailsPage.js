@@ -17,7 +17,6 @@ export default function ProjectDetailsPage() {
 
   const [project, setProject] = useState([]);
   const [developers, setDevelopers] = useState([]);
-  const [customer, setCustomer] = useState("");
   const [tasks, setTasks] = useState([]);
 
   async function loadProject(project_id) {
@@ -26,14 +25,6 @@ export default function ProjectDetailsPage() {
     const project = data[0];
 
     setProject(project);
-  }
-
-  // IMPLEMENT AN API ROUTE FOR THIS
-  async function loadCustomer(project_id) {
-    const response = await axios.get(`http://flip2.engr.oregonstate.edu:33522/customers/projects/${project_id}`);
-    const data = response.data;
-    const customer = data[0];
-    setCustomer(customer);
   }
 
   async function loadDevelopers(project_id) {
@@ -91,10 +82,6 @@ export default function ProjectDetailsPage() {
             Due on: <Moment format="MMMM DD, YYYY">{project.delivery_date}</Moment>
           </h2>
         </div>
-      </div>
-
-      <div class="flex ">
-        <h2 class="text-xl m-4 mr-12 ">For: NEED TO IMPLEMENT CUSTOMER NAME HERE</h2>
       </div>
 
       <div className="flex flex-col mt-4">

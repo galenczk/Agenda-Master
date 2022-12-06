@@ -8,15 +8,17 @@ import AddProjectPage from "./pages/projects/AddProjectPage";
 import EditProjectPage from "./pages/projects/EditProjectPage";
 import ProjectDetailsPage from "./pages/projects/ProjectDetailsPage";
 
+import DevRosterPage from "./pages/DevRosterPage";
+
 import AllCustomersPage from "./pages/customers/AllCustomersPage";
-import CustomerDetailsPage from "./pages/customers/CustomerDetailsPage";
 import AddCustomerPage from "./pages/customers/AddCustomerPage";
 import EditCustomerPage from "./pages/customers/EditCustomerPage";
 
 import AllDevelopersPage from "./pages/developers/AllDevelopersPage";
-import DeveloperDetailsPage from "./pages/developers/DeveloperDetailsPage";
 import AddDeveloperPage from "./pages/developers/AddDeveloperPage";
 import EditDeveloperPage from "./pages/developers/EditDeveloperPage";
+
+import DevCertPage from "./pages/DevCertPage";
 
 import AllCerificationsPage from "./pages/certifications/AllCertificationsPage";
 import AddCertificationPage from "./pages/certifications/AddCertificationPage";
@@ -27,7 +29,7 @@ import AddTaskPage from "./pages/tasks/AddTaskPage";
 import AddTaskToProjectPage from "./pages/tasks/AddTaskToProjectPage"
 import EditTaskPage from "./pages/tasks/EditTaskPage";
 
-import DevRosterPage from "./pages/DevRosterPage";
+
 
 import LandingPage from "./pages/LandingPage";
 
@@ -61,13 +63,13 @@ export default function App() {
 
             <Route path="/customers" exact element={<AllCustomersPage />} />
             <Route path="/add-customer" exact element={<AddCustomerPage />} />
-            <Route path="/customers/:customer_id" exact element={<CustomerDetailsPage />} />
             <Route path="/edit-customer/:customer_id" exact element={<EditCustomerPage />} />
 
             <Route path="/developers" exact element={<AllDevelopersPage />} />
             <Route path="/add-developer" exact element={<AddDeveloperPage />} />
-            <Route path="/developers/:developer_id" exact element={<DeveloperDetailsPage />} />
             <Route path="/edit-developer/:developer_id" exact element={<EditDeveloperPage />} />
+
+            <Route path="/dev-certs/:developer_id" exact element={<DevCertPage />} />
 
             <Route path="/tasks" exact element={<AllTasksPage />} />
             <Route path="/add-task" exact element={<AddTaskPage />} />
@@ -76,7 +78,7 @@ export default function App() {
 
             <Route path="/certifications" exact element={<AllCerificationsPage />} />
             <Route path="/add-certification" exact element={<AddCertificationPage />} />
-            <Route path="/edit-certification/1" exact element={<EditCertificationPage />} />
+            <Route path="/edit-certification/:certification_id" exact element={<EditCertificationPage />} />
           </Routes>
         </main>
 

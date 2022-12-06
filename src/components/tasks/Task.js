@@ -18,7 +18,7 @@ export default function Task({ task, onEdit, onDelete }) {
         <td>{task.project_id}</td>
         <td>
           <button
-            class="btn btn-blue"
+            class="btn-icon btn-blue"
             onClick={() => {
               onEdit(task.task_id);
             }}
@@ -28,7 +28,7 @@ export default function Task({ task, onEdit, onDelete }) {
         </td>
         <td>
           <button
-            class="btn btn-red"
+            class="btn-icon-delete btn-red"
             onClick={() => {
               onDelete(task.task_id);
             }}
